@@ -1,6 +1,7 @@
 import * as React from "react"
 import "./Login.css"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
 
@@ -37,6 +38,12 @@ export default function Login() {
     //       console.log("Here")
     //     }
     //   }
+    
+    const navigate = useNavigate()
+
+    const createUser = async () => {
+        navigate("/register")
+    }
 
       
   return (
@@ -57,7 +64,7 @@ export default function Login() {
                 
                     <button className="forgot-pass" >Forgot Password?</button>
                     <p>________________________________________________</p>
-                    <button className="register" >Create New Account</button>
+                    <button className="register" onClick={createUser}>Create New Account</button>
                 </div>
                 
             </div>
