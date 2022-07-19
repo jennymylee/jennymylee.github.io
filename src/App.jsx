@@ -3,7 +3,8 @@ import React from "react";
 import "./App.css";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
-import RegisterFrom from "./components/RegisterForm/RegisterForm"
+import RegisterFrom from "./components/RegisterForm/RegisterForm";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -50,7 +51,7 @@ function App() {
                 path="/profile"
                 element={
                   <>
-                    <div>Profile Page</div>
+                    <ProfilePage />
                   </>
                 }
               />
