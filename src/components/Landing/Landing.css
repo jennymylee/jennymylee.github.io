@@ -1,0 +1,26 @@
+.landing-page {
+    flex-direction:  row;
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    max-height: 100%;
+}
+
+.Header {
+    margin: 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 40%;
+    color: white;
+    background-color: black;
+}
+
+.Hero-pic {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 40%;
+    color: white;
+    background-color: black;
+}
