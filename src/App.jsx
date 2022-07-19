@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
+import RegisterFrom from "./components/RegisterForm/RegisterForm"
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
                 path="/register"
                 element={
                   <>
-                    <div>Registration Page</div>
+                    {/* <div>Registration Page</div> */}
+                    <RegisterFrom></RegisterFrom>
                   </>
                 }
               />
