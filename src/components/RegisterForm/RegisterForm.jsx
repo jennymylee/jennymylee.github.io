@@ -63,39 +63,39 @@ export default function RegisterForm(){
     }
     return (
         <div className="register-form-container">
-            <div className="inputs">
-                <div className="title">
+            <div className="inputss">
+                <div className="titles">
                     <p>Sign Up</p>
                     {errors.form && <span className="error">{errors.form}</span>}
                 </div>
-                <div className="split-form-input">
-                    <div className="form-input">
+                <div className="split-form-inputs">
+                    <div className="form-inputs">
                         <input type="text" name="first_name" placeholder="First Name" value={form.first_name} onChange={handleOnInputChange}/>
                         {errors.first_name && <span className="error">{errors.first_name}</span>}
                     </div>
-                    <div className="form-input">
+                    <div className="form-inputs">
                         <input type="text" name="last_name" placeholder="Last Name" value={form.last_name} onChange={handleOnInputChange}/>
                         {errors.last_name && <span className="error">{errors.last_name}</span>}
                     </div>
                 </div>
-                <div className="form-input">
+                <div className="form-inputs">
                     <input type="text" name="email" placeholder="Email Address" value={form.email} onChange={handleOnInputChange}/>
                     {errors.email && <span className="error">{errors.email}</span>}
                 </div>
-                <div className="form-input">
+                <div className="form-inputs">
                     <input type="text" name="password" placeholder="Password" value={form.password} onChange={handleOnInputChange} />
                     {errors.password && <span className="error">{errors.password}</span>}
                 </div>
-                <div className="form-input">
+                <div className="form-inputs">
                     <input type="text" name="confirm_password" placeholder="Confirm Password" value={form.confirm_password} onChange={handleOnInputChange}/>
                     {errors.confirm_password && <span className="error">{errors.confirm_password}</span>}
                 </div>
-                <div className="footer">
+                <div className="footers">
                     <button className="sign-up-btn" disabled={isProcessing} onClick={handleOnSubmit}>{isProcessing ? "Loading..." : "Sign Up"}</button>
                     <p>
                         Already a Member?
-                        <span> </span>
-                        <Link to="/login">Sign Up</Link>
+                        {/* <span> </span> */}
+                        <Link className="links" to="/login">Sign In</Link>
                     </p>
                 </div>
             </div>
