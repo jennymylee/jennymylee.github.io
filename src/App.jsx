@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
-import Navbar from "./components/Navbar/Navbar"
-import Login from './components/Login/Login';
+import React from "react";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Login from "./components/Login/Login";
 import Landing from "./components/Landing/Landing";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import RegisterFrom from "./components/RegisterForm/RegisterForm"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RegisterFrom from "./components/RegisterForm/RegisterForm";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-
 
 function App() {
   return (

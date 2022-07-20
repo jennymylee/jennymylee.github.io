@@ -1,23 +1,24 @@
 .landing-page {
-    background-color: black;
+  background-color: black;
 }
 
 .Hero {
-    flex-direction:  row;
-    display: flex;
-    justify-content: space-around;
+  flex-direction: row;
+  padding-top: 86px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .Header {
-    padding: 20px;
-    width: 40%;
-    color: white;
-    background-color: black;
+  padding: 20px;
+  width: 40%;
+  color: white;
+  background-color: black;
 }
 
 .Hero-pic {
-    padding: 20px;
-    width: 40%;
-    color: white;
-    background-color: black;
+  padding: 20px;
+  width: 40%;
+  color: white;
+  background-color: black;
 }
