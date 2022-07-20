@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import Login from './components/Login/Login';
+import Landing from "./components/Landing/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import AboutUs from "./components/AboutUs/AboutUs";
-import Footer from "./components/Footer/Footer";
 import RegisterFrom from "./components/RegisterForm/RegisterForm"
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 
 function App() {
@@ -13,15 +13,14 @@ function App() {
     <div className="App">
       <React.Fragment>
         <BrowserRouter>
-        <Navbar />
           <main>
             <Routes>
               <Route
                 path="/"
                 element={
                   <>
-                    <AboutUs />
-                    <Footer />
+                    <Navbar />
+                    <Landing />
                   </>
                 }
               />
@@ -29,6 +28,7 @@ function App() {
                 path="/login"
                 element={
                   <>
+                    <Navbar />
                     <Login />
                   </>
                 }
@@ -37,7 +37,7 @@ function App() {
                 path="/register"
                 element={
                   <>
-                    {/* <div>Registration Page</div> */}
+                    <Navbar />
                     <RegisterFrom></RegisterFrom>
                   </>
                 }
@@ -46,6 +46,7 @@ function App() {
                 path="/trending"
                 element={
                   <>
+                    <Navbar />
                     <div>Trending Page</div>
                   </>
                 }
@@ -54,7 +55,8 @@ function App() {
                 path="/profile"
                 element={
                   <>
-                    <div>Profile Page</div>
+                    <Navbar />
+                    <ProfilePage />
                   </>
                 }
               />
@@ -63,6 +65,7 @@ function App() {
                 path="*"
                 element={
                   <>
+                    <Navbar />
                     <div>Not Found</div>
                   </>
                 }

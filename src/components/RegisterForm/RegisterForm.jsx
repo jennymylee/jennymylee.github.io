@@ -94,7 +94,8 @@ export default function RegisterForm(){
                     <button className="sign-up-btn" disabled={isProcessing} onClick={handleOnSubmit}>{isProcessing ? "Loading..." : "Sign Up"}</button>
                     <p>
                         Already a Member?
-                        <a href="">Sign in</a>
+                        <span> </span>
+                        <Link to="/login">Sign Up</Link>
                     </p>
                 </div>
             </div>
