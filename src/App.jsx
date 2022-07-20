@@ -1,9 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
+import Navbar from "./components/Navbar/Navbar"
+import Login from './components/Login/Login';
 import Landing from "./components/Landing/Landing";
-import RegisterFrom from "./components/RegisterForm/RegisterForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import RegisterFrom from "./components/RegisterForm/RegisterForm"
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
                 path="/"
                 element={
                   <>
+                    <Navbar />
                     <Landing />
                   </>
                 }
@@ -24,7 +28,8 @@ function App() {
                 path="/login"
                 element={
                   <>
-                    <div>Login Page</div>
+                    <Navbar />
+                    <Login />
                   </>
                 }
               />
@@ -32,7 +37,7 @@ function App() {
                 path="/register"
                 element={
                   <>
-                    {/* <div>Registration Page</div> */}
+                    <Navbar />
                     <RegisterFrom></RegisterFrom>
                   </>
                 }
@@ -41,6 +46,7 @@ function App() {
                 path="/trending"
                 element={
                   <>
+                    <Navbar />
                     <div>Trending Page</div>
                   </>
                 }
@@ -49,6 +55,7 @@ function App() {
                 path="/profile"
                 element={
                   <>
+                    <Navbar />
                     <ProfilePage />
                   </>
                 }
@@ -58,6 +65,7 @@ function App() {
                 path="*"
                 element={
                   <>
+                    <Navbar />
                     <div>Not Found</div>
                   </>
                 }
