@@ -2,10 +2,17 @@ import * as React from "react"
 import "./Login.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import apiClient from "../../services/apiClient"
 
 export default function Login() {
 
+    //used to navigate users to different pages
+    const navigate = useNavigate()
+
+    //sets errors
     const [errors, setErrors] = useState({})
+
+    //saves user input 
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -13,6 +20,7 @@ export default function Login() {
 
     // const {setUser} = useAuthContext()
     
+      //allows the user to input information and sets the login form
       const handleOnInputChange = (event) => {
         if (event.target.name === "email") {
           if (event.target.value.indexOf("@") <= 0) {
@@ -25,22 +33,26 @@ export default function Login() {
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
       }
 
+      //calls api to log in user
       const loginUser = async () => {
-        // const {data, error} = await apiClient.login({email: form.email, password: form.password})
-        // if (error) {
-        //   setErrors((e) => ({...e, form:error}))
+        const {data, error} = await apiClient.loginUser({email: form.email, password: form.password})
+        if (error) {
+
+          console.log("Not signed in", error)
+          setErrors((e) => ({...e, form:error}))
         }
-        
+        else
+          navigate("/trending")
 
-    //     if(data?.user) {
-    //       setUser(data.user)
-    //       apiClient.setToken(data.token)
-    //       console.log("Here")
-    //     }
-    //   }
+        // if(data?.user) {
+        //   setUser(data.user)
+        //   apiClient.setToken(data.token)
+        //   console.log("Here")
+        // }
+      }
     
-    const navigate = useNavigate()
-
+    
+      //navigates user to register page
     const createUser = async () => {
         navigate("/register")
     }
@@ -59,6 +71,7 @@ export default function Login() {
                 <div className="input-field">
                     <input className="form-input" type="password" name="password" placeholder="Password" value={form.password} onChange={handleOnInputChange}/>
                 </div>
+                {errors.form && <span className="error">{errors.form}</span>}
                 <div className="sub-login">
                     <button className="submit-login" onClick={loginUser}>Login</button>
                 

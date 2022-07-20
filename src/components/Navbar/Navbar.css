@@ -1,6 +1,7 @@
 .navbar{
     background-color: black;
-    padding: 18px
+    padding: 18px;
+    width: 100%;
 }
 
 .content {
