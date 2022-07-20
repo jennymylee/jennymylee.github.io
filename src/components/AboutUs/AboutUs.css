@@ -1,0 +1,33 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #686262;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(171, 92, 214, 0.49) 0%, rgba(171, 92, 214, 0) 100%);
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 35px;
+}
+.about-title{
+    display: flex;
+    /* flex-direction: column; */
+    /* color: red; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+}
+.about-info{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+.about-card{
+    margin-right: 20px;
+}

@@ -1,0 +1,68 @@
+import axios from "axios"
+
+class ApiClient{
+    constructor(remoteHostUrl){
+        this.remoteHostUrl = remoteHostUrl
+        this.token = null
+        this.tokenName = "sneaker_store_token"
+    }
+
+    async setToken(token){
+        this.token = token
+        localStorage.setItem(this.tokenName, token)
+    }
+
+    async request({ endpoint, method = `GET`, data = {}}){
+        const url = `${this.remoteHostUrl}/${endpoint}`
+
+        const headers = {
+            "Content-Type": "application/json",
+            "user_id": data
+        }
+
+        if(this.token){
+            headers["Authorization"] = `Bearer ${this.token}`
+        }
+
+        try{
+            const res = await axios({url, method, data, headers})
+            return {data: res.data, error: null}
+        }catch(error){
+            console.error({errorResponse: error.response})
+            const message = error.response.data.error.message
+            return { data: null, error: message || String(error)}
+        }
+    }
+
+    /*
+    Still needs testing
+    
+
+    async searchProduct(searchItem){
+        return await this.request({endpint: `product/search`, method: `GET`, data: searchItem})
+    }
+
+    async getProducts(){
+        return await this.request({endpoint: `product`, method: `GET`})
+    }
+
+    async listWishList(user_id){
+        return await this.request({endpoint: `wishlist`, method: `GET`, data: user_id})
+    }
+    
+    async createWishListItem(wishListItem){
+        return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
+    }
+
+    */
+
+    async loginUser(credentials){
+        return await this.request({endpoint: `auth/login`, method: `POST`, data: credentials})
+    }
+
+    async signUpUser(credentials){
+        return await this.request({endpoint: `auth/register`, method: `POST`, data: credentials})
+    }
+}
+
+export default new ApiClient("http://localhost:3001")
