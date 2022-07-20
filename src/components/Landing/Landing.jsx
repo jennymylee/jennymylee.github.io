@@ -1,6 +1,8 @@
 import * as React from "react";
 import "./Landing.css";
 import { useNavigate } from "react-router-dom";
+import AboutUs from "../AboutUs/AboutUs"
+import Footer from "../Footer/Footer"
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -39,6 +41,8 @@ export default function Landing() {
           <img src="img.png" alt="Hero Pic" />
         </div>
       </div>
+      <AboutUs></AboutUs>
+      <Footer></Footer>
     </div>
   );
 }
