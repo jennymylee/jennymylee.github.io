@@ -1,0 +1,70 @@
+.profile-banner {
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.banner-gradient {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(250, 40, 81, 0.35),
+    rgba(207, 68, 153, 0.355398),
+    rgba(171, 92, 214, 0.36)
+  );
+}
+
+.banner-bottom {
+  width: 100%;
+  height: 100px;
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+.pb-user-name {
+  color: white;
+  font-size: 18px;
+  margin: 0;
+  padding: 3px;
+}
+
+.pb-user-role {
+  color: white;
+  font-size: small;
+  text-decoration: none;
+  margin: 0;
+  padding: 3px;
+}
+
+.edit-profile-btn {
+  text-decoration: none;
+  background: linear-gradient(90deg, #ab5cd6 0%, #fa2851 100%);
+  border-radius: 10px;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  padding: 12px 15px 12px 15px;
+  margin-right: 35px;
+  float: right;
+  width: 175px;
+}
+.user-info {
+  width: 100%;
+  padding-left: 220px;
+}
+
+.profile-image {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 35px;
+  margin-top: 73px;
+}
