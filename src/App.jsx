@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Footer from "./components/Footer/Footer";
+import Landing from "./components/Landing/Landing";
 import RegisterFrom from "./components/RegisterForm/RegisterForm"
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <AboutUs />
-                    <Footer />
+                    <Landing />
                   </>
                 }
               />
