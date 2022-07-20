@@ -4,10 +4,12 @@
     border: 1px solid #686262;
     background: radial-gradient(50% 50% at 50% 50%, rgba(171, 92, 214, 0.49) 0%, rgba(171, 92, 214, 0) 100%);
     border-radius: 10px;
-    width: 80%;
+    /* width: 100%; */
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 35px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .about-title{
     display: flex;
