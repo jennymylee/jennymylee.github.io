@@ -1,7 +1,17 @@
 import * as React from "react";
 import "./Landing.css";
 import { useNavigate } from "react-router-dom";
+import AboutUs from "../AboutUs/AboutUs"
+import Footer from "../Footer/Footer"
 
+/*
+The landing component will be render/referenced in the App.jsx file
+Landing is set to the "/" route so it will be the first page/component 
+the user will see. The Landing componenet will be followed by navbar where
+the user can switch to different routes. Lastly the landing Page will call
+the AboutUs and Footer component which will finalized the content of the 
+landing page
+ */
 export default function Landing() {
   const navigate = useNavigate();
 
@@ -39,6 +49,11 @@ export default function Landing() {
           <img src="img.png" alt="Hero Pic" />
         </div>
       </div>
+      {/* The AboutUs component will display information about the purpose of our webpage and functionality */}
+      <AboutUs></AboutUs>
+      {/* The Footer component will display information about how to contact our group with an question
+      via social media or email */}
+      <Footer></Footer>
     </div>
   );
 }
