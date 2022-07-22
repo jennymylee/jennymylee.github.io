@@ -6,20 +6,20 @@ import Landing from "./components/Landing/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterFrom from "./components/RegisterForm/RegisterForm";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import { AuthContextProvider, useAuthContext } from "./contexts/auth"
-
+import TrendingPage from "./components/TrendingPage/TrendingPage";
+import { AuthContextProvider, useAuthContext } from "./contexts/auth";
 
 /*
 The AppContainer component will render the App component nested inside
 the AuthContextProvider to have access to the authValue like user and setUser
  */
 
-export default function AppContainer(){
+export default function AppContainer() {
   return (
     <AuthContextProvider>
-      <App/>
+      <App />
     </AuthContextProvider>
-  )
+  );
 }
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
                 element={
                   <>
                     <Navbar />
-                    <RegisterFrom></RegisterFrom>
+                    <RegisterFrom />
                   </>
                 }
               />
@@ -61,7 +61,7 @@ function App() {
                 element={
                   <>
                     <Navbar />
-                    <div>Trending Page</div>
+                    <TrendingPage />
                   </>
                 }
               />
@@ -91,4 +91,3 @@ function App() {
     </div>
   );
 }
-

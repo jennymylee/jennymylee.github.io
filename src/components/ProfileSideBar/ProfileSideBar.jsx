@@ -16,10 +16,10 @@ export default function ProfileSideBar() {
           }}
         >
           <IoGridSharp
-            color={currentTab == "dashboard" ? "#B261F1" : "white"}
+            color={currentTab === "dashboard" ? "#B261F1" : "white"}
             size="25px"
           />
-          <p className={currentTab == "dashboard" ? "purple-tab" : "psb-text"}>
+          <p className={currentTab === "dashboard" ? "purple-tab" : "psb-text"}>
             Dashboard
           </p>
         </div>
@@ -30,10 +30,10 @@ export default function ProfileSideBar() {
           }}
         >
           <IoSettingsOutline
-            color={currentTab == "settings" ? "#B261F1" : "white"}
+            color={currentTab === "settings" ? "#B261F1" : "white"}
             size="25px"
           />
-          <p className={currentTab == "settings" ? "purple-tab" : "psb-text"}>
+          <p className={currentTab === "settings" ? "purple-tab" : "psb-text"}>
             Settings
           </p>
         </div>
@@ -44,10 +44,10 @@ export default function ProfileSideBar() {
           }}
         >
           <FiHelpCircle
-            color={currentTab == "help" ? "#B261F1" : "white"}
+            color={currentTab === "help" ? "#B261F1" : "white"}
             size="25px"
           />
-          <p className={currentTab == "help" ? "purple-tab" : "psb-text"}>
+          <p className={currentTab === "help" ? "purple-tab" : "psb-text"}>
             Help
           </p>
         </div>
