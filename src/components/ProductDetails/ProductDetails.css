@@ -109,13 +109,24 @@
     width: 100%;
     display: flex;
     margin: 10px;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
   }
 
   .toggle-btn {
     background: black;
+    width: 100%;
+    padding: 0;
     color: white;
     cursor: pointer;
+    display: flex;
+    font-size: 35px;
+    justify-content: start;
+    align-items: center;
+    
   }
+
+  .wishlist-text {
+    width: 341px;
+  }
+  
   

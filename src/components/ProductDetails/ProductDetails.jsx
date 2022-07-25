@@ -1,5 +1,7 @@
 import * as React from "react";
 import "./ProductDetails.css";
+import heartOutline from "./img/heart-outline.png";
+import heartFill from "./img/heart-fill.png"
 
 import { useState } from "react";
 
@@ -24,7 +26,7 @@ export default function ProductDetails() {
     }
 
     const[addedToWishlist, setAddedToWishlist]  = useState("Add to Wishlist");
-
+    const[heartImg, setHeartImg]  = useState(heartOutline);
 
     
     //Called when a user wants to add/remove this item to their wishlist.
@@ -35,9 +37,11 @@ export default function ProductDetails() {
     const toggleWishlist = async () => {
         if(addedToWishlist == "Add to Wishlist") {
             setAddedToWishlist("Remove from Wishlist")
+            setHeartImg(heartFill)
         }
         else{
             setAddedToWishlist("Add to Wishlist")
+            setHeartImg(heartOutline)
         }
         
     }
@@ -106,7 +110,12 @@ export default function ProductDetails() {
                 <div className="toggle-wishlist">
                     {/* Button to add to wishlist */}
                     <button className="toggle-btn" onClick={toggleWishlist}>
-                        {addedToWishlist}
+                        <div className="heart-img">
+                            <img src={heartImg} alt="heart" width="100px"/>
+                        </div>
+                        <div className="wishlist-text">
+                            {addedToWishlist}
+                        </div>
                     </button>
                 </div>
 
