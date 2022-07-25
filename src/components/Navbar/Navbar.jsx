@@ -1,12 +1,23 @@
 import * as React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../contexts/auth"
+import {useNavigate } from "react-router-dom"
 
+/*
+Renders inside App.jsx
+Allows to user to switch to different pages
+such as login, register, trending, etc
+*/
 export default function Navbar(props) {
-  const user = false;
+  const { user } = useAuthContext()
+  const navigate = useNavigate()
+  const login = async () => {
+    navigate("/login");
+  };
 
-  const logoutUser = async () => {
-    // setUser()
+  const signup = async () => {
+    navigate("/register");
   };
   return (
     <div className="navbar">
@@ -14,7 +25,7 @@ export default function Navbar(props) {
         <div className="nav-links">
           <div className="logo">
             <Link to="/">
-              <img src={"logo"} alt="Logo" width="60" />
+              <i className="fa-brands fa-connectdevelop"></i>
             </Link>
           </div>
           <Link to="/">Home</Link>
@@ -22,28 +33,38 @@ export default function Navbar(props) {
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
 
-          <a> Search </a>
         </div>
-        {user ? (
-          <button className="side-btn btn" onClick={logoutUser}>
-            <a>Log Out</a>
-          </button>
+        {Object.keys(user).length !== 0 ? (
+          <div className="profile-link">
+            <div className="search">
+
+              <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
+
+              <input type="text" className="search-text" placeholder="Shoe"/>
+
+            </div>
+            <Link to="/profile">
+              <i className="fa-solid fa-user"></i>
+              Hi, {user.first_name}
+            </Link>
+          </div>
         ) : (
           <div className="side-btn">
-            <div className="btn">
-              <Link to="/login">Login</Link>
+            <div className="search">
+
+              <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
+
+              <input type="text" className="search-text" placeholder="Shoe"/>
+
             </div>
 
-            <div className="btn">
-              <Link to="/register">Sign Up</Link>
-            </div>
+            <button className="login" onClick={login}>Log In</button>
+
+            <button className="signup" onClick={signup}>Sign Up</button>
+
           </div>
         )}
       </div>
     </div>
-
-    // <div>
-    //     <p>Hello</p>
-    // </div>
   );
 }

@@ -76,6 +76,11 @@ class ApiClient {
       data: credentials,
     });
   }
+
+  async logoutUser(){
+    this.setToken(null)
+    localStorage.setItem(this.tokenName, "")
+  }
 }
 
 export default new ApiClient("http://localhost:3001");
