@@ -72,6 +72,14 @@ class ApiClient {
       data: credentials,
     });
   }
+
+  async getProductById(productId) {
+    console.log("")
+    return await this.request({
+      endpoint: `product/id/${productId}`,
+      method: `GET`
+    });
+  }
 }
 
 export default new ApiClient("http://localhost:3001");

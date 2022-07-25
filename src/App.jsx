@@ -83,6 +83,14 @@ function App() {
                   </div>
                 } 
               />
+              <Route path="/product/id/:productId"
+                element={
+                  <div>
+                    <Navbar />
+                    <ProductPage />
+                  </div>
+                } 
+              />
               <Route
                 path="*"
                 element={

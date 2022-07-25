@@ -2,28 +2,57 @@ import * as React from "react";
 import "./ProductDetails.css";
 import heartOutline from "./img/heart-outline.png";
 import heartFill from "./img/heart-fill.png"
-
-import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import apiClient from "../../services/apiClient";
 
 export default function ProductDetails() {
+    let { productId } = useParams();
+    const [shoe, setShoe] = useState(
+        {
+            id: 0,
+            name: "",
+            brand: "",
+            colorway: "",
+            silhouette:"",
+            release_year: "",
+            release_date: "",
+            retail_price: 0,
+            market_price: 0,
+            description: "",
+            image_url:"",
+            current_bid: 0,
+            lowest_ask: 0,
+            total_sales: 0,
+        }
+    );
 
-    const shoe = {
-        id: 1,
-        name: "Jordan 4 Retro White Cement (2012)",
-        brand: "Jordan",
-        colorway: "White/Black-Tech Grey",
-        silhouette:"Air Jordan 4",
-        release_year: "2012",
-        release_date: "2012-02-18",
-        retail_price: 160,
-        market_price: 220,
-        description: "The Air Jordan 4 Retro &#39;Cement’ 2012 combines a white leather upper with Fire Red, Black, and speckled Cement Grey accents. Released in 1989 as one of the four original colorways, the sneaker was retro’d in 1999 and 2016, but this 2012 Air Jordan 4 Retro &#39;Cement’ is the only version that swaps the OG Nike Air branding for a Jumpman logo on the heel. ",
-        image_url:"https://image.goat.com/375/attachments/product_template_pictures/images/011/254/032/original/13598_00.png.png",
-        current_bid: 200,
-        lowest_ask: 180,
-        total_sales: 1400,
-        
+    async function getProduct() {
+        const {data, error} = await apiClient.getProductById(productId)
+        console.log("data", data.product)
+        setShoe(data.product)
+        console.log("shoe", shoe)
     }
+
+    useEffect(() => {getProduct()}, [] )
+    
+    // const shoe = {
+    //     id: 1,
+    //     name: "Jordan 4 Retro White Cement (2012)",
+    //     brand: "Jordan",
+    //     colorway: "White/Black-Tech Grey",
+    //     silhouette:"Air Jordan 4",
+    //     release_year: "2012",
+    //     release_date: "2012-02-18",
+    //     retail_price: 160,
+    //     market_price: 220,
+    //     description: "The Air Jordan 4 Retro &#39;Cement’ 2012 combines a white leather upper with Fire Red, Black, and speckled Cement Grey accents. Released in 1989 as one of the four original colorways, the sneaker was retro’d in 1999 and 2016, but this 2012 Air Jordan 4 Retro &#39;Cement’ is the only version that swaps the OG Nike Air branding for a Jumpman logo on the heel. ",
+    //     image_url:"https://image.goat.com/375/attachments/product_template_pictures/images/011/254/032/original/13598_00.png.png",
+    //     current_bid: 200,
+    //     lowest_ask: 180,
+    //     total_sales: 1400,
+        
+    // }
 
     const[addedToWishlist, setAddedToWishlist]  = useState("Add to Wishlist");
     const[heartImg, setHeartImg]  = useState(heartOutline);

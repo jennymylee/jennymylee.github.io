@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./ProductPage.css";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Routes, Route } from "react-router-dom"
 import Footer from "../Footer/Footer"
 import ProductDetails from "../ProductDetails/ProductDetails";
 
