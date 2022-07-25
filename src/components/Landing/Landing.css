@@ -3,22 +3,75 @@
 }
 
 .Hero {
-  flex-direction: row;
-  padding-top: 86px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+  color: white;
+  padding-top: 100px;
 }
 
 .Header {
-  padding: 20px;
-  width: 40%;
-  color: white;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.Header .titles{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 218px;
+  margin: 0px;
+}
+.Header .info{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
 }
 
 .Hero-pic {
   padding: 20px;
   width: 40%;
   color: white;
-  background-color: black;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
+}
+.landing-button{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.browse-btn{
+  background: linear-gradient(90deg, #AB5CD6 0%, #FA2851 100%);
+  border-radius: 10px;
+  height: 38px;
+  width: 155px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: white;
+  margin-right: 30px;
+}
+.signup-btn{
+  background: transparent;
+  border-radius: 10px;
+  height: 38px;
+  width: 187px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: white;
+}
+.shoeLogo{
+  height: 680px;
+  object-fit: cover;
+  margin-top: -120px;
+  margin-bottom: -40px;
+  margin-left: -140px;
 }
