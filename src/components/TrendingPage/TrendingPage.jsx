@@ -6,7 +6,7 @@ import { useAuthContext } from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 
 export default function TrendingPage() {
-  const [trendingProducts, setTrendingProducts] = React.useState([]);
+  const [trendingProducts, setTrendingProducts] = React.useState();
   const { user } = useAuthContext();
 
   console.log("user in trending page", user);
@@ -37,7 +37,7 @@ export default function TrendingPage() {
       />
       <div className="trending">
         <h1 className="trending-title">What's Trending</h1>
-        <TrendingProducts trendingProducts={{ trendingProducts }} />
+        <TrendingProducts trendingProducts={trendingProducts} />
       </div>
     </div>
   );

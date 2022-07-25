@@ -6,6 +6,12 @@
   border-radius: 10px;
 }
 
+.tp-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .tp-items {
   /* height: 500px; */
   margin: 40px;
