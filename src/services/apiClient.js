@@ -29,8 +29,8 @@ class ApiClient {
       return { data: res.data, error: null };
     } catch (error) {
       console.error({ errorResponse: error.response });
-      // const message = error.response.data.error.message
-      const message = "error found";
+      const message = error.response.data.error.message
+      // const message = "error found";
       return { data: null, error: message || String(error) };
     }
   }
@@ -56,6 +56,10 @@ class ApiClient {
     }
 
     */
+
+  async fecthUserFromToken(){
+    return await this.request({ endpoint: `auth/me`, method: `GET`})
+  }
 
   async loginUser(credentials) {
     return await this.request({

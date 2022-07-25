@@ -11,10 +11,10 @@ import { useAuthContext } from "../../contexts/auth";
 export default function RegisterForm() {
   //Imports setUser from authContext to set user information
   //with email, first and last name, etc.
-  const { user, setUser } = useAuthContext();
+  const { user, setUser, isProcessing, setIsProcessing } = useAuthContext();
 
   //might change this to use authContext variables
-  const [isProcessing, setIsProcessing] = useState(false);
+  // const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -30,24 +30,15 @@ export default function RegisterForm() {
   //emails and not matching passwords
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
-      if (
-        form.confirm_password &&
-        form.confirm_password !== event.target.value
-      ) {
-        setErrors((e) => ({
-          ...e,
-          confirm_password: "Password's do not match",
-        }));
+      if (form.confirm_password && form.confirm_password !== event.target.value){
+        setErrors((e) => ({ ...e, confirm_password: "Password's do not match"}));
       } else {
         setErrors((e) => ({ ...e, confirm_password: null }));
       }
     }
     if (event.target.name === "confirm_password") {
       if (form.password && form.password !== event.target.value) {
-        setErrors((e) => ({
-          ...e,
-          confirm_password: "Password's do not match",
-        }));
+        setErrors((e) => ({...e,confirm_password: "Password's do not match"}));
       } else {
         setErrors((e) => ({ ...e, confirm_password: null }));
       }
@@ -90,7 +81,6 @@ export default function RegisterForm() {
     }
     if (data) {
       setUser(data.user);
-      console.log("data in Register Form", data);
       apiClient.setToken(data.token);
       navigate("/trending");
     }
@@ -102,83 +92,41 @@ export default function RegisterForm() {
       <div className="inputss">
         <div className="titles">
           <p>Sign Up</p>
-          {errors.form && <span className="error">{errors.form}</span>}
+          {errors.form && <div className="errors"><span>{errors.form}</span></div>}
         </div>
         <div className="split-form-inputs">
           <div className="form-inputs">
-            <input
-              type="text"
-              name="first_name"
-              placeholder="First Name"
-              value={form.first_name}
-              onChange={handleOnInputChange}
-            />
-            {errors.first_name && (
-              <span className="error">{errors.first_name}</span>
-            )}
+            <input type="text" name="first_name" placeholder="First Name" value={form.first_name} onChange={handleOnInputChange}/>
+            {errors.first_name && <div className="error">{errors.first_name}</div>}
           </div>
           <div className="form-inputs">
-            <input
-              type="text"
-              name="last_name"
-              placeholder="Last Name"
-              value={form.last_name}
-              onChange={handleOnInputChange}
-            />
-            {errors.last_name && (
-              <span className="error">{errors.last_name}</span>
-            )}
+            <input type="text" name="last_name" placeholder="Last Name" value={form.last_name} onChange={handleOnInputChange}/>
+            {errors.last_name && <div className="error"><span>{errors.last_name}</span></div>}
           </div>
         </div>
         <div className="form-inputs">
-          <input
-            type="text"
-            name="email"
-            placeholder="Email Address"
-            value={form.email}
-            onChange={handleOnInputChange}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
+          <input type="text" name="email" placeholder="Email Address" value={form.email} onChange={handleOnInputChange}/>
+          {errors.email && <div className="error"><span>{errors.email}</span></div>}
         </div>
         <div className="form-inputs">
-          <input
-            type="text"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleOnInputChange}
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
+          <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleOnInputChange}/>
+          {errors.password && <div className="error"><span>{errors.password}</span></div>}
         </div>
         <div className="form-inputs">
-          <input
-            type="text"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            value={form.confirm_password}
-            onChange={handleOnInputChange}
-          />
-          {errors.confirm_password && (
-            <span className="error">{errors.confirm_password}</span>
-          )}
+          <input type="password" name="confirm_password" placeholder="Confirm Password" value={form.confirm_password} onChange={handleOnInputChange}/>
+          {errors.confirm_password && <div className="error"><span>{errors.confirm_password}</span></div>}
         </div>
         <div className="footers">
-          <button
-            className="sign-up-btn"
-            disabled={isProcessing}
-            onClick={handleOnSubmit}
-          >
-            {isProcessing ? "Loading..." : "Sign Up"}
-          </button>
+          <button className="sign-up-btn" disabled={isProcessing} onClick={handleOnSubmit}>{isProcessing ? "Loading..." : "Sign Up"}</button>
           <p>
             Already a Member?
-            <Link className="links" to="/login">
-              Sign In
-            </Link>
+            <Link className="links" to="/login">Sign In</Link>
           </p>
         </div>
       </div>
-      <div className="featured">hello</div>
+      <div className="featured">
+        hello
+      </div>
     </div>
   );
 }
