@@ -10,7 +10,9 @@ export default function ProductCard({ product }) {
       className="product-card"
       onClick={() => navigate(`/product/id/${product.id}`)}
     >
-      <img className="product-img" src={product.image_url} />
+      <div className="img-wrapper">
+        <img className="product-img" src={product.image_url} />
+      </div>
       <div className="pc-text">
         <p className="pc-name">{product.name}</p>
         <p className="pc-price">${product.market_price}</p>
