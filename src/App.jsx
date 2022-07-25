@@ -75,14 +75,6 @@ function App() {
                   </>
                 }
               />
-              <Route path="/product/*"
-                element={
-                  <div>
-                    <Navbar />
-                    <ProductPage />
-                  </div>
-                } 
-              />
               <Route path="/product/id/:productId"
                 element={
                   <div>

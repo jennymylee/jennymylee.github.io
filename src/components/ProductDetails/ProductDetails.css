@@ -1,7 +1,7 @@
 .product-details{
     background: black;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
 }
 
@@ -28,6 +28,29 @@
 
   .card-header {
     text-align: center;
+  }
+
+  .shoe-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .price-date {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .retail-price { 
+    width: 40%;
+  }
+
+  .release-date {
+    width: 40%;
   }
 
   .price-card {
