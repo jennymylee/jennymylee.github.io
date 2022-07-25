@@ -1,6 +1,7 @@
 import { createContext, useState, useContext } from "react";
 import React, { useReducer } from "react";
 import { initialState, AuthReducer } from "./reducer";
+import apiClient from "../services/apiClient"
 
 const AuthContext = createContext();
 // const AuthDispatchContext = React.createContext();
@@ -40,6 +41,25 @@ export const AuthContextProvider = ({ children }) => {
   React.useEffect(() => {
     console.log("user in auth context", user);
   }, [user]);
+
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const {data, error} = await apiClient.fecthUserFromToken()
+      if(data){
+        console.log("data in auth", data)
+        setUser(data.user)
+      }
+      if(error){
+        setError(error)
+        console.log("error in trending", error)
+      }
+    }
+    const token = localStorage.getItem("sneaker_store_token")
+    if(token){
+      apiClient.setToken(token)
+      fetchUser()
+    }
+  }, [])
 
   var authValue = {
     user,

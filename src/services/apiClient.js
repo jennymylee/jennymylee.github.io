@@ -14,48 +14,63 @@ class ApiClient {
 
   async request({ endpoint, method = `GET`, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`;
+    console.log("url for request", url);
+    if (endpoint == "product") {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      try {
+        const res = await axios({ url, method, data, headers });
+        return { data: res.data, error: null };
+      } catch (error) {
+        console.error({ errorResponse: error.response });
+        const message = error.response.data.error.message;
+        // const message = "error found";
+        return { data: null, error: message || String(error) };
+      }
+    } else {
+      const headers = {
+        "Content-Type": "application/json",
+        user_id: data,
+      };
 
-    const headers = {
-      "Content-Type": "application/json",
-      user_id: data,
-    };
+      if (this.token) {
+        headers["Authorization"] = `Bearer ${this.token}`;
+      }
 
-    if (this.token) {
-      headers["Authorization"] = `Bearer ${this.token}`;
-    }
-
-    try {
-      const res = await axios({ url, method, data, headers });
-      return { data: res.data, error: null };
-    } catch (error) {
-      console.error({ errorResponse: error.response });
-      // const message = error.response.data.error.message
-      const message = "error found";
-      return { data: null, error: message || String(error) };
+      try {
+        const res = await axios({ url, method, data, headers });
+        return { data: res.data, error: null };
+      } catch (error) {
+        console.error({ errorResponse: error.response });
+        const message = error.response.data.error.message;
+        // const message = "error found";
+        return { data: null, error: message || String(error) };
+      }
     }
   }
 
-  /*
-    Still needs testing
-    
+  // Still needs testing
 
-    async searchProduct(searchItem){
-        return await this.request({endpint: `product/search`, method: `GET`, data: searchItem})
-    }
+  // async searchProduct(searchItem){
+  //     return await this.request({endpint: `product/search`, method: `GET`, data: searchItem})
+  // }
 
-    async getProducts(){
-        return await this.request({endpoint: `product`, method: `GET`})
-    }
+  async getProducts() {
+    return await this.request({ endpoint: `product`, method: `GET` });
+  }
 
-    async listWishList(user_id){
-        return await this.request({endpoint: `wishlist`, method: `GET`, data: user_id})
-    }
-    
-    async createWishListItem(wishListItem){
-        return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
-    }
+  // async listWishList(user_id){
+  //     return await this.request({endpoint: `wishlist`, method: `GET`, data: user_id})
+  // }
 
-    */
+  // async createWishListItem(wishListItem){
+  //     return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
+  // }
+
+  async fecthUserFromToken() {
+    return await this.request({ endpoint: `auth/me`, method: `GET` });
+  }
 
   async loginUser(credentials) {
     return await this.request({
@@ -70,6 +85,13 @@ class ApiClient {
       endpoint: `auth/register`,
       method: `POST`,
       data: credentials,
+    });
+  }
+
+  async getTrendingProducts() {
+    return await this.request({
+      endpoint: `product`,
+      method: `GET`,
     });
   }
 }
