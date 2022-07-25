@@ -1,40 +1,26 @@
 import * as React from "react";
 import "./TrendingProducts.css";
-import { useAuthContext } from "../../contexts/auth";
-import ApiClient from "../../services/apiClient";
+import ProductCard from "../ProductCard/ProductCard";
 
 export default function TrendingProducts({ trendingProducts }) {
-  // const [trendingProducts, setTrendingProducts] = React.useState([]);
-  // const [error, setError] = React.useState({});
-  // const { user, apiClient } = useAuthContext();
-  // React.useEffect(() => {
-  //   const getTrending = async () => {
-  //     let trendingArray = [];
-  //     try {
-  //       if (user) {
-  //         trendingArray = await apiClient.getTrendingProducts();
-  //         setTrendingProducts(trendingArray.products);
-  //       }
-  //     } catch (err) {
-  //       console.log("error in TrendingProducts:", err);
-  //       setError(err.message);
-  //     }
-  //   };
-  //   getTrending();
-  // }, []);
+  React.useEffect(() => {
+    console.log("trendingProducts----", trendingProducts);
+  }, [trendingProducts]);
 
-  const tp = () => {
-    if (trendingProducts.trendingProducts) {
-      console.log("trendingProducts", trendingProducts.trendingProducts);
-      return trendingProducts.trendingProducts[0].name;
-    } else {
-      return;
-    }
+  const renderProducts = () => {
+    // console.log("trendingProducts in tp:", trendingProducts);
+    return trendingProducts.trendingProducts.map((product, i) => {
+      return <ProductCard key={i} product={product} />;
+    });
   };
 
   return (
     <div className="trending-products">
-      <div className="tp-items">{() => tp()}</div>
+      <div className="tp-content">
+        <div className="tp-items">
+          {trendingProducts ? renderProducts() : "Nothing here yet"}
+        </div>
+      </div>
     </div>
   );
 }

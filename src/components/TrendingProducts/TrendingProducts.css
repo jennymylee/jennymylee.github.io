@@ -7,5 +7,12 @@
 }
 
 .tp-items {
-  height: 500px;
+  /* height: 500px; */
+  margin: 40px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  gap: 20px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(4, 1fr);
 }

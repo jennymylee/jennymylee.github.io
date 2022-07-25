@@ -8,22 +8,25 @@ import apiClient from "../../services/apiClient";
 export default function TrendingPage() {
   const [trendingProducts, setTrendingProducts] = React.useState([]);
   const { user } = useAuthContext();
-  const [error, setError] = React.useState({});
+
   console.log("user in trending page", user);
 
   React.useEffect(() => {
-    const getTrending = async () => {
-      let trendingArray = [];
+    const fetchUser = async () => {
       try {
-        trendingArray = await apiClient.getProducts();
-        console.log(trendingArray);
-        setTrendingProducts(trendingArray.products);
+        const { data, error } = await apiClient.getProducts();
+        if (data) {
+          console.log("this is data.products", data.products);
+          setTrendingProducts(data.products);
+        }
+        if (error) {
+          console.log("error in trending", error);
+        }
       } catch (err) {
-        console.log("error in TrendingProducts:", err);
-        setError(err.message);
+        console.log("err in trendingpage", err);
       }
     };
-    getTrending();
+    fetchUser();
   }, []);
 
   return (
