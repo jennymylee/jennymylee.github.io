@@ -6,17 +6,16 @@ import { useAuthContext } from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 
 export default function TrendingPage() {
+  // trendingProducts is an array of product objects
   const [trendingProducts, setTrendingProducts] = React.useState();
   const { user } = useAuthContext();
 
-  console.log("user in trending page", user);
-
+  // Get array of products from shoes table and set trendingProducts state.
   React.useEffect(() => {
-    const fetchUser = async () => {
+    const fetchProducts = async () => {
       try {
         const { data, error } = await apiClient.getProducts();
         if (data) {
-          console.log("this is data.products", data.products);
           setTrendingProducts(data.products);
         }
         if (error) {
@@ -26,11 +25,12 @@ export default function TrendingPage() {
         console.log("err in trendingpage", err);
       }
     };
-    fetchUser();
+    fetchProducts();
   }, []);
 
   return (
     <div className="trending-page">
+      {/* Trending Side Bar will allow user to filter the Trending Section */}
       <TrendingSideBar
         trendingProducts={trendingProducts}
         setTrendingProducts={setTrendingProducts}
