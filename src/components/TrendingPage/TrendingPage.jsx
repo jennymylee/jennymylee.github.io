@@ -18,11 +18,8 @@ export default function TrendingPage() {
         if (data) {
           setTrendingProducts(data.products);
         }
-        if (error) {
-          console.log("error in trending", error);
-        }
       } catch (err) {
-        console.log("err in trendingpage", err);
+        return;
       }
     };
     fetchProducts();
