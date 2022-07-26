@@ -8,6 +8,7 @@ import RegisterFrom from "./components/RegisterForm/RegisterForm";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import TrendingPage from "./components/TrendingPage/TrendingPage";
 import { AuthContextProvider, useAuthContext } from "./contexts/auth";
+import ProductPage from "./components/ProductPage/ProductPage";
 
 /*
 The AppContainer component will render the App component nested inside
@@ -74,7 +75,14 @@ function App() {
                   </>
                 }
               />
-              <Route path="/product/*" element={<div>Product Page(s)</div>} />
+              <Route path="/product/id/:productId"
+                element={
+                  <div>
+                    <Navbar />
+                    <ProductPage />
+                  </div>
+                } 
+              />
               <Route
                 path="*"
                 element={
