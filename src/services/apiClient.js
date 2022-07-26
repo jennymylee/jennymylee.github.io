@@ -86,10 +86,19 @@ class ApiClient {
     });
   }
 
-  async logoutUser() {
-    this.setToken(null);
-    localStorage.setItem(this.tokenName, "");
+  async getProductById(productId) {
+    return await this.request({
+      endpoint: `product/id/${productId}`,
+      method: `GET`
+    });
+  
   }
+
+  async logoutUser() {
+      this.setToken(null);
+      localStorage.setItem(this.tokenName, "");
+  }
+
 }
 
 export default new ApiClient("http://localhost:3001");
