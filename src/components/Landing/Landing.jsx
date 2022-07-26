@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AboutUs from "../AboutUs/AboutUs";
 import Footer from "../Footer/Footer";
 import { useAuthContext } from "../../contexts/auth";
+import ProductRow from "../ProductRow/ProductRow"
 
 /*
 The landing component will be render/referenced in the App.jsx file
@@ -15,7 +16,6 @@ landing page
  */
 export default function Landing() {
   const { user, setUser } = useAuthContext();
-  console.log("user in landing page", user);
   const navigate = useNavigate();
 
   const browse = async () => {
@@ -25,8 +25,7 @@ export default function Landing() {
   const signup = async () => {
     navigate("/register");
   };
-
-  console.log("user", user);
+  console.log("user in L", user)
   return (
     <div className="landing-page">
       <div className="Hero">
@@ -45,15 +44,21 @@ export default function Landing() {
             <button className="browse-btn" onClick={browse}>
               Start Browsing
             </button>
-            <button className="signup-btn" onClick={signup}>
+            {Object.keys(user).length === 0 ?
+              <button className="signup-btn" onClick={signup}>
               Create an Account
-            </button>
+              </button>:
+               null}
+            {/* <button className="signup-btn" onClick={signup}>
+              Create an Account
+            </button> */}
           </div>
         </div>
         <div className="Hero-pic">
           <img className="shoeLogo" src={require('./shoeLogo.png')} alt="Hero Pic" />
         </div>
       </div>
+      <ProductRow></ProductRow>
       {/* The AboutUs component will display information about the purpose of our webpage and functionality */}
       <AboutUs></AboutUs>
       {/* The Footer component will display information about how to contact our group with an question

@@ -57,6 +57,10 @@ class ApiClient {
 
     */
 
+   async getProducts(){
+    return await this.request({endpoint: `product`, method: `GET`})
+    }
+
   async fecthUserFromToken(){
     return await this.request({ endpoint: `auth/me`, method: `GET`})
   }
