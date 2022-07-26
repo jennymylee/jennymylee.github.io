@@ -2,6 +2,7 @@ import * as React from "react";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 
+
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
 
