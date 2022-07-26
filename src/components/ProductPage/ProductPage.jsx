@@ -3,6 +3,7 @@ import "./ProductPage.css";
 import { useNavigate, Routes, Route } from "react-router-dom"
 import Footer from "../Footer/Footer"
 import ProductDetails from "../ProductDetails/ProductDetails";
+import Similar from "../Similar/Similar";
 
 /*
 The ProductPage component will be render/referenced in the App.jsx file
@@ -24,6 +25,7 @@ export default function ProductPage() {
 
       <div className="similar">
         Similar
+        <Similar />
       </div>
       {/* The Footer component will display information about how to contact our group with an question
       via social media or email */}
