@@ -3,9 +3,25 @@ import "./ProfileSideBar.css";
 import { IoGridSharp, IoSettingsOutline } from "react-icons/io5";
 import { FiHelpCircle } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
+import apiClient from "../../services/apiClient"
+import { useAuthContext } from "../../contexts/auth";
+import { useNavigate } from "react-router-dom"
 
 export default function ProfileSideBar() {
   const [currentTab, setCurrentTab] = React.useState("dashboard");
+  const navigate = useNavigate()
+
+  const { setUser } = useAuthContext()
+
+  /*
+  Added the functionality to log an user out
+  Redirects user to the login page
+   */
+  const handleLogOut = async () => {
+    await apiClient.logoutUser()
+    setUser({})
+    navigate("/login")
+  }
   return (
     <div className="profile-side-bar">
       <div className="top-tabs">
@@ -55,7 +71,7 @@ export default function ProfileSideBar() {
       <div className="filler"></div>
       <div className="logout-div">
         <MdLogout color="white" size="25px" />
-        <p className="psb-text">Log Out</p>
+        <p className="psb-text logout-btn" onClick={handleLogOut}>Log Out</p>
       </div>
     </div>
   );

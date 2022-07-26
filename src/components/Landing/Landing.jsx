@@ -31,8 +31,8 @@ export default function Landing() {
     <div className="landing-page">
       <div className="Hero">
         <div className="Header">
-          <h1>LOREMIPS</h1>
-          <p>
+          <p className="titles">LOREMIPS</p>
+          <p className="info">
             Lorem ipsum dolor adipiscing elit, sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Ut enim ad minim ve_niam, quis
             nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -41,16 +41,17 @@ export default function Landing() {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </p>
-
-          <button className="browse-btn" onClick={browse}>
-            Start Browsing
-          </button>
-          <button className="signup-btn" onClick={signup}>
-            Create an Account
-          </button>
+          <div className="landing-button">
+            <button className="browse-btn" onClick={browse}>
+              Start Browsing
+            </button>
+            <button className="signup-btn" onClick={signup}>
+              Create an Account
+            </button>
+          </div>
         </div>
         <div className="Hero-pic">
-          <img src="img.png" alt="Hero Pic" />
+          <img className="shoeLogo" src={require('./shoeLogo.png')} alt="Hero Pic" />
         </div>
       </div>
       {/* The AboutUs component will display information about the purpose of our webpage and functionality */}

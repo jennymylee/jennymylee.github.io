@@ -88,11 +88,9 @@ class ApiClient {
     });
   }
 
-  async getTrendingProducts() {
-    return await this.request({
-      endpoint: `product`,
-      method: `GET`,
-    });
+  async logoutUser() {
+    this.setToken(null);
+    localStorage.setItem(this.tokenName, "");
   }
 }
 
