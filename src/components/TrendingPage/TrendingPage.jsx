@@ -6,33 +6,35 @@ import { useAuthContext } from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
 
 export default function TrendingPage() {
-  const { user, setUser, setError, error } = useAuthContext()
-  // React.useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const {data, error} = await apiClient.fecthUserFromToken()
-  //     if(data){
-  //       console.log("data in auth", data)
-  //       setUser(data.user)
-  //     }
-  //     if(error){
-  //       setError(error)
-  //       console.log("error in trending", error)
-  //     }
-  //   }
-  //   const token = localStorage.getItem("sneaker_store_token")
-  //   if(token){
-  //     apiClient.setToken(token)
-  //     fetchUser()
-  //   }
-  // }, [])
-  // const { user } = useAuthContext();
-  console.log("user in trending page", user);
+  // trendingProducts is an array of product objects
+  const [trendingProducts, setTrendingProducts] = React.useState();
+  const { user } = useAuthContext();
+
+  // Get array of products from shoes table and set trendingProducts state.
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await apiClient.getProducts();
+        if (data) {
+          setTrendingProducts(data.products);
+        }
+      } catch (err) {
+        return;
+      }
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <div className="trending-page">
-      <TrendingSideBar />
+      {/* Trending Side Bar will allow user to filter the Trending Section */}
+      <TrendingSideBar
+        trendingProducts={trendingProducts}
+        setTrendingProducts={setTrendingProducts}
+      />
       <div className="trending">
         <h1 className="trending-title">What's Trending</h1>
-        <TrendingProducts />
+        <TrendingProducts trendingProducts={trendingProducts} />
       </div>
     </div>
   );
