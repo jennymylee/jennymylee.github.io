@@ -66,6 +66,7 @@ class ApiClient {
   //     return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
   // }
 
+
   async fecthUserFromToken() {
     return await this.request({ endpoint: `auth/me`, method: `GET` });
   }
@@ -86,10 +87,19 @@ class ApiClient {
     });
   }
 
-  async logoutUser() {
-    this.setToken(null);
-    localStorage.setItem(this.tokenName, "");
+  async getProductById(productId) {
+    return await this.request({
+      endpoint: `product/id/${productId}`,
+      method: `GET`
+    });
+  
   }
+
+  async logoutUser() {
+      this.setToken(null);
+      localStorage.setItem(this.tokenName, "");
+  }
+
 }
 
 export default new ApiClient("http://localhost:3001");
