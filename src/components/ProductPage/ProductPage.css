@@ -3,3 +3,10 @@
     padding-top: 86px;
     color: white;
   }
+
+  .similar{
+    background: black;
+    height: 100%;
+    padding-left: 139px;
+    padding-right: 139px;
+  }

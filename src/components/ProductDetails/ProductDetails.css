@@ -1,8 +1,8 @@
 .product-details{
     background: black;
-    width: 100%;
     height: 100%;
-
+    margin-left: 139px;
+    margin-right: 139px;
 }
 
 .shoe-info {
@@ -10,7 +10,7 @@
     margin-top: 10px;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .shoe-card {
@@ -132,7 +132,7 @@
     width: 100%;
     display: flex;
     margin: 10px;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .toggle-btn {
@@ -143,8 +143,9 @@
     cursor: pointer;
     display: flex;
     font-size: 35px;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    gap: 20px
     
   }
 

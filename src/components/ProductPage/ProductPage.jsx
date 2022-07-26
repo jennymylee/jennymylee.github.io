@@ -18,7 +18,7 @@ export default function ProductPage() {
     <div className="product-page">
       
       
-      <div className="product-details">
+      <div className="product-detail">
         <ProductDetails />
       </div>
 

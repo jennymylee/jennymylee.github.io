@@ -88,7 +88,7 @@ export default function ProductDetails() {
                     <h2>Details</h2>
                     <div className="price-date">
                         <p className="retail-price">Retail Price: ${shoe.retail_price}</p>
-                        <p className="release-date">Release Date(M/D/Y): {d.getMonth()}/{d.getDay()}/{d.getFullYear()}</p>
+                        <p className="release-date">Release Date: {d.getMonth()}/{d.getDay()}/{d.getFullYear()}</p>
                     </div>
                     <p className="description">Description: {shoe.description}</p>
                 </div>
@@ -141,7 +141,7 @@ export default function ProductDetails() {
                 </div>
 
                 <div className="email-updates">
-                    <h4>Receive updates</h4>
+                    <h4>Receive updates (Coming soon...)</h4>
                     {/* render email updates component */}
                 </div>
 
@@ -149,7 +149,7 @@ export default function ProductDetails() {
         </div>
 
         <div className="price-history">
-            <h1>Price History</h1>
+            <h1>Price History (Coming soon...)</h1>
         </div>
 
     </div>
