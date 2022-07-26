@@ -5,7 +5,10 @@ import {
   MdOutlineCheckBox,
 } from "react-icons/md";
 
-export default function TrendingSideBar() {
+export default function TrendingSideBar({
+  trendingProducts,
+  setTrendingProducts,
+}) {
   const [check, setCheck] = React.useState(false);
   return (
     <div className="trending-side-bar">

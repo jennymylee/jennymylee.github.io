@@ -1,6 +1,10 @@
 import * as React from "react"
 import "./Footer.css"
 
+/*
+Displays basic contact information
+Renders inside LandingPage component
+*/
 export default function Footer(){
     return (
         <div className="footer-container">
@@ -19,11 +23,11 @@ export default function Footer(){
             </div>
             <div className="footer-end">
                 <div className="footer-social">
-                    <i className="fa-brands fa-facebook contact"></i>
-                    <i className="fa-brands fa-instagram contact"></i>
-                    <i className="fa-brands fa-twitter contact"></i>
-                    <i className="fa-brands fa-linkedin contact"></i>
-                    <i className="fa-regular fa-envelope contact"></i>
+                    <i className="fa-brands fa-facebook fa-xl contact"></i>
+                    <i className="fa-brands fa-instagram fa-xl contact"></i>
+                    <i className="fa-brands fa-twitter fa-xl contact"></i>
+                    <i className="fa-brands fa-linkedin fa-xl contact"></i>
+                    <i className="fa-regular fa-envelope fa-xl contact"></i>
                 </div>
                 <div className="footer-copy">
                     <p>
