@@ -8,6 +8,7 @@ import apiClient from "../../services/apiClient";
 export default function TrendingPage() {
   // trendingProducts is an array of product objects
   const [trendingProducts, setTrendingProducts] = React.useState();
+
   const { user } = useAuthContext();
 
   // Get array of products from shoes table and set trendingProducts state.
@@ -25,12 +26,23 @@ export default function TrendingPage() {
     fetchProducts();
   }, []);
 
+  // These states will act as filters for the trendingProducts
+  const [brands, setBrands] = React.useState([]);
+  const [priceRanges, setPriceRanges] = React.useState([]);
+  const [releaseYears, setReleaseYears] = React.useState([]);
+
   return (
     <div className="trending-page">
       {/* Trending Side Bar will allow user to filter the Trending Section */}
       <TrendingSideBar
         trendingProducts={trendingProducts}
         setTrendingProducts={setTrendingProducts}
+        brands={brands}
+        setBrands={setBrands}
+        priceRanges={priceRanges}
+        setPriceRanges={setPriceRanges}
+        releaseYears={releaseYears}
+        setReleaseYears={setReleaseYears}
       />
       <div className="trending">
         <h1 className="trending-title">What's Trending</h1>

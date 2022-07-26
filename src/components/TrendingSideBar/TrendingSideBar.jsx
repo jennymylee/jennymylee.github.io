@@ -1,4 +1,5 @@
 import * as React from "react";
+import apiClient from "../../services/apiClient";
 import "./TrendingSideBar.css";
 import {
   MdOutlineCheckBoxOutlineBlank,
@@ -8,8 +9,92 @@ import {
 export default function TrendingSideBar({
   trendingProducts,
   setTrendingProducts,
+  brands,
+  setBrands,
+  priceRanges,
+  setPriceRanges,
+  releaseYears,
+  setReleaseYears,
 }) {
-  const [check, setCheck] = React.useState(false);
+  // This useState keeps track of the current state of each checkbox.
+  // Each checkbox is defaulted to false.
+  // false = unchecked
+  // true = checked
+  const [checkedState, setCheckedState] = React.useState(
+    new Array(12).fill(false)
+  );
+
+  // This function updates the useState corresponding to the
+  // param category with the param criteria
+  //
+  // If a state variable contains the criteria value,
+  // the value is removed from the state.
+  // Else, the criteria value is appended to the state.
+  //
+  // :param category: "brand" || "price" || "release_year"
+  // :param criteria: string or int
+  const updateFilters = (category, criteria) => {
+    if (category === "brand") {
+      if (brands.includes(criteria)) {
+        let copy = [...brands];
+        let index = copy.indexOf(criteria);
+        delete copy[index];
+        setBrands(copy);
+      } else {
+        setBrands([...brands, criteria]);
+      }
+    } else if (category === "price") {
+      if (priceRanges.includes(criteria)) {
+        let copy = [...priceRanges];
+        let index = copy.indexOf(criteria);
+        delete copy[index];
+        setPriceRanges(copy);
+      } else {
+        setPriceRanges([...priceRanges, criteria]);
+      }
+    } else if (category === "release_year") {
+      if (releaseYears.includes(criteria)) {
+        let copy = [...releaseYears];
+        let index = copy.indexOf(criteria);
+        delete copy[index];
+        setReleaseYears(copy);
+      } else {
+        setReleaseYears([...releaseYears, criteria]);
+      }
+    }
+  };
+
+  // This function updates the checkedState state variable,
+  // toggling between true and false given a position.
+  const updateCheckedState = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+  };
+
+  // This function sets the trendingProducts state to be
+  // an array of all products in the shoes table
+  const fetchProducts = async () => {
+    try {
+      const { data, error } = await apiClient.getProducts();
+      if (data) {
+        setTrendingProducts(data.products);
+      }
+    } catch (err) {
+      return;
+    }
+  };
+
+  // This function updates the trendingProducts state, filtering it with
+  // the conditions specified in brands, priceRanges, and releaseYears
+  const filterResults = () => {
+    // We first have to update trendingProducts to be
+    // a complete array of the products before filtering
+    fetchProducts();
+  };
+
   return (
     <div className="trending-side-bar">
       <div className="tsb-content">
@@ -20,10 +105,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(0);
+              updateFilters("brand", "Nike");
             }}
           >
-            {check ? (
+            {checkedState[0] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -33,10 +119,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(1);
+              updateFilters("brand", "Adidas");
             }}
           >
-            {check ? (
+            {checkedState[1] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -46,10 +133,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(2);
+              updateFilters("brand", "Jordan");
             }}
           >
-            {check ? (
+            {checkedState[2] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -63,10 +151,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(3);
+              updateFilters("price", "<200");
             }}
           >
-            {check ? (
+            {checkedState[3] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -76,10 +165,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(4);
+              updateFilters("price", "200-400");
             }}
           >
-            {check ? (
+            {checkedState[4] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -89,10 +179,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(5);
+              updateFilters("price", "400-600");
             }}
           >
-            {check ? (
+            {checkedState[5] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -102,10 +193,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(6);
+              updateFilters("price", ">600");
             }}
           >
-            {check ? (
+            {checkedState[6] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -119,10 +211,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(7);
+              updateFilters("release_year", 2022);
             }}
           >
-            {check ? (
+            {checkedState[7] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -132,10 +225,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(8);
+              updateFilters("release_year", 2021);
             }}
           >
-            {check ? (
+            {checkedState[8] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -145,10 +239,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(9);
+              updateFilters("release_year", 2020);
             }}
           >
-            {check ? (
+            {checkedState[9] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -158,10 +253,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(10);
+              updateFilters("release_year", 2019);
             }}
           >
-            {check ? (
+            {checkedState[10] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -171,10 +267,11 @@ export default function TrendingSideBar({
           <div
             className="filter-row"
             onClick={() => {
-              setCheck(!check);
+              updateCheckedState(11);
+              updateFilters("release_year", 2018);
             }}
           >
-            {check ? (
+            {checkedState[11] ? (
               <MdOutlineCheckBox color="white" size="25px" />
             ) : (
               <MdOutlineCheckBoxOutlineBlank color="white" size="25px" />
@@ -183,7 +280,9 @@ export default function TrendingSideBar({
           </div>
         </div>
         {/* ---------------Filter Button---------------- */}
-        <button className="filter-btn">Filter</button>
+        <button className="filter-btn" onClick={() => filterResults()}>
+          Filter
+        </button>
       </div>
     </div>
   );
