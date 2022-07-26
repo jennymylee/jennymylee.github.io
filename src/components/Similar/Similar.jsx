@@ -7,15 +7,18 @@ import apiClient from "../../services/apiClient";
 // Shows 4 products on each page
 let PageSize = 4;
 
-export default function Similar() {
+export default function Similar(props) {
   
 const [similarProducts, setSimilarProducts] = useState();
+
+console.log("shoeBrand", props.shoeBrand)
 
 // Get array of products from shoes table and set similarProducts state.
 useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data, error } = await apiClient.getProducts();
+        const { data, error } = await apiClient.searchProduct("Nike");
+        console.log(2,data)
         if (data) {
             setSimilarProducts(data.products);
         }

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiClient from "../../services/apiClient";
 
-export default function ProductDetails() {
+export default function ProductDetails(props) {
     let { productId } = useParams();
 
     //initializes shoe
@@ -73,6 +73,10 @@ export default function ProductDetails() {
         //console.log("Shoesize clicked")
         
     }
+
+
+    props.setShoeBrand(shoe.brand)
+
 
   return (
     <div className="product-details">
