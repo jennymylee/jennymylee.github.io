@@ -8,6 +8,8 @@ import apiClient from "../../services/apiClient";
 
 export default function ProductDetails() {
     let { productId } = useParams();
+
+    //initializes shoe
     const [shoe, setShoe] = useState(
         {
             id: 0,
@@ -33,7 +35,7 @@ export default function ProductDetails() {
             const {data, error} = await apiClient.getProductById(productId)
             setShoe(data.product)
         }catch(error) {
-            console.log(error)
+            //console.log(error)
         }
         
     }
@@ -42,8 +44,10 @@ export default function ProductDetails() {
 
     useEffect(() => {getProduct()}, [] )
 
+    //creates date varaible
     const d = new Date(shoe.release_date)
 
+    //used for wishlist button
     const[addedToWishlist, setAddedToWishlist]  = useState("Add to Wishlist");
     const[heartImg, setHeartImg]  = useState(heartOutline);
 
@@ -66,7 +70,7 @@ export default function ProductDetails() {
     }
 
     const selectShoeSize = async () => {
-        console.log("Shoesize clicked")
+        //console.log("Shoesize clicked")
         
     }
 
