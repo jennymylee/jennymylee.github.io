@@ -12,6 +12,8 @@ export default function ProductDetails() {
     let { productId } = useParams();
     const { user } = useAuthContext()
 
+    console.log("ISERDETULA", user.id)
+
     //initializes shoe
     const [shoe, setShoe] = useState(
         {
@@ -70,7 +72,6 @@ export default function ProductDetails() {
         }
         // calls to remove shoe from wishlist
         else{
-            console.log("removed")
             setAddedToWishlist("Add to Wishlist")
             setHeartImg(heartOutline)
             removeFromWishlist()
@@ -80,10 +81,8 @@ export default function ProductDetails() {
 
     //add shoe to wishlist
     async function addToWishlist() {
-        console.log("in wishlist")
         try{
             const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
-            console.log("wishlistData", data)
         }catch(error) {
             console.log(error)
         }
@@ -92,12 +91,10 @@ export default function ProductDetails() {
 
     //remove shoe from wishlist
     async function removeFromWishlist() {
-        console.log("in wishlist")
         try{
             await apiClient.deleteWishlistItem({shoe_id: shoe.id ,user_id: user.id})
-            console.log("deleted")
         }catch(error) {
-            console.log(error)
+
         }
         
     }
