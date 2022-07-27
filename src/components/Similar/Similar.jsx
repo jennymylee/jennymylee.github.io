@@ -17,7 +17,7 @@ console.log("shoeBrand", props.shoeBrand)
 useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data, error } = await apiClient.searchProduct("Adidas");
+        const { data, error } = await apiClient.searchProduct(props.shoeBrand);
         console.log(2,data)
         if (data) {
             setSimilarProducts(data.products);
@@ -27,7 +27,7 @@ useEffect(() => {
       }
     };
     fetchProducts();
-  }, []);
+  }, [props.shoeBrand]);
 
   // This function creates a product card for the current set of products
   const renderProducts = () => {
