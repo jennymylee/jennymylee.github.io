@@ -8,7 +8,7 @@ import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
 import { useWishlistContext } from "../../contexts/wishlist";
 
-export default function ProductDetails() {
+export default function ProductDetails(props) {
     let { productId } = useParams();
     const { user } = useAuthContext()
 
@@ -42,7 +42,6 @@ export default function ProductDetails() {
         }catch(error) {
             //console.log(error)
         }
-        
     }
 
 
@@ -103,6 +102,10 @@ export default function ProductDetails() {
         //console.log("Shoesize clicked")
         
     }
+
+
+    props.setShoeBrand(shoe.brand)
+
 
   return (
     <div className="product-details">

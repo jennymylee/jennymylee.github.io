@@ -14,7 +14,7 @@ class ApiClient {
 
   async request({ endpoint, method = `GET`, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`;
-    console.log("url for request", url);
+    //console.log("url for request", url);
     
     if (endpoint == "product/search") {
       const headers = {
@@ -27,7 +27,7 @@ class ApiClient {
         return { data: res.data, error: null };
       } catch (error) {
         const message = error.response.data.error.message;
-        console.log("message", error)
+        console.error("message", error)
         return { data: null, error: message || String(error) };
       }
     }
@@ -40,7 +40,7 @@ class ApiClient {
         return { data: res.data, error: null };
       } catch (error) {
         const message = error.response.data.error.message;
-        console.log("message", error)
+        console.error("message", error)
         return { data: null, error: message || String(error) };
       }
     } else {
@@ -68,7 +68,6 @@ class ApiClient {
   // Still needs testing
 
   async searchProduct(searchItem){
-      console.log("in searchPrd", searchItem)
       return await this.request({endpoint: `product/search`, method: `POST`, data: searchItem})
 
     }

@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
     // product detail page classified by id.
     <div
       className="product-card"
-      onClick={() => navigate(`/product/id/${product.id}`)}
+      onClick={() => {navigate(`/product/id/${product.id}`); window.location.reload();}}
     >
       {/* this image wrapper adds a white background to the product image */}
       <div className="img-wrapper">
