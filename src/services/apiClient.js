@@ -82,9 +82,13 @@ class ApiClient {
   // }
 
   async createWishListItem(wishListItem){
-      console.log("wishlistItem", wishListItem)
       return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
   }
+
+  async deleteWishlistItem(wishListItem){
+    console.log("deleteItem", wishListItem)
+    return await this.request({endpoint: `wishlist`, method: `DELETE`, data: wishListItem})
+}
 
   async fecthUserFromToken() {
     return await this.request({ endpoint: `auth/me`, method: `GET` });

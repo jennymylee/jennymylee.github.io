@@ -63,7 +63,6 @@ export default function ProductDetails() {
     const toggleWishlist = async () => {
         // calls to add shoe to wishlist
         if(addedToWishlist == "Add to Wishlist") {
-            console.log("Clicked")
             setAddedToWishlist("Remove from Wishlist")
             setHeartImg(heartFill)
             addToWishlist()
@@ -71,8 +70,10 @@ export default function ProductDetails() {
         }
         // calls to remove shoe from wishlist
         else{
+            console.log("removed")
             setAddedToWishlist("Add to Wishlist")
             setHeartImg(heartOutline)
+            removeFromWishlist()
         }
         
     }
@@ -83,6 +84,18 @@ export default function ProductDetails() {
         try{
             const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
             console.log("wishlistData", data)
+        }catch(error) {
+            console.log(error)
+        }
+        
+    }
+
+    //remove shoe from wishlist
+    async function removeFromWishlist() {
+        console.log("in wishlist")
+        try{
+            await apiClient.deleteWishlistItem({shoe_id: shoe.id ,user_id: user.id})
+            console.log("deleted")
         }catch(error) {
             console.log(error)
         }
