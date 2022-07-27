@@ -14,8 +14,24 @@ class ApiClient {
 
   async request({ endpoint, method = `GET`, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`;
-    console.log("url for request", url);
-    if (endpoint == "product") {
+    //console.log("url for request", url);
+    
+    if (endpoint == "product/search") {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      try {
+        const res = await axios.post(url, {
+          "query": data
+        }, {headers})
+        return { data: res.data, error: null };
+      } catch (error) {
+        const message = error.response.data.error.message;
+        console.error("message", error)
+        return { data: null, error: message || String(error) };
+      }
+    }
+    else if (endpoint == "product") {
       const headers = {
         "Content-Type": "application/json",
       };
@@ -24,6 +40,7 @@ class ApiClient {
         return { data: res.data, error: null };
       } catch (error) {
         const message = error.response.data.error.message;
+        console.error("message", error)
         return { data: null, error: message || String(error) };
       }
     } else {
@@ -50,9 +67,10 @@ class ApiClient {
 
   // Still needs testing
 
-  // async searchProduct(searchItem){
-  //     return await this.request({endpint: `product/search`, method: `GET`, data: searchItem})
-  // }
+  async searchProduct(searchItem){
+      return await this.request({endpoint: `product/search`, method: `POST`, data: searchItem})
+
+    }
 
   async getProducts() {
     return await this.request({ endpoint: `product`, method: `GET` });

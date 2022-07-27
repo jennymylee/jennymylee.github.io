@@ -1,30 +1,30 @@
-import React, { useState, useMemo } from "react";
-import "./TrendingProducts.css";
+import React, { useState, useMemo, useEffect } from "react";
+import "./Similar.css";
 import Pagination from "../Pagination/Pagination";
 import ProductCard from "../ProductCard/ProductCard";
+import apiClient from "../../services/apiClient";
 
-// Shows 12 products on each page
-let PageSize = 12;
+// Shows 4 products on each page
+let PageSize = 4;
 
-export default function TrendingProducts({ filteredProducts }) {
-  // This component renders a list of products and includes pagination.
-  //
-  // :param trendingProducts: {
-  //    id: text,
-  //    name: text,
-  //    brand: text,
-  //    colorway: text,
-  //    silhouette: text,
-  //    release_year: text,
-  //    release_date: date,
-  //    retail_price: number,
-  //    market_price: number,
-  //    description: text,
-  //    image_url: text,
-  //    current_bid: number,
-  //    lowest_ask: number,
-  //    total_sales: integer
-  // }
+export default function Similar(props) {
+  
+const [similarProducts, setSimilarProducts] = useState();
+
+// Get array of products from shoes table and set similarProducts state.
+useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await apiClient.searchProduct(props.shoeBrand);
+        if (data) {
+            setSimilarProducts(data.products);
+        }
+      } catch (err) {
+        return;
+      }
+    };
+    fetchProducts();
+  }, [props.shoeBrand]);
 
   // This function creates a product card for the current set of products
   const renderProducts = () => {
@@ -37,9 +37,9 @@ export default function TrendingProducts({ filteredProducts }) {
 
   // When we have a new set of relevant products, we set the
   // current page number to be 1.
-  React.useEffect(() => {
+    useEffect(() => {
     setCurrentPage(1);
-  }, [filteredProducts]);
+  }, [similarProducts]);
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -48,30 +48,30 @@ export default function TrendingProducts({ filteredProducts }) {
   const currentProductData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    if (filteredProducts) {
-      return filteredProducts.slice(firstPageIndex, lastPageIndex);
+    if (similarProducts) {
+      return similarProducts.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage, filteredProducts]);
+  }, [currentPage, similarProducts]);
 
-  if (filteredProducts) {
+  if (similarProducts) {
     return (
-      <div className="trending-products">
-        <div className="tp-content">
+      <div className="similar-products">
+        <div className="sp-content">
           {/* Pagination component can be found on both top 
           and bottom of products */}
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={filteredProducts.length}
+            totalCount={similarProducts.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />
           {/* Render products */}
-          <div className="tp-items">{renderProducts()}</div>
+          <div className="sp-items">{renderProducts()}</div>
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={filteredProducts.length}
+            totalCount={similarProducts.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

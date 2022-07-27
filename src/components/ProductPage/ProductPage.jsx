@@ -3,7 +3,8 @@ import "./ProductPage.css";
 import { useNavigate, Routes, Route } from "react-router-dom"
 import Footer from "../Footer/Footer"
 import ProductDetails from "../ProductDetails/ProductDetails";
-
+import Similar from "../Similar/Similar";
+import { useState } from "react";
 /*
 The ProductPage component will be render/referenced in the App.jsx file
 ProductPage is set to the "/product/*" route. The ProductPage componenet will be followed by navbar where
@@ -14,16 +15,18 @@ ProductPage page
 export default function ProductPage() {
   const navigate = useNavigate();
 
+  const [shoeBrand, setShoeBrand] = useState();
+
   return (
     <div className="product-page">
       
       
       <div className="product-detail">
-        <ProductDetails />
+        <ProductDetails shoeBrand={shoeBrand} setShoeBrand={setShoeBrand}/>
       </div>
 
       <div className="similar">
-        Similar
+        <Similar shoeBrand={shoeBrand}/>
       </div>
       {/* The Footer component will display information about how to contact our group with an question
       via social media or email */}
