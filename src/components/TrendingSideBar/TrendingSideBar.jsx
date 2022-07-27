@@ -16,8 +16,11 @@ export default function TrendingSideBar({
   releaseYears,
   setReleaseYears,
 }) {
+  // This state acts as a toggle for the "Remove All Filters" button
   const [filterButtonClicked, setFilterButtonClicked] = React.useState(false);
 
+  // When the remove filters button is clicked, brands, priceRanges, and
+  // releaseYears are emptied and all filter check marks are removed
   React.useEffect(() => {
     setBrands([]);
     setPriceRanges([]);
@@ -33,7 +36,6 @@ export default function TrendingSideBar({
     new Array(12).fill(false)
   );
 
-  console.log("checkedState: ", checkedState);
   // This function updates the useState corresponding to the
   // param category with the param criteria
   //

@@ -75,13 +75,14 @@ function App() {
                   </>
                 }
               />
-              <Route path="/product/id/:productId"
+              <Route
+                path="/product/id/:productId"
                 element={
                   <div>
                     <Navbar />
                     <ProductPage />
                   </div>
-                } 
+                }
               />
               <Route
                 path="*"

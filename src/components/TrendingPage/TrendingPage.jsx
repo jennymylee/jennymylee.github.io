@@ -9,6 +9,7 @@ export default function TrendingPage() {
   // trendingProducts is an array of product objects
   const [trendingProducts, setTrendingProducts] = React.useState();
 
+  // trendingProducts is an array of product objects with filters applied
   const [filteredProducts, setFilteredProducts] = React.useState();
 
   // These states will act as filters for the trendingProducts
@@ -36,18 +37,16 @@ export default function TrendingPage() {
   React.useEffect(() => {
     setFilteredProducts(trendingProducts);
 
+    // We only filter trendingProducts if filters are checked
     if (trendingProducts && (brands || releaseYears || priceRanges)) {
       setFilteredProducts(trendingProducts.filter(applyFilters));
     }
-    console.log("brands", brands);
-    console.log("release years", releaseYears);
   }, [trendingProducts, brands, priceRanges, releaseYears]);
 
+  // this is a function to check to see if a product meets our filter constraints
   const applyFilters = (product) => {
-    console.log("applyFilters: ");
     let brand = false;
     let release_year = false;
-    console.log("release_year len", releaseYears.length);
     let price = false;
 
     if (brands.includes(product.brand) || brands.length === 0) {
@@ -83,12 +82,6 @@ export default function TrendingPage() {
     } else {
       price = true;
     }
-    console.log("states", [
-      product.brand,
-      product.market_price,
-      product.release_year,
-    ]);
-    console.log("states", [brand, price, release_year]);
     return brand && release_year && price;
   };
 
@@ -107,6 +100,7 @@ export default function TrendingPage() {
       />
       <div className="trending">
         <h1 className="trending-title">What's Trending</h1>
+        {/* displays filtered products */}
         <TrendingProducts filteredProducts={filteredProducts} />
       </div>
     </div>
