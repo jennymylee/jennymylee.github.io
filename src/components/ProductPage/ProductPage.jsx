@@ -26,7 +26,6 @@ export default function ProductPage() {
       </div>
 
       <div className="similar">
-        Similar
         <Similar shoeBrand={shoeBrand}/>
       </div>
       {/* The Footer component will display information about how to contact our group with an question

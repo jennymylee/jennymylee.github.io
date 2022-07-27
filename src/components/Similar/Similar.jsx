@@ -17,7 +17,7 @@ console.log("shoeBrand", props.shoeBrand)
 useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data, error } = await apiClient.searchProduct("Nike");
+        const { data, error } = await apiClient.searchProduct("Adidas");
         console.log(2,data)
         if (data) {
             setSimilarProducts(data.products);
