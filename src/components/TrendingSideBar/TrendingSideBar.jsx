@@ -46,9 +46,6 @@ export default function TrendingSideBar({
   // :param category: "brand" || "price" || "release_year"
   // :param criteria: string or int
   const updateFilters = (category, criteria) => {
-    console.log("updateFilters: ");
-    console.log("update filters category and criteria", category, criteria);
-
     if (category === "brand") {
       if (brands.includes(criteria)) {
         let copy = [...brands];
@@ -84,7 +81,6 @@ export default function TrendingSideBar({
   // This function updates the checkedState state variable,
   // toggling between true and false given a position.
   const updateCheckedState = (position) => {
-    console.log("updateCheckedState: ");
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
@@ -95,8 +91,6 @@ export default function TrendingSideBar({
   // This function sets the trendingProducts state to be
   // an array of all products in the shoes table
   const fetchProducts = async () => {
-    console.log("fetchProducts: ");
-
     try {
       const { data, error } = await apiClient.getProducts();
       if (data) {
@@ -117,8 +111,6 @@ export default function TrendingSideBar({
   // This function updates the trendingProducts state, filtering it with
   // the conditions specified in brands, priceRanges, and releaseYears
   const filterResults = (filteredResults) => {
-    console.log("filterResults: ");
-
     setTrendingProducts(filterResults);
   };
 
