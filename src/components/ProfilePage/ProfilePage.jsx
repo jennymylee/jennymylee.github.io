@@ -11,10 +11,10 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const { user, setUser } = useAuthContext();
 
+  // if user is not logged in, they are redirected to
+  // login page
   React.useEffect(() => {
-    console.log("user", user);
-    if (user === {}) {
-      console.log("in here");
+    if (Object.keys(user).length === 0) {
       navigate("/login");
     }
   }, []);
