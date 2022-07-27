@@ -11,8 +11,6 @@ export default function Similar(props) {
   
 const [similarProducts, setSimilarProducts] = useState();
 
-console.log("shoeBrand", props.shoeBrand)
-
 // Get array of products from shoes table and set similarProducts state.
 useEffect(() => {
     const fetchProducts = async () => {
