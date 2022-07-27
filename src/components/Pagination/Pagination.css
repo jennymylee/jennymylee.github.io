@@ -1,22 +1,23 @@
 .pagination-container {
   display: flex;
   list-style-type: none;
+  margin: 40px;
 }
 
 .pagination-item {
-  padding: 0 12px;
-  height: 32px;
+  padding: 0 15px;
+  height: 40px;
   text-align: center;
-  margin: auto 4px;
+  margin: auto 6px;
   color: white;
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  letter-spacing: 0.01071em;
-  border-radius: 16px;
-  line-height: 1.43;
-  font-size: 13px;
-  min-width: 32px;
+  letter-spacing: 0.01075em;
+  border-radius: 20px;
+  line-height: 1.45;
+  font-size: 16px;
+  min-width: 40px;
 }
 
 .pi-dots:hover {

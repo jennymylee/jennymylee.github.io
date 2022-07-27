@@ -61,7 +61,7 @@ function App() {
                 path="/trending"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"grey"} />
                     <TrendingPage />
                   </>
                 }
@@ -70,7 +70,7 @@ function App() {
                 path="/profile"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"grey"} />
                     <ProfilePage />
                   </>
                 }
