@@ -10,7 +10,8 @@ Allows to user to switch to different pages
 such as login, register, trending, etc
 */
 export default function Navbar(props) {
-  const { user } = useAuthContext()
+  const { user , setSearchProducts} = useAuthContext()
+  const [searchName, setSearchName] = React.useState("")
   const navigate = useNavigate()
   const login = async () => {
     navigate("/login");
@@ -19,6 +20,17 @@ export default function Navbar(props) {
   const signup = async () => {
     navigate("/register");
   };
+
+  const handleOnSubmit = async (e) => {
+    if (e.key === 'Enter'){
+      console.log("value", e.target.value)
+      setSearchProducts(searchName)
+      navigate("/search")
+    }
+  };
+  const handleOnChange = async (e) => {
+    setSearchName(e.target.value)
+  }
   return (
     <div className="navbar">
       <div className="content">
@@ -54,7 +66,7 @@ export default function Navbar(props) {
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 
-              <input type="text" className="search-text" placeholder="Shoe"/>
+              <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
 
             </div>
 

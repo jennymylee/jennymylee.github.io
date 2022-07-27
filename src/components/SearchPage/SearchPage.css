@@ -1,0 +1,7 @@
+.search-page{
+    margin-top: 86px;
+    background: black;
+}
+.search-page .similar{
+    background: linear-gradient(180deg, rgba(250, 40, 81, 0.3) 0%, rgba(178, 97, 241, 0.3) 100%);
+}

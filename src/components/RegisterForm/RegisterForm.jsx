@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
+import ProductRow from "../ProductRow/ProductRow"
 
 //Will render inside the App components where the user will
 //have access to create an account
@@ -125,7 +126,7 @@ export default function RegisterForm() {
         </div>
       </div>
       <div className="featured">
-        hello
+        <ProductRow name={"2"} number={"2"}></ProductRow>
       </div>
     </div>
   );

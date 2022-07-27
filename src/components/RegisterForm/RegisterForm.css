@@ -6,8 +6,9 @@
 }
 .register-form-container .inputss{
     width: 35%;
-    margin-left: 10%;
+    margin-left: 8%;
     align-items: center;
+    margin-top: -140px;
 }
 .register-form-container .inputss .titles{
     font-family: 'Poppins';
@@ -20,8 +21,11 @@
     margin-top: 140px;
 }
 .register-form-container .featured {
-  width: 35%;
-  margin-left: 10%;
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 90px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
+  padding-bottom: -200px;
 }
 .register-form-container .split-form-inputs{
     display: flex;
@@ -111,4 +115,17 @@
     color: #ab5cd6;
     font-size: 20px;
     font-weight: 700;
+}
+.register-form-container .featured .product-card{
+    margin-bottom: 20px;
+}
+.register-form-container .featured .product-row-container .titles{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 75px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }

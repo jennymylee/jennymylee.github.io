@@ -21,7 +21,7 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
 This component is being render in the LandingPage component
 which call an api from apiClient to render a carousel of sneakers
 */
-export default function ProductRow(){
+export default function ProductRow(props){
     const [sneaker, setProducts] = useState([])
     const [error, setError] = useState({})
     React.useEffect(() => {
@@ -42,16 +42,18 @@ export default function ProductRow(){
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
+      slidesToShow: Number(props.number),
+      slidesToScroll: 3,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
+      rows: Number(props.name)
     };
+    console.log("here", props.name)
     return (
       <div className="product-row-container">
-        <h2>Featured</h2>
+        <p className="titles">Featured</p>
         <Slider {...settings}>
-            {sneaker.map((ele, idx) => {
+            {sneaker.slice(0, 12).map((ele, idx) => {
                 return (
                     <ProductCard product={ele} key={idx}></ProductCard>
                 )

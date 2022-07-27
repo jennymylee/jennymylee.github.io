@@ -5,10 +5,10 @@
   align-items: center;
 }
 .login-page .card {
-  /* width: 66%; */
   width: 35%;
-  margin-left: 10%;
+  margin-left: 8%;
   align-items: center;
+  margin-top: -140px;
 }
 .login-page .card .one{
   margin-top: -50px;
@@ -24,8 +24,10 @@
   margin-top: 140px;
 }
 .login-page .featured{
-  width: 35%;
-  margin-left: 10%;
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 90px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
 }
 .login-page .input-field{
   margin-bottom: 15px;
@@ -128,4 +130,17 @@ hr {
   color: #ab5cd6;
   font-size: 20px;
   font-weight: 700;
+}
+.login-page .featured .product-card{
+  margin-bottom: 20px;
+}
+.login-page .featured .product-row-container .titles{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 75px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }

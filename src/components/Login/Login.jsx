@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import apiClient from "../../services/apiClient"
 import { useAuthContext } from "../../contexts/auth"
+import ProductRow from "../ProductRow/ProductRow"
 
 export default function Login() {
 
@@ -80,7 +81,7 @@ export default function Login() {
             </div> 
         </div>
         <div className="featured">
-            FEATURED SECTION
+            <ProductRow name={"2"} number={"2"}></ProductRow>
         </div>
     </div>
   )

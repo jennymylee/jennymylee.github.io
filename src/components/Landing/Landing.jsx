@@ -58,7 +58,7 @@ export default function Landing() {
           <img className="shoeLogo" src={require('./shoeLogo.png')} alt="Hero Pic" />
         </div>
       </div>
-      <ProductRow></ProductRow>
+      <ProductRow name={"1"} number={"4"}></ProductRow>
       {/* The AboutUs component will display information about the purpose of our webpage and functionality */}
       <AboutUs></AboutUs>
       {/* The Footer component will display information about how to contact our group with an question
