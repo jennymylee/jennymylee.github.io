@@ -37,7 +37,6 @@ export default function ProductDetails(props) {
         }catch(error) {
             //console.log(error)
         }
-        
     }
 
 

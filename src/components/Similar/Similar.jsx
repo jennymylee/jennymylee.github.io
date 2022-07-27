@@ -18,7 +18,6 @@ useEffect(() => {
     const fetchProducts = async () => {
       try {
         const { data, error } = await apiClient.searchProduct(props.shoeBrand);
-        console.log(2,data)
         if (data) {
             setSimilarProducts(data.products);
         }
