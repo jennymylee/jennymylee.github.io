@@ -5,9 +5,11 @@ import heartFill from "./img/heart-fill.png"
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiClient from "../../services/apiClient";
+import { useAuthContext } from "../../contexts/auth";
 
 export default function ProductDetails() {
     let { productId } = useParams();
+    const { user } = useAuthContext()
 
     //initializes shoe
     const [shoe, setShoe] = useState(
@@ -58,13 +60,27 @@ export default function ProductDetails() {
     //Else, if item is already in wishlist, remove from wishlist,
     //change text
     const toggleWishlist = async () => {
+        // calls to add shoe to wishlist
         if(addedToWishlist == "Add to Wishlist") {
             setAddedToWishlist("Remove from Wishlist")
             setHeartImg(heartFill)
+            
         }
+        // calls to remove shoe from wishlist
         else{
             setAddedToWishlist("Add to Wishlist")
             setHeartImg(heartOutline)
+        }
+        
+    }
+
+    //add shoe to wishlist
+    async function addToWishlist() {
+        try{
+            const {data, error} = await apiClient.getProductById(productId)
+            setShoe(data.product)
+        }catch(error) {
+            //console.log(error)
         }
         
     }
