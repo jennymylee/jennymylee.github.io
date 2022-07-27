@@ -7,6 +7,7 @@ import ProductCard from "../ProductCard/ProductCard";
 let PageSize = 12;
 
 export default function TrendingProducts({ trendingProducts }) {
+  console.log(trendingProducts)
   // This component renders a list of products and includes pagination.
   //
   // :param trendingProducts: {
@@ -30,6 +31,7 @@ export default function TrendingProducts({ trendingProducts }) {
   const renderProducts = () => {
     if (currentProductData) {
       return currentProductData.map((product, i) => {
+        console.log("product", product)
         return <ProductCard key={i} product={product} />;
       });
     }

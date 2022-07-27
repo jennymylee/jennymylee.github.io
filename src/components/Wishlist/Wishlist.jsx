@@ -11,12 +11,9 @@ export default function Wishlist() {
   const { user } = useAuthContext()
 
   async function getWishlist() {
-    console.log("GETWISh")
     try{
-        console.log("USER",user.id)
         const {data, error} = await apiClient.listWishList(user.id)
         setTrendingProducts(data.wishlist)
-        console.log("dataaaaa", data.wishlist)
     }catch(error) {
         console.log(error)
     }
@@ -25,6 +22,14 @@ export default function Wishlist() {
   console.log("Trending", trendingProducts)
 
   useEffect(() => {getWishlist()}, [] )
+
+  if(trendingProducts) {
+    trendingProducts.map((e) => {
+      console.log(e)
+    e.id = e.shoe_id
+  })
+  }
+  
   return (
     <div className="wishlist">
       <div className="wishlist-tabs">
