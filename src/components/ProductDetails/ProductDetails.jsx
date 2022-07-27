@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
+import { useWishlistContext } from "../../contexts/wishlist";
 
 export default function ProductDetails() {
     let { productId } = useParams();
@@ -62,8 +63,10 @@ export default function ProductDetails() {
     const toggleWishlist = async () => {
         // calls to add shoe to wishlist
         if(addedToWishlist == "Add to Wishlist") {
+            console.log("Clicked")
             setAddedToWishlist("Remove from Wishlist")
             setHeartImg(heartFill)
+            addToWishlist()
             
         }
         // calls to remove shoe from wishlist
@@ -76,11 +79,12 @@ export default function ProductDetails() {
 
     //add shoe to wishlist
     async function addToWishlist() {
+        console.log("in wishlist")
         try{
-            const {data, error} = await apiClient.getProductById(productId)
-            setShoe(data.product)
+            const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
+            console.log("wishlistData", data)
         }catch(error) {
-            //console.log(error)
+            console.log(error)
         }
         
     }
