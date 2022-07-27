@@ -16,6 +16,15 @@ export default function TrendingSideBar({
   releaseYears,
   setReleaseYears,
 }) {
+  const [filterButtonClicked, setFilterButtonClicked] = React.useState(false);
+
+  React.useEffect(() => {
+    setBrands([]);
+    setPriceRanges([]);
+    setReleaseYears([]);
+    setCheckedState(new Array(12).fill(false));
+  }, [filterButtonClicked]);
+
   // This useState keeps track of the current state of each checkbox.
   // Each checkbox is defaulted to false.
   // false = unchecked
@@ -24,6 +33,7 @@ export default function TrendingSideBar({
     new Array(12).fill(false)
   );
 
+  console.log("checkedState: ", checkedState);
   // This function updates the useState corresponding to the
   // param category with the param criteria
   //
@@ -34,11 +44,15 @@ export default function TrendingSideBar({
   // :param category: "brand" || "price" || "release_year"
   // :param criteria: string or int
   const updateFilters = (category, criteria) => {
+    console.log("updateFilters: ");
+    console.log("update filters category and criteria", category, criteria);
+
     if (category === "brand") {
       if (brands.includes(criteria)) {
         let copy = [...brands];
         let index = copy.indexOf(criteria);
-        delete copy[index];
+
+        copy.splice(index, 1);
         setBrands(copy);
       } else {
         setBrands([...brands, criteria]);
@@ -47,7 +61,7 @@ export default function TrendingSideBar({
       if (priceRanges.includes(criteria)) {
         let copy = [...priceRanges];
         let index = copy.indexOf(criteria);
-        delete copy[index];
+        copy.splice(index, 1);
         setPriceRanges(copy);
       } else {
         setPriceRanges([...priceRanges, criteria]);
@@ -56,7 +70,8 @@ export default function TrendingSideBar({
       if (releaseYears.includes(criteria)) {
         let copy = [...releaseYears];
         let index = copy.indexOf(criteria);
-        delete copy[index];
+        copy.splice(index, 1);
+
         setReleaseYears(copy);
       } else {
         setReleaseYears([...releaseYears, criteria]);
@@ -67,6 +82,7 @@ export default function TrendingSideBar({
   // This function updates the checkedState state variable,
   // toggling between true and false given a position.
   const updateCheckedState = (position) => {
+    console.log("updateCheckedState: ");
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     );
@@ -77,6 +93,8 @@ export default function TrendingSideBar({
   // This function sets the trendingProducts state to be
   // an array of all products in the shoes table
   const fetchProducts = async () => {
+    console.log("fetchProducts: ");
+
     try {
       const { data, error } = await apiClient.getProducts();
       if (data) {
@@ -87,12 +105,19 @@ export default function TrendingSideBar({
     }
   };
 
+  React.useEffect(() => {
+    const filterButton = () => {
+      fetchProducts();
+      filterResults();
+    };
+  }, []);
+
   // This function updates the trendingProducts state, filtering it with
   // the conditions specified in brands, priceRanges, and releaseYears
-  const filterResults = () => {
-    // We first have to update trendingProducts to be
-    // a complete array of the products before filtering
-    fetchProducts();
+  const filterResults = (filteredResults) => {
+    console.log("filterResults: ");
+
+    setTrendingProducts(filterResults);
   };
 
   return (
@@ -212,7 +237,7 @@ export default function TrendingSideBar({
             className="filter-row"
             onClick={() => {
               updateCheckedState(7);
-              updateFilters("release_year", 2022);
+              updateFilters("release_year", "2022");
             }}
           >
             {checkedState[7] ? (
@@ -226,7 +251,7 @@ export default function TrendingSideBar({
             className="filter-row"
             onClick={() => {
               updateCheckedState(8);
-              updateFilters("release_year", 2021);
+              updateFilters("release_year", "2021");
             }}
           >
             {checkedState[8] ? (
@@ -240,7 +265,7 @@ export default function TrendingSideBar({
             className="filter-row"
             onClick={() => {
               updateCheckedState(9);
-              updateFilters("release_year", 2020);
+              updateFilters("release_year", "2020");
             }}
           >
             {checkedState[9] ? (
@@ -254,7 +279,7 @@ export default function TrendingSideBar({
             className="filter-row"
             onClick={() => {
               updateCheckedState(10);
-              updateFilters("release_year", 2019);
+              updateFilters("release_year", "2019");
             }}
           >
             {checkedState[10] ? (
@@ -268,7 +293,7 @@ export default function TrendingSideBar({
             className="filter-row"
             onClick={() => {
               updateCheckedState(11);
-              updateFilters("release_year", 2018);
+              updateFilters("release_year", "2018");
             }}
           >
             {checkedState[11] ? (
@@ -280,8 +305,13 @@ export default function TrendingSideBar({
           </div>
         </div>
         {/* ---------------Filter Button---------------- */}
-        <button className="filter-btn" onClick={() => filterResults()}>
-          Filter
+        <button
+          className="filter-btn"
+          onClick={() => {
+            setFilterButtonClicked(!filterButtonClicked);
+          }}
+        >
+          Remove All Filters
         </button>
       </div>
     </div>
