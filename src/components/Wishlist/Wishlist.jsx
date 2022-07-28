@@ -9,6 +9,7 @@ export default function Wishlist() {
 
   const [wishlistList, setWishlistList] = useState()
   const { user } = useAuthContext()
+  let wishlistItems = []
 
   async function getWishlist() {
     try{
@@ -23,21 +24,37 @@ export default function Wishlist() {
 
   useEffect(() => {getWishlist()}, [] )
 
-  if(wishlistList) {
-    wishlistList.map((e) => {
-      console.log(e)
-    e.id = e.shoe_id
-  })
-  }
+    if(wishlistList) {
+      wishlistList.map(async (e) => {
+        const {data, error} = await apiClient.getProductById(e.shoe_id)
+        
+        wishlistItems.push(data.product)
+        console.log("data", wishlistItems)
+        e.id = e.shoe_id
+      })
+      
+    }
+
+    if(wishlistItems) {
+      console.log("ITEM", wishlistItems)
+    }
+    else {
+      console.log("NOPE")
+    }
   
-  return (
-    <div className="wishlist">
-      <div className="wishlist-tabs">
-        <button className="wishlist-btn">Wishlist</button>
+  if(wishlistItems) {
+    return (
+      <div className="wishlist">
+        <div className="wishlist-tabs">
+          <button className="wishlist-btn">Wishlist</button>
+        </div>
+        <div className="wishlist-items">
+          <TrendingProducts trendingProducts={wishlistItems}/>
+        </div>
       </div>
-      <div className="wishlist-items">
-        <TrendingProducts trendingProducts={wishlistList}/>
-      </div>
-    </div>
-  );
+    );
+  }
+  else {
+    return <div>Loading...</div>;
+  }
 }
