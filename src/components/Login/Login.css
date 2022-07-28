@@ -10,11 +10,11 @@
   align-items: center;
   margin-top: -140px;
 }
-.login-page .card .one{
+.login-page .card .one {
   margin-top: -50px;
 }
-.login-page .card .titles{
-  font-family: 'Poppins';
+.login-page .card .titles {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 90px;
@@ -29,17 +29,17 @@
   margin-top: 90px;
   background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
 }
-.login-page .input-field{
+.login-page .input-field {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
-.login-page .input-field input{
+.login-page .input-field input {
   width: 100%;
   background: #686262;
   border-radius: 20px;
   height: 70px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -50,19 +50,19 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-top: 10px;
 }
-.login-page .input-field input[type=text]{
+.login-page .input-field input[type="text"] {
   padding-left: 20px;
 }
 .form-input::placeholder {
   color: rgba(255, 255, 255, 0.7);
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
   line-height: 45px;
   display: flex;
   align-items: center;
-  padding-left: 30px
+  padding-left: 30px;
 }
 .sub-login {
   display: flex;
@@ -70,10 +70,10 @@
   align-items: center;
   margin-bottom: 60px;
 }
-.sub-login .register{
-  margin-top: 35px
+.sub-login .register {
+  margin-top: 35px;
 }
-.submit-login{
+.submit-login {
   background: #ab5cd6;
   border-radius: 20px;
   height: 70px;
@@ -89,7 +89,7 @@
   color: rgba(255, 255, 255, 0.7);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.register{
+.register {
   background: #ab5cd6;
   border-radius: 20px;
   height: 70px;
@@ -106,11 +106,11 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 hr {
-    width: 100%;
-    border: 2px solid #686262;
+  width: 100%;
+  border: 2px solid #686262;
 }
-.sub-login p{
-  font-family: 'Poppins';
+.sub-login p {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -118,15 +118,15 @@ hr {
   display: flex;
   align-items: center;
   text-align: center;
-  color: #AB5CD6;
+  color: #ab5cd6;
 }
-.login-page .errors{
+.login-page .errors {
   color: #ab5cd6;
   font-size: 25px;
   margin-bottom: 80px;
   margin-top: -60px;
 }
-.login-page .error{
+.login-page .error {
   color: #ab5cd6;
   font-size: 20px;
   font-weight: 700;

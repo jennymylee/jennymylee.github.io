@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../../contexts/auth"
-import {useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../contexts/auth";
+import { useNavigate } from "react-router-dom";
 
 /*
 Renders inside App.jsx
@@ -33,7 +33,7 @@ export default function Navbar(props) {
     setSearchName(e.target.value)
   }
   return (
-    <div className="navbar">
+    <div className={props.color === "grey" ? "navbar grey" : "navbar black"}>
       <div className="content">
         <div className="nav-links">
           <div className="logo">
@@ -45,11 +45,13 @@ export default function Navbar(props) {
           <Link to="/trending">Trending</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
-
         </div>
         {Object.keys(user).length !== 0 ? (
           <div className="profile-link">
             <div className="search">
+              {/* <button className="search-submit">
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </button> */}
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 
@@ -64,6 +66,9 @@ export default function Navbar(props) {
         ) : (
           <div className="side-btn">
             <div className="search">
+              {/* <button className="search-submit">
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </button> */}
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 
@@ -71,10 +76,13 @@ export default function Navbar(props) {
 
             </div>
 
-            <button className="login" onClick={login}>Log In</button>
+            <button className="login" onClick={login}>
+              Log In
+            </button>
 
-            <button className="signup" onClick={signup}>Sign Up</button>
-
+            <button className="signup" onClick={signup}>
+              Sign Up
+            </button>
           </div>
         )}
       </div>

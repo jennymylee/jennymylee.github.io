@@ -4,6 +4,7 @@ import TrendingSideBar from "../TrendingSideBar/TrendingSideBar";
 import TrendingProducts from "../TrendingProducts/TrendingProducts";
 import { useAuthContext } from "../../contexts/auth";
 import apiClient from "../../services/apiClient";
+import TrendingFooter from "../TrendingFooter/TrendingFooter";
 
 export default function TrendingPage() {
   // trendingProducts is an array of product objects
@@ -102,6 +103,7 @@ export default function TrendingPage() {
         <h1 className="trending-title">What's Trending</h1>
         {/* displays filtered products */}
         <TrendingProducts filteredProducts={filteredProducts} />
+        <TrendingFooter />
       </div>
     </div>
   );
