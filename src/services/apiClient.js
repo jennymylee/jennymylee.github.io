@@ -109,6 +109,7 @@ class ApiClient {
   }
 
   async getProductById(productId) {
+    console.log("THIS PRODUCTID", productId)
     return await this.request({
       endpoint: `product/id/${productId}`,
       method: `GET`

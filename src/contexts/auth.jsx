@@ -37,6 +37,7 @@ export const AuthContextProvider = ({ children }) => {
   const [initialized, setInitialized] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [error, setError] = React.useState({});
+  const [wishlistItems, setWishlistItems] = React.useState({});
 
   React.useEffect(() => {
     console.log("user in auth context", user);
@@ -72,6 +73,8 @@ export const AuthContextProvider = ({ children }) => {
     setIsProcessing,
     error,
     setError,
+    wishlistItems,
+    setWishlistItems,
   };
 
   return (

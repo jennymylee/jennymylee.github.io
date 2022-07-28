@@ -1,15 +1,16 @@
 import * as React from "react";
 import "./Wishlist.css";
-import TrendingProducts from "../TrendingProducts/TrendingProducts"
+import WishlistDisplay from "../WishlistDisplay/WishlistDisplay"
 import apiClient from "../../services/apiClient";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../contexts/auth";
+import { useWishlistContext } from "../../contexts/wishlist";
 
 export default function Wishlist() {
 
-  const [wishlistList, setWishlistList] = useState()
+  const [wishlistList, setWishlistList] = useState([{}])
   const { user } = useAuthContext()
-  let wishlistItems = []
+  const wishlistItems= []
 
   async function getWishlist() {
     try{
@@ -27,20 +28,20 @@ export default function Wishlist() {
     if(wishlistList) {
       wishlistList.map(async (e) => {
         const {data, error} = await apiClient.getProductById(e.shoe_id)
-        
-        wishlistItems.push(data.product)
+        console.log("this is data", data)
+        wishlistItems.push(data)
         console.log("data", wishlistItems)
         e.id = e.shoe_id
       })
       
     }
 
-    if(wishlistItems) {
-      console.log("ITEM", wishlistItems)
-    }
-    else {
-      console.log("NOPE")
-    }
+    // if(wishlistItems) {
+    //   console.log("ITEM", wishlistItems)
+    // }
+    // else {
+    //   console.log("NOPE")
+    // }
   
   if(wishlistItems) {
     return (
@@ -49,7 +50,7 @@ export default function Wishlist() {
           <button className="wishlist-btn">Wishlist</button>
         </div>
         <div className="wishlist-items">
-          <TrendingProducts trendingProducts={wishlistItems}/>
+          <WishlistDisplay wishlistItems={wishlistItems}/>
         </div>
       </div>
     );

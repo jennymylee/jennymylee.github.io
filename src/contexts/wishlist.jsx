@@ -1,5 +1,5 @@
 import * as React from "react";
-import ApiClient from "../services/apiClient";
+import apiClient from "../services/apiClient";
 import { useAuthContext } from "./auth";
 
 const WishlistContext = React.createContext(null);
@@ -42,11 +42,11 @@ export const WishlistContextProvider = ({ children }) => {
     return await apiClient.getWishlistById(wishlistId);
   };
 
-  const postWishlistItem = async (item) => {
-    if (user.user.hasOwnProperty("id")) {
-      return await apiClient.postWishlistItem(item, user.user.id);
-    }
-  };
+  // const postWishlistItem = async (item) => {
+  //   if (user.user.hasOwnProperty("id")) {
+  //     return await apiClient.postWishlistItem(item, user.user.id);
+  //   }
+  // };
   const val = {
     error,
     setError,
@@ -57,7 +57,7 @@ export const WishlistContextProvider = ({ children }) => {
     initialized,
     setInitialized,
     getWishlistById,
-    postWishlistItem,
+    // postWishlistItem,
     refresh,
     setRefresh,
   };

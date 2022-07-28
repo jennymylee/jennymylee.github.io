@@ -1,35 +1,20 @@
 import React, { useState, useMemo } from "react";
-import "./TrendingProducts.css";
+import "./WishlistDisplay.css";
 import Pagination from "../Pagination/Pagination";
 import ProductCard from "../ProductCard/ProductCard";
 
 // Shows 12 products on each page
 let PageSize = 12;
 
-export default function TrendingProducts({ filteredProducts }) {
-  // This component renders a list of products and includes pagination.
-  //
-  // :param trendingProducts: {
-  //    id: text,
-  //    name: text,
-  //    brand: text,
-  //    colorway: text,
-  //    silhouette: text,
-  //    release_year: text,
-  //    release_date: date,
-  //    retail_price: number,
-  //    market_price: number,
-  //    description: text,
-  //    image_url: text,
-  //    current_bid: number,
-  //    lowest_ask: number,
-  //    total_sales: integer
-  // }
+// This component renders a list of products and includes pagination.
+export default function WishlistDisplay({ wishlistItems }) {
 
+    console.log("WISHLISTITEMAS", wishlistItems)
   // This function creates a product card for the current set of products
   const renderProducts = () => {
     if (currentProductData) {
       return currentProductData.map((product, i) => {
+        console.log("product", product)
         return <ProductCard key={i} product={product} />;
       });
     }
@@ -39,7 +24,7 @@ export default function TrendingProducts({ filteredProducts }) {
   // current page number to be 1.
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [filteredProducts]);
+  }, [wishlistItems]);
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -48,12 +33,12 @@ export default function TrendingProducts({ filteredProducts }) {
   const currentProductData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    if (filteredProducts) {
-      return filteredProducts.slice(firstPageIndex, lastPageIndex);
+    if (wishlistItems) {
+      return wishlistItems.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage, filteredProducts]);
+  }, [currentPage, wishlistItems]);
 
-  if (filteredProducts) {
+  if (wishlistItems) {
     return (
       <div className="trending-products">
         <div className="tp-content">
@@ -62,7 +47,7 @@ export default function TrendingProducts({ filteredProducts }) {
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={filteredProducts.length}
+            totalCount={wishlistItems.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />
@@ -71,7 +56,7 @@ export default function TrendingProducts({ filteredProducts }) {
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={filteredProducts.length}
+            totalCount={wishlistItems.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

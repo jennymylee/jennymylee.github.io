@@ -44,6 +44,8 @@ export default function TrendingPage() {
     }
   }, [trendingProducts, brands, priceRanges, releaseYears]);
 
+  console.log("filteredProducts", trendingProducts)
+
   // this is a function to check to see if a product meets our filter constraints
   const applyFilters = (product) => {
     let brand = false;
