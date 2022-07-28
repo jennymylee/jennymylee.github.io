@@ -25,22 +25,20 @@ export default function Wishlist() {
 
   useEffect(() => {getWishlist()}, [] )
 
-    if(wishlistList) {
-      wishlistList.map(async (e) => {
-        const {data, error} = await apiClient.getProductById(e.shoe_id)
-        console.log("this is data", data)
-        wishlistItems.push(data)
-        console.log("data", wishlistItems)
-        e.id = e.shoe_id
-      })
-      
-    }
+    // if(wishlistList) {
+    //   wishlistList.map(async (e) => {
+    //     try{
+    //       const {data, error} = await apiClient.getProductById(e.shoe_id)
+    //       console.log("this is data", data?.product)
+    //       wishlistItems.push(data)
+    //       console.log("data", wishlistItems)
+    //       e.id = e.shoe_id
+    //     } catch(error) {
 
-    // if(wishlistItems) {
-    //   console.log("ITEM", wishlistItems)
-    // }
-    // else {
-    //   console.log("NOPE")
+    //     }
+        
+    //   })
+      
     // }
   
   if(wishlistItems) {
