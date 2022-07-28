@@ -63,9 +63,11 @@ export default function ProductDetails(props) {
   //change text
   const toggleWishlist = async () => {
     if (addedToWishlist == "Add to Wishlist") {
+      // if user does not exist, open modal
       if (Object.keys(user).length === 0) {
         setOpen(true);
-      } else {
+      } // else, add item to wishlist and change icon
+      else {
         setAddedToWishlist("Remove from Wishlist");
         setHeartImg(heartFill);
       }
@@ -81,8 +83,10 @@ export default function ProductDetails(props) {
 
   props.setShoeBrand(shoe.brand);
 
+  // state to open or close modal
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+
+  // open is false when this function is called
   const handleClose = () => setOpen(false);
 
   return (
@@ -151,6 +155,7 @@ export default function ProductDetails(props) {
               </div>
               <div className="wishlist-text">{addedToWishlist}</div>
             </button>
+            {/* Modal pops up when user is not authenticated */}
             <Modal
               open={open}
               onClose={handleClose}
@@ -162,12 +167,14 @@ export default function ProductDetails(props) {
                   Log in to add this item to your wishlist.
                 </p>
                 <div className="modal-btn-row">
+                  {/* log in button */}
                   <button
                     className="modal-login-btn"
                     onClick={() => navigate("/login")}
                   >
                     Log in
                   </button>
+                  {/* cancel button */}
                   <button
                     className="modal-cancel-btn"
                     onClick={() => handleClose()}
