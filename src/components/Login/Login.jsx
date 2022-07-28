@@ -42,6 +42,7 @@ export default function Login() {
       email: form.email,
       password: form.password,
     });
+    console.log(error)
     if (error) {
       setErrors((e) => ({ ...e, form: error }));
     }

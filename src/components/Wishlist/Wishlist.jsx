@@ -4,13 +4,12 @@ import WishlistDisplay from "../WishlistDisplay/WishlistDisplay"
 import apiClient from "../../services/apiClient";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../contexts/auth";
-import { useWishlistContext } from "../../contexts/wishlist";
 
 export default function Wishlist() {
 
-  const [wishlistList, setWishlistList] = useState([{}])
+  const [wishlistList, setWishlistList] = useState([])
   const { user } = useAuthContext()
-  const wishlistItems= []
+  var wishlistItems= [];
 
   async function getWishlist() {
     try{
@@ -21,26 +20,23 @@ export default function Wishlist() {
     }
   }
 
-  console.log("Trending", wishlistList)
 
   useEffect(() => {getWishlist()}, [] )
 
-    // if(wishlistList) {
-    //   wishlistList.map(async (e) => {
-    //     try{
-    //       const {data, error} = await apiClient.getProductById(e.shoe_id)
-    //       console.log("this is data", data?.product)
-    //       wishlistItems.push(data)
-    //       console.log("data", wishlistItems)
-    //       e.id = e.shoe_id
-    //     } catch(error) {
+    if(wishlistList) {
+      wishlistList.map(async (e) => {
+        try{
+          const {data, error} = await apiClient.getProductById(e.shoe_id)
+          //console.log("product", data.product)
+          wishlistItems.push(data.product)
+          e.id = e.shoe_id
+        } catch(error) {
 
-    //     }
+        }
         
-    //   })
-      
-    // }
-  
+      })
+    }
+  console.log("wishlistItems", wishlistItems)
   if(wishlistItems) {
     return (
       <div className="wishlist">
