@@ -6,15 +6,7 @@ import ProductCard from "../ProductCard/ProductCard";
 // Shows 12 products on each page
 let PageSize = 12;
 
-export default function TrendingProducts({ trendingProducts }) {
-  console.log("In trending", trendingProducts)
-
-  if(trendingProducts) {
-    for(let i = 0; i < trendingProducts.length; i++) {
-      console.log("name", trendingProducts[i].name)
-    }
-  }
-  
+export default function TrendingProducts({ filteredProducts }) {
   // This component renders a list of products and includes pagination.
   //
   // :param trendingProducts: {
@@ -48,7 +40,7 @@ export default function TrendingProducts({ trendingProducts }) {
   // current page number to be 1.
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [trendingProducts]);
+  }, [filteredProducts]);
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -57,12 +49,12 @@ export default function TrendingProducts({ trendingProducts }) {
   const currentProductData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    if (trendingProducts) {
-      return trendingProducts.slice(firstPageIndex, lastPageIndex);
+    if (filteredProducts) {
+      return filteredProducts.slice(firstPageIndex, lastPageIndex);
     }
-  }, [currentPage, trendingProducts]);
+  }, [currentPage, filteredProducts]);
 
-  if (trendingProducts) {
+  if (filteredProducts) {
     return (
       <div className="trending-products">
         <div className="tp-content">
@@ -71,7 +63,7 @@ export default function TrendingProducts({ trendingProducts }) {
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={trendingProducts.length}
+            totalCount={filteredProducts.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />
@@ -80,7 +72,7 @@ export default function TrendingProducts({ trendingProducts }) {
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={trendingProducts.length}
+            totalCount={filteredProducts.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

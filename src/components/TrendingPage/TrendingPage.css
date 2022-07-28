@@ -4,10 +4,12 @@
   top: 0;
   overflow-x: hidden;
   color: white;
+  height: 100vh;
+  font-family: "Poppins";
 }
 
 .trending {
-  padding: 40px 40px 40px 340px;
+  padding: 40px 40px 0px 340px;
   flex-direction: column;
   display: flex;
   padding-top: 86px;

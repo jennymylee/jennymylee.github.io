@@ -1,0 +1,44 @@
+.trending-footer {
+  background-color: #212121;
+  width: calc(100% - 380px);
+  background-color: #212121;
+  margin-top: 5px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.tfooter-head {
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  margin: 40px 40px 0px 40px;
+  justify-content: space-between;
+  color: white;
+}
+
+.tfooter-description {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 40px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  width: 60%;
+  color: white;
+  margin: 0;
+}
+
+.tfooter-end {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 40px 40px 40px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-top: 15px;
+}
