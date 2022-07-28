@@ -8,7 +8,7 @@ let PageSize = 4;
 
 // This component renders a list of products and includes pagination.
 export default function WishlistDisplay({ wishlistItems }) {
-//console.log("WishlistItems", wishlistItems)
+console.log("WishlistItemsssss", wishlistItems)
     const wishlistItemss = [
         {
             brand: "Jordan",
