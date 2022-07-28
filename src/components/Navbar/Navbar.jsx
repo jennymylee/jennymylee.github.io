@@ -22,6 +22,7 @@ export default function Navbar(props) {
   };
 
   const handleOnSubmit = async (e) => {
+    console.log("key", e.key)
     if (e.key === 'Enter'){
       console.log("value", e.target.value)
       setSearchProducts(searchName)
@@ -52,7 +53,7 @@ export default function Navbar(props) {
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 
-              <input type="text" className="search-text" placeholder="Shoe"/>
+              <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
 
             </div>
             <Link to="/profile">
