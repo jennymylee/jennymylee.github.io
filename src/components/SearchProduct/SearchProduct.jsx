@@ -10,6 +10,12 @@ import MenuItem from '@mui/material/MenuItem';
 // Shows 12 products on each page
 let PageSize = 12;
 
+/*
+This component will get passed an array of object from SearchPage.
+Then, depending what the sort item is, we will sort the array and 
+store it in a state varaible. After we will pass this new state variable
+with the sorted array to the Pagination component to display the products
+*/
 export default function SearchProduct({searchItem}) {
     const { searchProducts } = useAuthContext()
     const [currentPage, setCurrentPage] = useState(0)
@@ -20,29 +26,32 @@ export default function SearchProduct({searchItem}) {
       setFilter(event.target.value)
     }
 
+    React.useEffect(()=> {
+      setFilter("Newest to Oldest")
+    }, [searchProducts])
+
     React.useEffect(() => {
       if(filter === "Newest to Oldest"){
-
+        setFilterProduct([...searchItem].sort((a, b) => new Date(a.release_date) < new Date(b.release_date) ? 1: -1))
       }else if(filter === "Oldest to Newest"){
-
+        setFilterProduct([...searchItem].sort((a, b) => new Date(a.release_date) > new Date(b.release_date) ? 1: -1))
       }else if(filter === "Price - Low to High"){
         setFilterProduct([...searchItem].sort((a, b) => parseFloat(a.market_price) > parseFloat(b.market_price) ? 1: -1))
       }else if(filter === "Price - HIght to Low"){
-
+        setFilterProduct([...searchItem].sort((a, b) => parseFloat(a.market_price) < parseFloat(b.market_price) ? 1: -1))
       }else if(filter === "A - Z"){
         setFilterProduct([...searchItem].sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1: 1))
       }
     }, [filter, searchItem])
 
-    console.log("filter", filterProduct)
 
     const currentProductData = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
-        if(searchItem){
-            return searchItem.slice(firstPageIndex, lastPageIndex)
+        if(filterProduct){
+            return filterProduct.slice(firstPageIndex, lastPageIndex)
         }
-    }, [currentPage, searchItem])
+    }, [currentPage, filterProduct])
 
     const renderProducts = () => {
         if(currentProductData){
@@ -54,17 +63,16 @@ export default function SearchProduct({searchItem}) {
 
     React.useEffect(() => {
         setCurrentPage(1)
-    }, [searchItem])
+    }, [filterProduct])
 
-    if (searchItem) {
+    if (filterProduct) {
         return (
           <div className="trending-products">
             <div className="tp-content">
               {/* Pagination component can be found on both top 
               and bottom of products */}
               <div className="headers">
-                <p className="term">Showing search result for "{searchProducts}"</p>
-                {/* <button className="drop-down-btn">Filter</button> */}
+                <p className="term">Showing search results for "{searchProducts}"</p>
                 <Select className="drop-down-btn" value={filter} onChange={handleOnChange}>
                   <MenuItem value={"Newest to Oldest"}>Newest to Oldest</MenuItem>
                   <MenuItem value={"Oldest to Newest"}>Oldest to Newest</MenuItem>
@@ -76,7 +84,7 @@ export default function SearchProduct({searchItem}) {
               <Pagination
                 className="pagination-bar"
                 currentPage={currentPage}
-                totalCount={searchItem.length}
+                totalCount={filterProduct.length}
                 pageSize={PageSize}
                 onPageChange={(page) => setCurrentPage(page)}
               />
@@ -85,7 +93,7 @@ export default function SearchProduct({searchItem}) {
               <Pagination
                 className="pagination-bar"
                 currentPage={currentPage}
-                totalCount={searchItem.length}
+                totalCount={filterProduct.length}
                 pageSize={PageSize}
                 onPageChange={(page) => setCurrentPage(page)}
               />

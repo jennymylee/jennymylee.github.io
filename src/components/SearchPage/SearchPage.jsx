@@ -6,9 +6,16 @@ import apiClient from "../../services/apiClient"
 import ProductRow from "../ProductRow/ProductRow"
 import { useAuthContext} from "../../contexts/auth"
 
+/*
+This component is called inside App.jsx
+It will get the search term from an auth variable and
+we call the api function to get the search results.
+This component will then call SearchPRoduct component
+that will display the api's return statement that is passed
+down as a prop
+*/
 export default function SearchPage() {
     const { searchProducts} = useAuthContext()
-    console.log("result", searchProducts)
     const [ searchItem, setSearchItem] = React.useState([])
     React.useEffect(() => {
         const fetchSearchProducts = async () => {
@@ -16,18 +23,14 @@ export default function SearchPage() {
             const { data, error } = await apiClient.searchProduct(searchProducts)
             if (data) {
               setSearchItem(data.products);
-              console.log("search prodcuts", data.products)
             }
           } catch (err) {
-            console.log("error in search", err)
           }
         };
         fetchSearchProducts();
       }, [searchProducts]);
-      console.log("search ITem", searchItem)
   return (
       <div className="search-page">
-          {/* <Pagination></Pagination> */}
           <SearchProduct searchItem={searchItem}></SearchProduct>
           <>
             <ProductRow name={"1"} number={"4"}></ProductRow>
