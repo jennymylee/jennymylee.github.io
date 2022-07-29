@@ -37,9 +37,11 @@ export const AuthContextProvider = ({ children }) => {
   const [initialized, setInitialized] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [error, setError] = React.useState({});
+  const [wishlistItems, setWishlistItems] = React.useState({});
+  const [wishlistList, setWishlistList] = React.useState([]);
+  const [searchProducts, setSearchProducts] = React.useState("")
 
   React.useEffect(() => {
-    console.log("user in auth context", user);
   }, [user]);
 
   React.useEffect(() => {
@@ -61,6 +63,20 @@ export const AuthContextProvider = ({ children }) => {
     }
   }, [])
 
+  React.useEffect(() => {
+    const getWishlist = async () => {
+      try{
+          const {data, error} = await apiClient.listWishList(user.id)
+          setWishlistList(data.wishlist)
+      }catch(error) {
+          console.log(error)
+      }
+    }
+    getWishlist();
+  }, [user])
+
+  
+
   var authValue = {
     user,
     setUser,
@@ -72,6 +88,12 @@ export const AuthContextProvider = ({ children }) => {
     setIsProcessing,
     error,
     setError,
+    wishlistItems,
+    setWishlistItems,
+    wishlistList,
+    setWishlistList,
+    searchProducts,
+    setSearchProducts
   };
 
   return (

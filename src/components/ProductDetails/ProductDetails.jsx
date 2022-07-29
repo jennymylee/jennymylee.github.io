@@ -6,13 +6,14 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
+import { useWishlistContext } from "../../contexts/wishlist";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Modal from "@mui/material/Modal";
 
 export default function ProductDetails(props) {
-  let { productId } = useParams();
+    let { productId } = useParams();
 
   //used to navigate users to different pages
   const navigate = useNavigate();
@@ -53,30 +54,53 @@ export default function ProductDetails(props) {
   //creates date varaible
   const d = new Date(shoe.release_date);
 
-  //used for wishlist button
-  const [addedToWishlist, setAddedToWishlist] = useState("Add to Wishlist");
-  const [heartImg, setHeartImg] = useState(heartOutline);
 
-  //Called when a user wants to add/remove this item to their wishlist.
-  //If the item is not yet added to the wishlist, add to wishlist,
-  //change text.
-  //Else, if item is already in wishlist, remove from wishlist,
-  //change text
-  const toggleWishlist = async () => {
-    if (addedToWishlist == "Add to Wishlist") {
-      // if user does not exist, open modal
-      if (Object.keys(user).length === 0) {
-        setOpen(true);
-      } // else, add item to wishlist and change icon
-      else {
-        setAddedToWishlist("Remove from Wishlist");
-        setHeartImg(heartFill);
-      }
-    } else {
-      setAddedToWishlist("Add to Wishlist");
-      setHeartImg(heartOutline);
+    //used for wishlist button
+    const[addedToWishlist, setAddedToWishlist]  = useState("Add to Wishlist");
+    const[heartImg, setHeartImg]  = useState(heartOutline);
+
+    
+    //Called when a user wants to add/remove this item to their wishlist.
+    //If the item is not yet added to the wishlist, add to wishlist,
+    //change text.
+    //Else, if item is already in wishlist, remove from wishlist,
+    //change text
+    const toggleWishlist = async () => {
+        // calls to add shoe to wishlist
+        if(addedToWishlist == "Add to Wishlist") {
+            setAddedToWishlist("Remove from Wishlist")
+            setHeartImg(heartFill)
+            addToWishlist()
+            
+        }
+        // calls to remove shoe from wishlist
+        else{
+            setAddedToWishlist("Add to Wishlist")
+            setHeartImg(heartOutline)
+            removeFromWishlist()
+        }
+        
     }
-  };
+
+    //add shoe to wishlist
+    async function addToWishlist() {
+        try{
+            const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
+        }catch(error) {
+            console.log(error)
+        }
+        
+    }
+
+    //remove shoe from wishlist
+    async function removeFromWishlist() {
+        try{
+            await apiClient.deleteWishlistItem({shoe_id: shoe.id ,user_id: user.id})
+        }catch(error) {
+
+        }
+        
+    }
 
   const receiveUpdates = async () => {
     if (Object.keys(user).length === 0) {

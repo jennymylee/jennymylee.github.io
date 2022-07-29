@@ -1,9 +1,10 @@
-import * as React from "react";
-import "./Login.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import apiClient from "../../services/apiClient";
-import { useAuthContext } from "../../contexts/auth";
+import * as React from "react"
+import "./Login.css"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import apiClient from "../../services/apiClient"
+import { useAuthContext } from "../../contexts/auth"
+import ProductRow from "../ProductRow/ProductRow"
 
 export default function Login() {
   //global varibal import from authContext
@@ -42,6 +43,7 @@ export default function Login() {
       email: form.email,
       password: form.password,
     });
+    console.log(error)
     if (error) {
       setErrors((e) => ({ ...e, form: error }));
     }
@@ -109,7 +111,9 @@ export default function Login() {
           </button>
         </div>
       </div>
-      <div className="featured">FEATURED SECTION</div>
+      <div className="featured">
+        <ProductRow name={"2"} number={"2"}></ProductRow>
+      </div>
     </div>
   );
 }
