@@ -39,6 +39,7 @@ export const AuthContextProvider = ({ children }) => {
   const [error, setError] = React.useState({});
   const [wishlistItems, setWishlistItems] = React.useState({});
   const [wishlistList, setWishlistList] = React.useState([]);
+  const [searchProducts, setSearchProducts] = React.useState("")
 
   React.useEffect(() => {
   }, [user]);
@@ -90,7 +91,9 @@ export const AuthContextProvider = ({ children }) => {
     wishlistItems,
     setWishlistItems,
     wishlistList,
-    setWishlistList
+    setWishlistList,
+    searchProducts,
+    setSearchProducts
   };
 
   return (

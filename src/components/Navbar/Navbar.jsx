@@ -9,9 +9,10 @@ Renders inside App.jsx
 Allows to user to switch to different pages
 such as login, register, trending, etc
 */
-export default function Navbar({ color = "black" }) {
-  const { user } = useAuthContext();
-  const navigate = useNavigate();
+export default function Navbar(props) {
+  const { user , setSearchProducts} = useAuthContext()
+  const [searchName, setSearchName] = React.useState("")
+  const navigate = useNavigate()
   const login = async () => {
     navigate("/login");
   };
@@ -19,8 +20,18 @@ export default function Navbar({ color = "black" }) {
   const signup = async () => {
     navigate("/register");
   };
+
+  const handleOnSubmit = async (e) => {
+    if (e.key === 'Enter'){
+      setSearchProducts(searchName)
+      navigate("/search")
+    }
+  };
+  const handleOnChange = async (e) => {
+    setSearchName(e.target.value)
+  }
   return (
-    <div className={color === "grey" ? "navbar grey" : "navbar black"}>
+    <div className={props.color === "grey" ? "navbar grey" : "navbar black"}>
       <div className="content">
         <div className="nav-links">
           <div className="logo">
@@ -36,11 +47,11 @@ export default function Navbar({ color = "black" }) {
         {Object.keys(user).length !== 0 ? (
           <div className="profile-link">
             <div className="search">
-              <button className="search-submit">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
 
-              <input type="text" className="search-text" placeholder="Shoe" />
+              <button className="search-submit" style={{background : (props.color === "black" ? "black" : "#212121")}}><i className="fa-solid fa-magnifying-glass"></i></button>
+
+              <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
+
             </div>
             <Link to="/profile">
               <i className="fa-solid fa-user"></i>
@@ -50,11 +61,11 @@ export default function Navbar({ color = "black" }) {
         ) : (
           <div className="side-btn">
             <div className="search">
-              <button className="search-submit">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
 
-              <input type="text" className="search-text" placeholder="Shoe" />
+              <button className="search-submit" style={{background: (props.color === "black" ? "black" : "#212121")}}><i className="fa-solid fa-magnifying-glass"></i></button>
+
+              <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
+
             </div>
 
             <button className="login" onClick={login}>
