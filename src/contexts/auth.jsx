@@ -66,14 +66,12 @@ export const AuthContextProvider = ({ children }) => {
     const getWishlist = async () => {
       try{
           const {data, error} = await apiClient.listWishList(user.id)
-          console.log("data", data.wishlist)
           setWishlistList(data.wishlist)
       }catch(error) {
           console.log(error)
       }
     }
     getWishlist();
-    console.log("Auth wishlist", wishlistList)
   }, [user])
 
   

@@ -9,20 +9,15 @@ export default function Wishlist() {
 
   const { user, wishlistList } = useAuthContext();
   const [wishlistItems, setWishlistItems]= useState([]);
-  console.log("WishlistList", wishlistList)
 
-    
 
     useEffect(() => {
 
       let copy = []
       
-        console.log("Step 1")
         wishlistList.map(async (e) => {
         try{
           const {data, error} = await apiClient.getProductById(e.shoe_id)
-          console.log("Step 2")
-          console.log("product", data.product)
           setWishlistItems(wishlistItems => [...wishlistItems, data.product])
           
           e.id = e.shoe_id

@@ -9,7 +9,6 @@ let PageSize = 4;
 // This component renders a list of products and includes pagination.
 export default function WishlistDisplay({ wishlistItemsRaw }) {
 
-  console.log("Wishlist display", wishlistItemsRaw)
 
   const uniqueIds = [];
 
@@ -25,7 +24,6 @@ export default function WishlistDisplay({ wishlistItemsRaw }) {
     return false;
   });
     
-  console.log("Wishlist", wishlistItems)
  
   // This function creates a product card for the current set of products
   const renderProducts = () => {

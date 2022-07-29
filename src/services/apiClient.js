@@ -77,7 +77,6 @@ class ApiClient {
   }
 
   async listWishList(user_id){
-    console.log("userid", user_id)
       return await this.request({endpoint: `wishlist`, method: `GET`, data: user_id})
   }
 

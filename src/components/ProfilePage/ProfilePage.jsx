@@ -9,6 +9,8 @@ import { useState, useEffect} from "react";
 import apiClient from "../../services/apiClient";
 
 export default function ProfilePage() {
+
+  //window.setTimeout(function(){window.location.reload()},3000)
   //used to navigate users to different pages
   const navigate = useNavigate();
   const { user, setUser } = useAuthContext();
@@ -17,7 +19,11 @@ export default function ProfilePage() {
   // if user is not logged in, they are redirected to
   // login page
   React.useEffect(() => {
-    if (Object.keys(user).length === 0) {
+    // if (Object.keys(user).length === 0) {
+    //   navigate("/login");
+    // }
+
+    if(localStorage.getItem("sneaker_store_token") === "") {
       navigate("/login");
     }
   }, []);
