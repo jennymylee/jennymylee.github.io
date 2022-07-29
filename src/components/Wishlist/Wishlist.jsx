@@ -39,7 +39,16 @@ export default function Wishlist() {
       </div>
     );
     } else {
-      return <div>Loading...</div>;
+      return (
+        <div className="wishlist">
+          <div className="wishlist-tabs">
+            <button className="wishlist-btn">Wishlist</button>
+          </div>
+          <div className="wishlist-empty">
+              <div>Your wishlist is empty...</div>
+          </div>
+        </div>
+      )
     }
     
 }
