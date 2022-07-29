@@ -48,7 +48,7 @@ export default function Navbar(props) {
           <div className="profile-link">
             <div className="search">
 
-              <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
+              <button className="search-submit" style={{background : (props.color === "black" ? "black" : "#212121")}}><i className="fa-solid fa-magnifying-glass"></i></button>
 
               <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
 
@@ -62,7 +62,7 @@ export default function Navbar(props) {
           <div className="side-btn">
             <div className="search">
 
-              <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
+              <button className="search-submit" style={{background: (props.color === "black" ? "black" : "#212121")}}><i className="fa-solid fa-magnifying-glass"></i></button>
 
               <input type="text" className="search-text" placeholder="Shoe" onKeyPress={handleOnSubmit} onChange={handleOnChange}/>
 
