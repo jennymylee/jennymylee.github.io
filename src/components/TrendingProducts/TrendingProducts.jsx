@@ -7,8 +7,6 @@ import ProductCard from "../ProductCard/ProductCard";
 let PageSize = 12;
 
 export default function TrendingProducts({ filteredProducts }) {
-
-  console.log("FFILETER", filteredProducts)
   // This component renders a list of products and includes pagination.
   //
   // :param trendingProducts: {

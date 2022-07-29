@@ -7,70 +7,44 @@ import { useAuthContext } from "../../contexts/auth";
 
 export default function Wishlist() {
 
-  const [wishlistList, setWishlistList] = useState([])
-  const { user } = useAuthContext();
+  const { user, wishlistList } = useAuthContext();
   const [wishlistItems, setWishlistItems]= useState([]);
+  console.log("WishlistList", wishlistList)
 
-  async function getWishlist() {
-    try{
-        const {data, error} = await apiClient.listWishList(user.id)
-        setWishlistList(data.wishlist)
-    }catch(error) {
-        console.log(error)
-    }
-  }
-
-
-  useEffect(() => {getWishlist()}, [] )
-
-    // if(wishlistList) {
-    //   wishlistList.map(async (e) => {
-    //     try{
-    //       const {data, error} = await apiClient.getProductById(e.shoe_id)
-    //       console.log("product", data.product)
-
-    //       setWishlistItems([...wishlistItems, data.product])
-    //       // wishlistItems.push(data.product)
-    //       console.log("wishlistItems", wishlistItems)
-    //       e.id = e.shoe_id
-    //     } catch(error) {
-
-    //     }
-        
-    //   })
-    // }
+    
 
     useEffect(() => {
-      if(wishlistList) {
-      wishlistList.map(async (e) => {
+
+      let copy = []
+      
+        console.log("Step 1")
+        wishlistList.map(async (e) => {
         try{
           const {data, error} = await apiClient.getProductById(e.shoe_id)
+          console.log("Step 2")
           console.log("product", data.product)
-
-          setWishlistItems([...wishlistItems].concat(data.product)  )
-          // wishlistItems.push(data.product)
-          console.log("wishlistItems", wishlistItems)
+          setWishlistItems(wishlistItems => [...wishlistItems, data.product])
+          
           e.id = e.shoe_id
         } catch(error) {
-
         }
-        
       })
-    }}, [wishlistList] )
-  
-  if(wishlistItems) {
-    return (
+        
+    }, [] )
+
+    if(wishlistItems && wishlistItems.length > 0){
+      return (
       <div className="wishlist">
         <div className="wishlist-tabs">
           <button className="wishlist-btn">Wishlist</button>
         </div>
         <div className="wishlist-items">
-          <WishlistDisplay wishlistItems={wishlistItems}/>
+            <WishlistDisplay wishlistItemsRaw={wishlistItems}/>
         </div>
       </div>
     );
-  }
-  else {
-    return <div>Loading...</div>;
-  }
+    } else {
+      return <div>Loading...</div>;
+    }
+    
 }

@@ -4,7 +4,6 @@ import { useAuthContext } from "../../contexts/auth";
 
 export default function ProfileBanner() {
   const { user } = useAuthContext();
-  console.log("user in profile banner", user);
   return (
     <div className="profile-banner">
       <div className="profile-image"></div>

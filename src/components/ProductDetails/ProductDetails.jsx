@@ -12,8 +12,6 @@ export default function ProductDetails(props) {
     let { productId } = useParams();
     const { user } = useAuthContext()
 
-    console.log("ISERDETULA", user.id)
-
     //initializes shoe
     const [shoe, setShoe] = useState(
         {
