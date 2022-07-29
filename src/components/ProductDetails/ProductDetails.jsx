@@ -8,6 +8,7 @@ import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
 import { useWishlistContext } from "../../contexts/wishlist";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import Modal from "@mui/material/Modal";
 
@@ -101,6 +102,17 @@ export default function ProductDetails(props) {
         
     }
 
+  const receiveUpdates = async () => {
+    if (Object.keys(user).length === 0) {
+      setOpen(true);
+    } else {
+      sendEmail(
+        user.email,
+        `You've signed up to receive updates regarding ${shoe.name}.`
+      );
+    }
+  };
+
   const selectShoeSize = async () => {
     //console.log("Shoesize clicked")
   };
@@ -112,6 +124,27 @@ export default function ProductDetails(props) {
 
   // open is false when this function is called
   const handleClose = () => setOpen(false);
+
+  // This state controls the sucess message
+  const [success, setSuccess] = React.useState(false);
+
+  // makes a post request to send a message to an email address
+  const sendEmail = async (email, messageHtml) => {
+    try {
+      const response = await axios
+        .create({
+          baseURL: "http://localhost:3001",
+          withCredentials: true,
+        })
+        .post("/nodemailer/send", {
+          email,
+          messageHtml,
+        });
+      setSuccess(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="product-details">
@@ -211,8 +244,18 @@ export default function ProductDetails(props) {
           </div>
 
           <div className="email-updates">
-            <h4>Receive updates (Coming soon...)</h4>
             {/* render email updates component */}
+            <button
+              className="email-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                receiveUpdates();
+              }}
+            >
+              Receive updates regarding this item
+            </button>
+            {/* success message appears when email is successfully sent */}
+            {success && <p className="success">Email sucessfully sent!</p>}
           </div>
         </div>
       </div>
