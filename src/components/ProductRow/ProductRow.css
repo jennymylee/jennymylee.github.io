@@ -32,3 +32,10 @@
 .product-row-container .slick-prev{
     margin-left: -40px;
 }
+.product-row-container .titles{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+}
