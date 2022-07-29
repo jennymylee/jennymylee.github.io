@@ -35,7 +35,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"black"}/>
                     <Landing />
                   </>
                 }
@@ -44,7 +44,7 @@ function App() {
                 path="/login"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"black"} />
                     <Login />
                   </>
                 }
@@ -53,7 +53,7 @@ function App() {
                 path="/register"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"black"} />
                     <RegisterFrom />
                   </>
                 }
@@ -80,7 +80,7 @@ function App() {
                 path="/product/id/:productId"
                 element={
                   <div>
-                    <Navbar />
+                    <Navbar color={"black"} />
                     <ProductPage />
                   </div>
                 }
@@ -98,7 +98,7 @@ function App() {
                 path="/search"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"black"} />
                     <SearchPage></SearchPage>
                   </>
                 }
