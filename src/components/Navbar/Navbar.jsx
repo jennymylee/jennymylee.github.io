@@ -22,9 +22,7 @@ export default function Navbar(props) {
   };
 
   const handleOnSubmit = async (e) => {
-    console.log("key", e.key)
     if (e.key === 'Enter'){
-      console.log("value", e.target.value)
       setSearchProducts(searchName)
       navigate("/search")
     }
@@ -49,9 +47,6 @@ export default function Navbar(props) {
         {Object.keys(user).length !== 0 ? (
           <div className="profile-link">
             <div className="search">
-              {/* <button className="search-submit">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button> */}
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 
@@ -66,9 +61,6 @@ export default function Navbar(props) {
         ) : (
           <div className="side-btn">
             <div className="search">
-              {/* <button className="search-submit">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button> */}
 
               <button className="search-submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 

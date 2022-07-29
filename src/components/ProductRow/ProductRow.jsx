@@ -48,7 +48,6 @@ export default function ProductRow(props){
       nextArrow: <SlickArrowRight />,
       rows: Number(props.name)
     };
-    console.log("here", props.name)
     return (
       <div className="product-row-container">
         <p className="titles">Featured</p>
