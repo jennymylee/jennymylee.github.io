@@ -67,6 +67,10 @@ class ApiClient {
 
   // Still needs testing
 
+  async getShoeHistory(productId){
+    return await this.request({endpoint: `product/history`, method: `POST`, data: productId})
+  }
+
   async searchProduct(searchItem){
       return await this.request({endpoint: `product/search`, method: `POST`, data: searchItem})
 

@@ -9,6 +9,7 @@ import { useAuthContext } from "../../contexts/auth";
 import { useWishlistContext } from "../../contexts/wishlist";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Graph from "../Graph/Graph"
 
 import Modal from "@mui/material/Modal";
 
@@ -20,6 +21,7 @@ export default function ProductDetails(props) {
   const { user, setUser } = useAuthContext();
 
   //initializes shoe
+  const [history, setHistory] = useState([])
   const [shoe, setShoe] = useState({
     id: 0,
     name: "",
@@ -66,8 +68,18 @@ export default function ProductDetails(props) {
     }
   }
 
+  //calls getShoeHIsotry route wuth parameter of product ID to fetch the specific shoe history
+  async function getHistory(){
+    try{
+      const {data, error} = await apiClient.getShoeHistory({shoe: productId})
+      setHistory(Object.values(data.history))
+    }catch(error){
+    }
+  }
+
   useEffect(() => {
     getProduct();
+    getHistory();
   }, []);
 
   useEffect(() => {
@@ -172,7 +184,6 @@ export default function ProductDetails(props) {
       console.error(err);
     }
   };
-
   return (
     <div className="product-details">
       <div className="shoe-info">
@@ -191,7 +202,7 @@ export default function ProductDetails(props) {
             <div className="price-date">
               <p className="retail-price">Retail Price: ${shoe.retail_price}</p>
               <p className="release-date">
-                Release Date: {d.getMonth()}/{d.getDay()}/{d.getFullYear()}
+                Release Date: {d.getMonth() + 1}/{d.getDate()}/{d.getFullYear()}
               </p>
             </div>
             <p className="description">Description: {shoe.description}</p>
@@ -288,7 +299,8 @@ export default function ProductDetails(props) {
       </div>
 
       <div className="price-history">
-        <h1>Price History (Coming soon...)</h1>
+        <h1>Price History</h1>
+        <Graph name={shoe.name} history={history}></Graph>
       </div>
     </div>
   );
