@@ -51,7 +51,6 @@ export default function ProductDetails(props) {
   async function shoeExist() {
     try {
       const { data, error } = await apiClient.shoeInWishlist({shoe_id: shoe.id ,user_id: user.id});
-      console.log("data in toggle", data)
 
       if(data.wishlist.length > 0) {
         setAddedToWishlist("Remove from Wishlist")
