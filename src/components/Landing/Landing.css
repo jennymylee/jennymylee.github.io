@@ -55,6 +55,7 @@
   line-height: 22px;
   color: white;
   margin-right: 30px;
+  cursor: pointer;
 }
 .signup-btn{
   background: transparent;
@@ -67,6 +68,7 @@
   font-size: 15px;
   line-height: 22px;
   color: white;
+  cursor: pointer;
 }
 .shoeLogo{
   height: 680px;
