@@ -25,7 +25,6 @@ export default function Landing() {
   const signup = async () => {
     navigate("/register");
   };
-  console.log("user in L", user)
   return (
     <div className="landing-page">
       <div className="Hero">
