@@ -59,13 +59,7 @@ useEffect(() => {
         <div className="sp-content">
           {/* Pagination component can be found on both top 
           and bottom of products */}
-          <Pagination
-            className="pagination-bar"
-            currentPage={currentPage}
-            totalCount={similarProducts.length}
-            pageSize={PageSize}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
+          <p className="titles">Similar sneakers to "{props.shoeName}"</p>
           {/* Render products */}
           <div className="sp-items">{renderProducts()}</div>
           <Pagination

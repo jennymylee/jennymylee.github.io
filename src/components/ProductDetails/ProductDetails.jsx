@@ -157,6 +157,7 @@ export default function ProductDetails(props) {
   };
 
   props.setShoeBrand(shoe.brand);
+  props.setShoeName(shoe.name);
 
   // state to open or close modal
   const [open, setOpen] = React.useState(false);

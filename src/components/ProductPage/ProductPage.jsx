@@ -16,17 +16,17 @@ export default function ProductPage() {
   const navigate = useNavigate();
 
   const [shoeBrand, setShoeBrand] = useState();
-
+  const [shoeName, setShoeName] = useState();
   return (
     <div className="product-page">
       
       
       <div className="product-detail">
-        <ProductDetails shoeBrand={shoeBrand} setShoeBrand={setShoeBrand}/>
+        <ProductDetails shoeBrand={shoeBrand} setShoeName={setShoeName} setShoeBrand={setShoeBrand}/>
       </div>
 
       <div className="similar">
-        <Similar shoeBrand={shoeBrand}/>
+        <Similar shoeBrand={shoeBrand} shoeName={shoeName}/>
       </div>
       {/* The Footer component will display information about how to contact our group with an question
       via social media or email */}
