@@ -4,7 +4,7 @@ import Pagination from "../Pagination/Pagination";
 import ProductCard from "../ProductCard/ProductCard";
 
 // Shows 4 products on each page
-let PageSize = 12;
+let PageSize = 41;
 
 // This component renders a list of products and includes pagination.
 export default function WishlistDisplay({ wishlistItemsRaw }) {
