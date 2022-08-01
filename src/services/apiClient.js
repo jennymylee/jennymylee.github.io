@@ -81,7 +81,6 @@ class ApiClient {
   }
 
   async shoeInWishlist(product){
-    console.log("userid", product)
     return await this.request({endpoint: `wishlist/shoeInWishlist`, method: `POST`, data:product})
 }
 
