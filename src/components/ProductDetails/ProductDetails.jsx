@@ -45,11 +45,35 @@ export default function ProductDetails(props) {
     } catch (error) {
       //console.log(error)
     }
+    
+  }
+
+  async function shoeExist() {
+    try {
+      const { data, error } = await apiClient.shoeInWishlist({shoe_id: shoe.id ,user_id: user.id});
+      console.log("data in toggle", data)
+
+      if(data.wishlist.length > 0) {
+        setAddedToWishlist("Remove from Wishlist")
+        setHeartImg(heartFill)
+        
+      } else {
+        setAddedToWishlist("Add to Wishlist")
+        setHeartImg(heartOutline)
+      }
+    }
+    catch(error) {
+
+    }
   }
 
   useEffect(() => {
     getProduct();
   }, []);
+
+  useEffect(() => {
+    shoeExist();
+  }, [shoe]);
 
   //creates date varaible
   const d = new Date(shoe.release_date);
@@ -66,11 +90,14 @@ export default function ProductDetails(props) {
     //Else, if item is already in wishlist, remove from wishlist,
     //change text
     const toggleWishlist = async () => {
+
+      
         // calls to add shoe to wishlist
         if(addedToWishlist == "Add to Wishlist") {
             setAddedToWishlist("Remove from Wishlist")
             setHeartImg(heartFill)
             addToWishlist()
+            window.location.reload();
             
         }
         // calls to remove shoe from wishlist
@@ -78,6 +105,7 @@ export default function ProductDetails(props) {
             setAddedToWishlist("Add to Wishlist")
             setHeartImg(heartOutline)
             removeFromWishlist()
+            window.location.reload();
         }
         
     }
