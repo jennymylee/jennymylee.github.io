@@ -7,8 +7,10 @@
 }
 
 .wishlist-items {
+  display: inline-block;
+  position: relative;
   width: 100%;
-  height: 500px;
+  margin-bottom: 25px;
 }
 
 .wishlist-empty{
