@@ -13,6 +13,7 @@ import SearchPage from "./components/SearchPage/SearchPage"
 import ArticleOne from "./components/ArticleOne/ArticleOne"
 import ArticleTwo from "./components/ArticleTwo/ArticleTwo"
 import ArticleThree from "./components/ArticleThree/ArticleThree"
+import ArticlesPage from "./components/ArticlesPage/ArticlesPage";
 
 /*
 The AppContainer component will render the App component nested inside
@@ -38,7 +39,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Navbar color={"black"}/>
+                    <Navbar color={"black"} />
                     <Landing />
                   </>
                 }
@@ -67,6 +68,15 @@ function App() {
                   <>
                     <Navbar color={"grey"} />
                     <TrendingPage />
+                  </>
+                }
+              />
+              <Route
+                path="/articles"
+                element={
+                  <>
+                    <Navbar />
+                    <ArticlesPage />
                   </>
                 }
               />

@@ -126,7 +126,7 @@ export default function ProductDetails(props) {
         try{
             const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
         }catch(error) {
-            console.log(error)
+            console.error(error)
         }
         
     }

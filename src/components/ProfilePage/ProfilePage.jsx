@@ -9,7 +9,7 @@ import { useState, useEffect} from "react";
 import apiClient from "../../services/apiClient";
 
 export default function ProfilePage() {
-
+  
   //window.setTimeout(function(){window.location.reload()},3000)
   //used to navigate users to different pages
   const navigate = useNavigate();

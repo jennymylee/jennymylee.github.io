@@ -32,7 +32,7 @@ export default function ProductRow(props){
           }
           if(error){
             setError(error)
-            console.log("error in trending", error)
+            console.error("error in trending", error)
           }
         }
         getSneakers()
