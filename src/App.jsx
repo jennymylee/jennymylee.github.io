@@ -10,6 +10,9 @@ import TrendingPage from "./components/TrendingPage/TrendingPage";
 import { AuthContextProvider, useAuthContext } from "./contexts/auth";
 import ProductPage from "./components/ProductPage/ProductPage";
 import SearchPage from "./components/SearchPage/SearchPage"
+import ArticleOne from "./components/ArticleOne/ArticleOne"
+import ArticleTwo from "./components/ArticleTwo/ArticleTwo"
+import ArticleThree from "./components/ArticleThree/ArticleThree"
 
 /*
 The AppContainer component will render the App component nested inside
