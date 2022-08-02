@@ -24,12 +24,17 @@
   line-height: 218px;
   margin: 0px;
 }
-.Header .info{
+.Header {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
+}
+
+.info{
+  line-height: 1.8;
+  font-size: 20px;
 }
 
 .Hero-pic {

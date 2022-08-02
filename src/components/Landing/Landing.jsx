@@ -31,13 +31,8 @@ export default function Landing() {
         <div className="Header">
           <p className="titles">LOREMIPS</p>
           <p className="info">
-            Lorem ipsum dolor adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim ve_niam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            Enter the world of sneakers! Whether you are an experienced Sneakerhead or are taking your first steps, 
+            “Webpage_Name” has everything for your daily footwear needs. 
           </p>
           <div className="landing-button">
             <button className="browse-btn" onClick={browse}>
