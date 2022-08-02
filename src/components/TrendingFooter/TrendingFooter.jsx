@@ -3,6 +3,7 @@ import "./TrendingFooter.css";
 
 // This is the footer for the trending page
 export default function TrendingFooter() {
+
   return (
     <div className="trending-footer">
       <div className="tfooter-head">
@@ -12,8 +13,16 @@ export default function TrendingFooter() {
         </div>
       </div>
       <div className="tfooter-description">
-        Lorem ipsum dolor adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        <div className="footer-address">
+          <p className="street-address">6230 Stoneridge Mall Road</p>
+          <p className="city-state">Pleasanton, CA 94588</p>
+          <p className="country">United States of America</p>
+        </div>
+        
+        <div className="footer-contact">
+          <p className="contact-tel">Tel: ( 6 0 5 ) 4 7 5 - 6 9 5 9</p>
+          <p className="contact-email">Email: workday1codepath@gmail.com</p>
+        </div>
       </div>
       <div className="tfooter-end">
         <div className="footer-social">

@@ -33,6 +33,10 @@
   align-items: center;
 }
 
+.logout-btn{
+  cursor: pointer;
+}
+
 .psb-tab {
   display: flex;
   flex-direction: row;
@@ -42,5 +46,6 @@
 
 .psb-text {
   color: white;
-  margin-left: 20px;
+  padding-left: 20px;
+  cursor: pointer;
 }

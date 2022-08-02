@@ -70,7 +70,7 @@ export default function ProfileSideBar() {
       </div>
       <div className="filler"></div>
       <div className="logout-div">
-        <MdLogout color="white" size="25px" />
+        <MdLogout className="logout-btn" onClick={handleLogOut} color="white" size="25px" />
         <p className="psb-text logout-btn" onClick={handleLogOut}>Log Out</p>
       </div>
     </div>
