@@ -7,6 +7,8 @@
   font-family: "Poppins";
   background: #292929;
   border: 1px solid #686262;
+  
+  cursor: pointer;
 }
 
 .pc-text {

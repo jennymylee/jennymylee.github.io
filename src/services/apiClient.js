@@ -84,6 +84,10 @@ class ApiClient {
       return await this.request({endpoint: `wishlist`, method: `GET`, data: user_id})
   }
 
+  async shoeInWishlist(product){
+    return await this.request({endpoint: `wishlist/shoeInWishlist`, method: `POST`, data:product})
+}
+
   async createWishListItem(wishListItem){
       return await this.request({endpoint: `wishlist`, method: `POST`, data: wishListItem})
   }

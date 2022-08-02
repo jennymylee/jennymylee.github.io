@@ -76,6 +76,7 @@
   line-height: 22px;
   margin-right: 10px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .side-btn .signup {
@@ -91,6 +92,7 @@
   line-height: 22px;
   margin-right: 10px;
   border: none;
+  cursor: pointer;
 }
 
 .btn {
