@@ -9,7 +9,6 @@ let PageSize = 41;
 // This component renders a list of products and includes pagination.
 export default function WishlistDisplay({ wishlistItemsRaw }) {
 
-
   const uniqueIds = [];
 
   const wishlistItems = wishlistItemsRaw.filter(element => {
@@ -54,8 +53,8 @@ export default function WishlistDisplay({ wishlistItemsRaw }) {
 
   if (wishlistItems) {
     return (
-      <div className="trending-products">
-        <div className="tp-content">
+      <div className="wishlist-products">
+        <div className="wp-content">
           {/* Pagination component can be found on both top 
           and bottom of products */}
           <Pagination
@@ -66,7 +65,9 @@ export default function WishlistDisplay({ wishlistItemsRaw }) {
             onPageChange={(page) => setCurrentPage(page)}
           />
           {/* Render products */}
-          <div className="tp-items">{renderProducts()}</div>
+          <div className="wp-items">
+              {renderProducts()}
+          </div>
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}

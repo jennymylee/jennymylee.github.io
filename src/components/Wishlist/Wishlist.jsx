@@ -10,7 +10,7 @@ export default function Wishlist() {
   const { user, wishlistList } = useAuthContext();
   const [wishlistItems, setWishlistItems]= useState([]);
 
-
+  
     useEffect(() => {
 
       let copy = []
@@ -25,7 +25,7 @@ export default function Wishlist() {
         }
       })
         
-    }, [] )
+    }, [wishlistList] )
 
     if(wishlistItems && wishlistItems.length > 0){
       return (
