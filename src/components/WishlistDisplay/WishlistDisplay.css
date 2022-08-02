@@ -1,28 +1,15 @@
-.trending-products {
+.wishlist-products {
   width: 100%;
   background-color: #212121;
-  /* height: 100%; */
   margin-top: 25px;
   border-radius: 10px;
   color: white;
 }
 
-.tp-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tp-items {
+.wp-items {
   margin: 0px 40px;
   gap: 20px;
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(4, 1fr);
-}
-
-.empty-wishlist {
-  color: white;
-  font-size: 30px;
-  height: 500px;
 }

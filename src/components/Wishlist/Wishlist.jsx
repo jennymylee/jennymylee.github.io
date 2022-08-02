@@ -9,8 +9,9 @@ export default function Wishlist() {
 
   const { user, wishlistList } = useAuthContext();
   const [wishlistItems, setWishlistItems]= useState([]);
+  console.log("WishlistList", wishlistList)
 
-
+  
     useEffect(() => {
 
       let copy = []
@@ -18,6 +19,7 @@ export default function Wishlist() {
         wishlistList.map(async (e) => {
         try{
           const {data, error} = await apiClient.getProductById(e.shoe_id)
+          console.log("Wishlist Data", data)
           setWishlistItems(wishlistItems => [...wishlistItems, data.product])
           
           e.id = e.shoe_id
@@ -25,8 +27,10 @@ export default function Wishlist() {
         }
       })
         
-    }, [] )
+    }, [wishlistList] )
 
+    console.log("WishlistItems", wishlistItems)
+    console.log("WishlistItems Length", wishlistItems.length)
     if(wishlistItems && wishlistItems.length > 0){
       return (
       <div className="wishlist">
