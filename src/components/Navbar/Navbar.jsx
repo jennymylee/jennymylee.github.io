@@ -35,7 +35,7 @@ export default function Navbar(props) {
       <div className="content">
         <div className="nav-links">
           <div className="logo">
-            <Link to="/">
+            <Link to="/" className="nav-logo">
               <i className="fa-brands fa-connectdevelop"></i>
             </Link>
           </div>
