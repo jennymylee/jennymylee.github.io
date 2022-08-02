@@ -9,7 +9,8 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import TrendingPage from "./components/TrendingPage/TrendingPage";
 import { AuthContextProvider, useAuthContext } from "./contexts/auth";
 import ProductPage from "./components/ProductPage/ProductPage";
-import SearchPage from "./components/SearchPage/SearchPage"
+import SearchPage from "./components/SearchPage/SearchPage";
+import ArticlesPage from "./components/ArticlesPage/ArticlesPage";
 
 /*
 The AppContainer component will render the App component nested inside
@@ -35,7 +36,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Navbar color={"black"}/>
+                    <Navbar color={"black"} />
                     <Landing />
                   </>
                 }
@@ -64,6 +65,15 @@ function App() {
                   <>
                     <Navbar color={"grey"} />
                     <TrendingPage />
+                  </>
+                }
+              />
+              <Route
+                path="/articles"
+                element={
+                  <>
+                    <Navbar />
+                    <ArticlesPage />
                   </>
                 }
               />
