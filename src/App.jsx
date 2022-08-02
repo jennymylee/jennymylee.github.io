@@ -9,7 +9,10 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import TrendingPage from "./components/TrendingPage/TrendingPage";
 import { AuthContextProvider, useAuthContext } from "./contexts/auth";
 import ProductPage from "./components/ProductPage/ProductPage";
-import SearchPage from "./components/SearchPage/SearchPage";
+import SearchPage from "./components/SearchPage/SearchPage"
+import ArticleOne from "./components/ArticleOne/ArticleOne"
+import ArticleTwo from "./components/ArticleTwo/ArticleTwo"
+import ArticleThree from "./components/ArticleThree/ArticleThree"
 import ArticlesPage from "./components/ArticlesPage/ArticlesPage";
 
 /*
