@@ -9,7 +9,6 @@ let PageSize = 41;
 // This component renders a list of products and includes pagination.
 export default function WishlistDisplay({ wishlistItemsRaw }) {
 
-  console.log("WIshlistDisplay", wishlistItemsRaw)
   const uniqueIds = [];
 
   const wishlistItems = wishlistItemsRaw.filter(element => {
