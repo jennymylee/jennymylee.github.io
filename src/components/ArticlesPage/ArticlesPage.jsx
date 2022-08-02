@@ -15,8 +15,10 @@ export default function ArticlesPage() {
       <div className="articles-content">
         <p className="ap-title">From Our Team to You</p>
         <div className="ap-cols">
+          {/* first column */}
           <div className="ap-col">
             <img className="ap-img" src={image1} />
+            {/* first article */}
             <div className="ap-article">
               <p className="ap-subtitle">
                 Easy ways to recognize fake sneakers
@@ -33,8 +35,10 @@ export default function ArticlesPage() {
             <img className="ap-img" src={image2} />
             <div className="line"></div>
           </div>
+          {/* second column */}
           <div className="ap-col-mid">
             <img className="ap-img" src={image3} />
+            {/* second article */}
             <div className="ap-article">
               <p className="ap-subtitle-mid">
                 How to Purchase Sneakers from Resellers Without Getting Scammed
@@ -51,7 +55,9 @@ export default function ArticlesPage() {
             </div>
             <img className="ap-img" src={image4} />
           </div>
+          {/* third column */}
           <div className="ap-col">
+            {/* third article */}
             <div className="ap-article">
               <p className="ap-subtitle">
                 Here are the Top 5 Most Reputable Marketplaces for Your Next
