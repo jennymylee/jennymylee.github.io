@@ -1,5 +1,5 @@
 .footer-container{
-    height: 250px;
+    min-height: 250px;
     background: #2a2727;
     display: flex;
     flex-direction: column;
@@ -16,15 +16,17 @@
     line-height: 45px;
     width: 80%;
     margin-left: 10%;
+    margin-right: 10%;
     justify-content: space-between;
     color: white;
 }
 .footer-description{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
-    width: 40%;
+    width: 80%;
     margin-left: 10%;
+    margin-right: 10%;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -32,12 +34,14 @@
     line-height: 30px;
     color: white;
     margin-top: 15px;
+    justify-content: space-between;
 }
 .footer-end{
     display: flex;
     flex-direction: row;
     width: 80%;
     margin-left: 10%;
+    margin-right: 10% ;
     justify-content: space-between;
     align-items: center;
     color: white;
@@ -58,4 +62,35 @@
 }
 .footer-social .contact{
     margin-right: 40px;
+}
+
+.back-to-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.to-top-btn{
+    background: none;
+    border:solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #504b4b;
+    height: 38px;
+    width: 187px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.footer-contact{
+    text-align: right;
+}
+
+.footer-address p, .footer-contact p {
+    margin: 1px;
 }

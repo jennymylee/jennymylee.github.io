@@ -6,6 +6,7 @@ Displays basic contact information
 Renders inside LandingPage component
 */
 export default function Footer(){
+    
     return (
         <div className="footer-container">
             <div className="footer-head">
@@ -17,9 +18,16 @@ export default function Footer(){
                 </div>
             </div>
             <div className="footer-description">
-                <p>
-                    Lorem ipsum dolor adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                </p>
+                <div className="footer-address">
+                    <p className="street-address">6230 Stoneridge Mall Road</p>
+                    <p className="city-state">Pleasanton, CA 94588</p>
+                    <p className="country">United States of America</p>
+                </div>
+                
+                <div className="footer-contact">
+                    <p className="contact-tel">Tel: (605) 475-6959</p>
+                    <p className="contact-email">Email: workday1codepath@gmail.com</p>
+                </div>
             </div>
             <div className="footer-end">
                 <div className="footer-social">
@@ -31,7 +39,7 @@ export default function Footer(){
                 </div>
                 <div className="footer-copy">
                     <p>
-                        Copyright © 2022 Lorem Ipsum
+                        Copyright © 2022 Lorem Ipsum -
                         all rights reserved
                     </p>
                 </div>

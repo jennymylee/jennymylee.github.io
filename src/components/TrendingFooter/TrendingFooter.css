@@ -21,16 +21,18 @@
 
 .tfooter-description {
   display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding-left: 40px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 20px;
-  width: 60%;
-  color: white;
-  margin: 0;
+    flex-direction: row;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+    margin-top: 15px;
+    justify-content: space-between;
 }
 
 .tfooter-end {
@@ -41,4 +43,27 @@
   align-items: center;
   color: white;
   margin-top: 15px;
+}
+
+.tback-to-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tto-top-btn{
+  background: none;
+  border:solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: #504b4b;
+  height: 38px;
+  width: 187px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  
 }

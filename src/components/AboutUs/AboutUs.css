@@ -42,6 +42,11 @@
     margin-bottom: 15px;
 }
 
+.text{
+    text-align: center;
+}
+
 .fa-people-group ,.fa-globe, .fa-lightbulb{
     font-size: 40px;
 }
+
