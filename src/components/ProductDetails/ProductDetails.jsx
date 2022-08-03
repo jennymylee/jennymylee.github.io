@@ -39,13 +39,17 @@ export default function ProductDetails(props) {
     total_sales: 0,
   });
 
+  //sets modal message
+  //true: wishlist message
+  //false: alert message
+  const [modalMessage, setModalMessage] = useState(true);
+
   //calls getProductById route with parameter of product ID to fetch the specific shoe
   async function getProduct() {
     try {
       const { data, error } = await apiClient.getProductById(productId);
       setShoe(data.product);
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   async function shoeExist() {
@@ -99,6 +103,7 @@ export default function ProductDetails(props) {
   const toggleWishlist = async () => {
     // open modal if user does not exist
     if (Object.keys(user).length === 0) {
+      setModalMessage(true);
       setOpen(true);
     } else {
       if (addedToWishlist == "Add to Wishlist") {
@@ -141,6 +146,7 @@ export default function ProductDetails(props) {
 
   const receiveUpdates = async () => {
     if (Object.keys(user).length === 0) {
+      setModalMessage(false);
       setOpen(true);
     } else {
       sendEmail(
@@ -251,7 +257,9 @@ export default function ProductDetails(props) {
             >
               <div className="user-login-modal">
                 <p className="modal-text">
-                  Log in to add this item to your wishlist.
+                  {modalMessage
+                    ? `Log in to add this item to your wishlist.`
+                    : `Log in to receive updates regarding this item.`}
                 </p>
                 <div className="modal-btn-row">
                   {/* log in button */}
