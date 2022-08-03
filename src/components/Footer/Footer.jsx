@@ -39,7 +39,7 @@ export default function Footer(){
                 </div>
                 <div className="footer-copy">
                     <p>
-                        Copyright © 2022 Lorem Ipsum -
+                        Copyright © 2022 ELEVATE -
                         all rights reserved
                     </p>
                 </div>

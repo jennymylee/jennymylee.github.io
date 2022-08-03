@@ -29,10 +29,10 @@ export default function Landing() {
     <div className="landing-page">
       <div className="Hero">
         <div className="Header">
-          <p className="landing-titles">LOREMIPS</p>
+          <p className="landing-titles">ELEVATE</p>
           <p className="info">
             Enter the world of sneakers! Whether you are an experienced
-            sneakerhead or are taking your first steps, “Webpage_Name” has
+            sneakerhead or are taking your first steps, ELEVATE has
             everything for your daily footwear needs.
           </p>
           <div className="landing-button">
