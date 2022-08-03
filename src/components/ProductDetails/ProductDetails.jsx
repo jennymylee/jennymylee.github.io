@@ -200,7 +200,7 @@ export default function ProductDetails(props) {
           </div>
 
           <div className="shoe-img">
-            <img src={shoe.image_url} width="300px" />
+            <img src={shoe.image_url} width="300px" alt={props.name} />
           </div>
           <div className="shoe-details">
             <h2>Details</h2>

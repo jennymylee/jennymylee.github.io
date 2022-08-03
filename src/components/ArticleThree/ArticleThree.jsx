@@ -12,7 +12,7 @@ export default function ArticleThree() {
     <div className="articleThreepage">
       <div className="articleThree-container">
         <div className="banner">
-          <img className="img-banner" src={require("./banner.png")} alt="" />
+          <img className="img-banner" src={require("./banner.png")} alt="Article Three Hero Banner Image" />
         </div>
         <div className="info">
           <div className="date">

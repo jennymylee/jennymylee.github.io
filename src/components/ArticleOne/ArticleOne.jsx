@@ -12,7 +12,7 @@ export default function ArticleOne() {
       <div className="articleOnepage">
       <div className="articleOne-container">
           <div className="banner">
-              <img className="img-banner" src={require('./banner.png')} alt=""/>
+              <img className="img-banner" src={require('./banner.png')} alt="Article One Hero Banner Image"/>
           </div>
           <div className="info">
               <div className="date">
