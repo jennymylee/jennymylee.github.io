@@ -13,7 +13,7 @@
 .articleTwo-container .info .date {
   display: flex;
   flex-direction: column;
-  margin-left: 8%;
+  margin-left: 10%;
   padding-top: 200px;
 }
 .articleTwo-container .info .date .number {
@@ -33,8 +33,8 @@
 .articleTwo-container .info .content {
   display: flex;
   flex-direction: column;
-  margin-left: 7%;
-  margin-right: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
   align-items: flex-start;
 }
 .articleTwo-container .info .content .header {
@@ -76,7 +76,7 @@
   margin-bottom: 60px;
 }
 .articleTwo-container .line {
-  border: 1px solid #ffffff;
+  border: 1px 0px 0px 0px solid #ffffff;
 }
 
 .img-banner {
