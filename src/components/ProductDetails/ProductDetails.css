@@ -1,8 +1,8 @@
 .product-details {
   background: black;
   height: 100%;
-  margin-left: 139px;
-  margin-right: 139px;
+  margin-left: 10%;
+  margin-right: 10%;
   font-family: "Poppins";
 }
 
@@ -141,7 +141,6 @@
 .price-card {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   width: 40%;
   color: white;
   background-color: black;

@@ -1,13 +1,13 @@
 .product-page {
-    background-color: black;
-    padding-top: 86px;
-    color: white;
-  }
+  background-color: black;
+  padding-top: 86px;
+  color: white;
+}
 
-  .similar{
-    background: black;
-    height: 100%;
-    padding-left: 139px;
-    padding-right: 139px;
-    margin-bottom: 35px;
-  }
+.similar {
+  background: black;
+  height: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 35px;
+}

@@ -1,41 +1,41 @@
-.product-row-container{
-    color: white;
-    margin-left: 10%;
-    width: 80%;
-    margin-bottom: 100px;
-    z-index: 1000;
+.product-row-container {
+  color: white;
+  margin-left: 10%;
+  width: 80%;
+  margin-bottom: 100px;
+  z-index: 1000;
 }
-.product-row-container .product-card{
-    margin-right: 20px;
-    height: 420px;
+.product-row-container .product-card {
+  margin-right: 20px;
+  height: 420px;
 }
-.product-row-container .product-card .pc-text{
-    margin-bottom: 50px;
+.product-row-container .product-card .pc-text {
+  margin-bottom: 50px;
 }
-.product-row-container .product-card .img-background{
-    height: 100%;
+.product-row-container .product-card .img-background {
+  height: 100%;
 }
-.slick-slider{
-    display: flex;
-    flex-direction: row;
+.slick-slider {
+  display: flex;
+  flex-direction: row;
 }
-.product-row-container .slick-next{
-    width: 40px;
-    height: 40px;
-    margin-right: -20px;
+.product-row-container .slick-next {
+  width: 40px;
+  height: 40px;
+  margin-right: -20px;
 }
-.product-row-container .slick-prev{
-    transform: rotate(180deg);
-    width: 40px;
-    height: 40px;
+.product-row-container .slick-prev {
+  transform: rotate(180deg);
+  width: 40px;
+  height: 40px;
 }
-.product-row-container .slick-prev{
-    margin-left: -40px;
+.product-row-container .slick-prev {
+  margin-left: -40px;
 }
-.product-row-container .titles{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 45px;
+.pr-titles {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
 }
