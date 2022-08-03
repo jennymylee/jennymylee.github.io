@@ -6,10 +6,21 @@ import image2 from "./img/image2.png";
 import image3 from "./img/image3.png";
 import image4 from "./img/image4.png";
 import image5 from "./img/image5.png";
+import { useNavigate } from "react-router-dom"
 /*
 Displays Article Previews
 */
 export default function ArticlesPage() {
+  const navigate = useNavigate()
+  const article1 = async () => {
+    navigate("/article1")
+  }
+  const article2 = async () => {
+    navigate("/article2")
+  }
+  const article3 = async () => {
+    navigate("/article3")
+  }
   return (
     <div className="articles-page">
       <div className="articles-content">
@@ -19,7 +30,7 @@ export default function ArticlesPage() {
           <div className="ap-col">
             <img className="ap-img" src={image1} />
             {/* first article */}
-            <div className="ap-article">
+            <div className="ap-article" onClick={article1}>
               <p className="ap-subtitle">
                 Easy ways to recognize fake sneakers
               </p>
@@ -39,7 +50,7 @@ export default function ArticlesPage() {
           <div className="ap-col-mid">
             <img className="ap-img" src={image3} />
             {/* second article */}
-            <div className="ap-article">
+            <div className="ap-article" onClick={article2}>
               <p className="ap-subtitle-mid">
                 How to Purchase Sneakers from Resellers Without Getting Scammed
               </p>
@@ -58,7 +69,7 @@ export default function ArticlesPage() {
           {/* third column */}
           <div className="ap-col">
             {/* third article */}
-            <div className="ap-article">
+            <div className="ap-article" onClick={article3}>
               <p className="ap-subtitle">
                 Here are the Top 5 Most Reputable Marketplaces for Your Next
                 Sneaker Purchase
