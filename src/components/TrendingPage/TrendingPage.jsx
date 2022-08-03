@@ -44,7 +44,6 @@ export default function TrendingPage() {
     }
   }, [trendingProducts, brands, priceRanges, releaseYears]);
 
-
   // this is a function to check to see if a product meets our filter constraints
   const applyFilters = (product) => {
     let brand = false;
@@ -67,13 +66,15 @@ export default function TrendingPage() {
         }
         if (
           priceRanges[pr] === "200-400" &&
-          200 <= product.market_price <= 400
+          200 <= product.market_price &&
+          product.market_price <= 400
         ) {
           price = true;
         }
         if (
           priceRanges[pr] === "400-600" &&
-          400 <= product.market_price <= 600
+          400 <= product.market_price &&
+          product.market_price <= 600
         ) {
           price = true;
         }
