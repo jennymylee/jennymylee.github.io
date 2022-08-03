@@ -20,7 +20,7 @@ export default function TrendingFooter() {
         </div>
         
         <div className="footer-contact">
-          <p className="contact-tel">Tel: ( 6 0 5 ) 4 7 5 - 6 9 5 9</p>
+          <p className="contact-tel">Tel: (605) 475-6959</p>
           <p className="contact-email">Email: workday1codepath@gmail.com</p>
         </div>
       </div>

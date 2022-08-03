@@ -69,7 +69,7 @@ export default function ProductDetails(props) {
     } catch (error) {}
   }
 
-  //calls getShoeHIsotry route wuth parameter of product ID to fetch the specific shoe history
+  //calls getShoeHistory route with parameter of product ID to fetch the specific shoe history
   async function getHistory() {
     try {
       const { data, error } = await apiClient.getShoeHistory({
@@ -88,7 +88,7 @@ export default function ProductDetails(props) {
     shoeExist();
   }, [shoe]);
 
-  //creates date varaible
+  //creates date variable
   const d = new Date(shoe.release_date);
 
   //used for wishlist button
@@ -156,9 +156,9 @@ export default function ProductDetails(props) {
     }
   };
 
-  const selectShoeSize = async () => {
-    //console.log("Shoesize clicked")
-  };
+  // const selectShoeSize = async () => {
+  //   //console.log("Shoesize clicked")
+  // };
 
   props.setShoeBrand(shoe.brand);
   props.setShoeName(shoe.name);
@@ -169,7 +169,7 @@ export default function ProductDetails(props) {
   // open is false when this function is called
   const handleClose = () => setOpen(false);
 
-  // This state controls the sucess message
+  // This state controls the success message
   const [success, setSuccess] = React.useState(false);
 
   // makes a post request to send a message to an email address
@@ -293,7 +293,7 @@ export default function ProductDetails(props) {
               Receive updates regarding this item
             </button>
             {/* success message appears when email is successfully sent */}
-            {success && <p className="success">Email sucessfully sent!</p>}
+            {success && <p className="success">Email successfully sent!</p>}
           </div>
         </div>
       </div>

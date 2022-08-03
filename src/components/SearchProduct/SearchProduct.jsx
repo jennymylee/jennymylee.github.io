@@ -13,7 +13,7 @@ let PageSize = 12;
 /*
 This component will get passed an array of object from SearchPage.
 Then, depending what the sort item is, we will sort the array and 
-store it in a state varaible. After we will pass this new state variable
+store it in a state variable. After we will pass this new state variable
 with the sorted array to the Pagination component to display the products
 */
 export default function SearchProduct({searchItem}) {

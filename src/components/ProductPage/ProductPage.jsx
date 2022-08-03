@@ -7,7 +7,7 @@ import Similar from "../Similar/Similar";
 import { useState } from "react";
 /*
 The ProductPage component will be render/referenced in the App.jsx file
-ProductPage is set to the "/product/*" route. The ProductPage componenet will be followed by navbar where
+ProductPage is set to the "/product/*" route. The ProductPage component will be followed by navbar where
 the user can switch to different routes. Then, the ProductPage will render
 the ProductDetails component and Footer component which will finalized the content of the 
 ProductPage page

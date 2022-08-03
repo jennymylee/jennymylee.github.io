@@ -7,7 +7,7 @@ import { useAuthContext } from "../../contexts/auth"
 import ProductRow from "../ProductRow/ProductRow"
 
 export default function Login() {
-  //global varibal import from authContext
+  //global variable import from authContext
   const { user, setUser, isProcessing, setIsProcessing } = useAuthContext();
 
   //used to navigate users to different pages

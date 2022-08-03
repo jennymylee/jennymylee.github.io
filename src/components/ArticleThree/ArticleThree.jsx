@@ -86,12 +86,12 @@ export default function ArticleThree() {
             <div className="title">5. Klekt</div>
             <div className="text">
               <p>
-                Kleft is a great alternative to sites like Ebay, as you can buy
+                Klekt is a great alternative to sites like Ebay, as you can buy
                 and sell sold out sneakers. Klekt ensures that all sneakers are
                 guaranteed original. Before a sneaker is forwarded to a buyer
                 and a seller receives their payment, this reseller site checks
                 the sneakers for quality, authenticity, and condition.
-                Aditionally, you pay no import fees or taxes f your sneaker is
+                Additionally, you pay no import fees or taxes f your sneaker is
                 internationally shipped.
               </p>
             </div>

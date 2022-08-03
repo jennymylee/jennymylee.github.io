@@ -40,7 +40,7 @@ export default function ArticleTwo() {
                   </div>
                   <div className="text">
                       <p>
-                      An easy way to check if a pair of sneakers is authentic is to look at the packaging. Be sure to compare your box, item stickers, CPU code, fonts, retail tag, and all other elements of the packaging. Big companies uphold high standards for packaging. Therefore, an authentic name-brand product does not have any flaws in the packaging. The slightest mistake, no matter how minor, consititues a replica. Although research on your end might take some time and energy to do, it’s better to go the extra mile if you are in the business of owning authentic kicks.
+                      An easy way to check if a pair of sneakers is authentic is to look at the packaging. Be sure to compare your box, item stickers, CPU code, fonts, retail tag, and all other elements of the packaging. Big companies uphold high standards for packaging. Therefore, an authentic name-brand product does not have any flaws in the packaging. The slightest mistake, no matter how minor, constitutes a replica. Although research on your end might take some time and energy to do, it’s better to go the extra mile if you are in the business of owning authentic kicks.
                   </p>
                   </div>
                   <div className="title">
@@ -51,7 +51,7 @@ export default function ArticleTwo() {
                       Something else that you should be looking out for is a correct UPC code. This code will be identical for every shoe of the same size. To authenticate this number, you can look up the model via the GOAT app or compare tags with a friend.
                         </p>
                         <p>
-A tag inside of a sneaker also contains some production information. Shoes that are assembled within the same plant are made within specific dates contain uniform production numbers. These numbers should be relatively close for all productions within the same plant. A shoe’s secific plant can be found on the top right of the inside tag, and its production numbers can be found on the bottom left.
+A tag inside of a sneaker also contains some production information. Shoes that are assembled within the same plant are made within specific dates contain uniform production numbers. These numbers should be relatively close for all productions within the same plant. A shoe’s specific plant can be found on the top right of the inside tag, and its production numbers can be found on the bottom left.
                       </p>
                   </div>
                   <div className="title">
@@ -75,7 +75,7 @@ A tag inside of a sneaker also contains some production information. Shoes that 
                   </div>
                   <div className="text">
                       <p>
-                      Wonky, mismatched shoes are a clear sign of a fake. Check the alignment of the shoe’s parts by holding them side-by-side or back-to-back, matching up the bottoms and tops of each shoe. Observe that the heights and widthsare the same, and check to see if both shoes have the same amount of curvature or straightness. Last but not least, observe the finish and colors of each part of the sneakers.
+                      Wonky, mismatched shoes are a clear sign of a fake. Check the alignment of the shoe’s parts by holding them side-by-side or back-to-back, matching up the bottoms and tops of each shoe. Observe that the heights and widths are the same, and check to see if both shoes have the same amount of curvature or straightness. Last but not least, observe the finish and colors of each part of the sneakers.
                      </p>
                   </div>
                   <hr className="line"/>

@@ -9,7 +9,7 @@ import ProductRow from "../ProductRow/ProductRow";
 /*
 The landing component will be render/referenced in the App.jsx file
 Landing is set to the "/" route so it will be the first page/component 
-the user will see. The Landing componenet will be followed by navbar where
+the user will see. The Landing component will be followed by navbar where
 the user can switch to different routes. Lastly the landing Page will call
 the AboutUs and Footer component which will finalized the content of the 
 landing page
