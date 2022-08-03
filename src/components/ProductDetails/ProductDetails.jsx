@@ -98,19 +98,23 @@ export default function ProductDetails(props) {
   //Else, if item is already in wishlist, remove from wishlist,
   //change text
   const toggleWishlist = async () => {
-    // calls to add shoe to wishlist
-    if (addedToWishlist == "Add to Wishlist") {
-      setAddedToWishlist("Remove from Wishlist");
-      setHeartImg(heartFill);
-      addToWishlist();
-      window.location.reload();
-    }
-    // calls to remove shoe from wishlist
-    else {
-      setAddedToWishlist("Add to Wishlist");
-      setHeartImg(heartOutline);
-      removeFromWishlist();
-      window.location.reload();
+    // open modal if user does not exist
+    if (Object.keys(user).length === 0) {
+      setOpen(true);
+    } else {
+      if (addedToWishlist == "Add to Wishlist") {
+        setAddedToWishlist("Remove from Wishlist");
+        setHeartImg(heartFill);
+        addToWishlist();
+        window.location.reload();
+      }
+      // calls to remove shoe from wishlist
+      else {
+        setAddedToWishlist("Add to Wishlist");
+        setHeartImg(heartOutline);
+        removeFromWishlist();
+        window.location.reload();
+      }
     }
   };
 
