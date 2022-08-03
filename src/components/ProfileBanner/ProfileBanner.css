@@ -68,3 +68,8 @@
   margin-left: 35px;
   margin-top: 73px;
 }
+.profile-image .profile-icon{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}

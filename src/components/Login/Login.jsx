@@ -103,8 +103,8 @@ export default function Login() {
           >
             {isProcessing ? "Loading..." : "Login"}
           </button>
-          <p>Forgot Password?</p>
-          <hr />
+          {/* <p>Forgot Password?</p> */}
+          <hr className="replace" />
           <button className="register" onClick={createUser}>
             Create New Account
           </button>

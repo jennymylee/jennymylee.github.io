@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
     >
       {/* this image wrapper adds a white background to the product image */}
       <div className="img-wrapper">
-        <img className="product-img" src={product.image_url} />
+        <img className="product-img" src={product.image_url} alt={product.name} />
       </div>
       <div className="pc-text">
         <p className="pc-name">{product.name}</p>

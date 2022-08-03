@@ -28,7 +28,7 @@ export default function ArticlesPage() {
         <div className="ap-cols">
           {/* first column */}
           <div className="ap-col">
-            <img className="ap-img" src={image1} />
+            <img className="ap-img" src={image1} alt="Article Row One Shoe Image One"/>
             {/* first article */}
             <div className="ap-article" onClick={article1}>
               <p className="ap-subtitle">
@@ -43,12 +43,12 @@ export default function ArticlesPage() {
                 possible.
               </p>
             </div>
-            <img className="ap-img" src={image2} />
+            <img className="ap-img" src={image2} alt="Article Row One Shoe Image Two"/>
             <div className="line"></div>
           </div>
           {/* second column */}
           <div className="ap-col-mid">
-            <img className="ap-img" src={image3} />
+            <img className="ap-img" src={image3} alt="Article Row Teo Shoe Image One" />
             {/* second article */}
             <div className="ap-article" onClick={article2}>
               <p className="ap-subtitle-mid">
@@ -64,7 +64,7 @@ export default function ArticlesPage() {
                 online schemes during your next shoe hunt.
               </p>
             </div>
-            <img className="ap-img" src={image4} />
+            <img className="ap-img" src={image4} alt="Article Row Two Shoe Image Two"/>
           </div>
           {/* third column */}
           <div className="ap-col">
@@ -83,7 +83,7 @@ export default function ArticlesPage() {
                 online sneaker marketplaces to save you the hassle.
               </p>
             </div>
-            <img className="ap-img" src={image5} />
+            <img className="ap-img" src={image5} alt="Article Row Three Shoe Image One" />
             <div className="line"></div>
           </div>
         </div>

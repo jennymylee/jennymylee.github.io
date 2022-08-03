@@ -146,3 +146,8 @@ hr {
   align-items: center;
   text-align: center;
 }
+.login-page .replace{
+  border: 2px solid #686262;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
