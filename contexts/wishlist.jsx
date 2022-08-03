@@ -11,21 +11,16 @@ export const WishlistContextProvider = ({ children }) => {
   const [error, setError] = React.useState({});
   const [refresh, setRefresh] = React.useState(false);
   const { user, apiClient } = useAuthContext();
-  //   const apiClient = new ApiClient(API_BASE_URL);
+
   React.useEffect(() => {
     const getWishlistItems = async () => {
       let wishlistItemsArray = [];
       try {
-        // userToken = window.localStorage.getItem("lifetracker_token");
-        // console.log("usertoken in wishlist context", userToken);
-        // console.log("user in wishlist context", user);
         if (user) {
           setIsLoading(true);
-          //   console.log("user.id in wishlist context", user.user.id);
           wishlistItemsArray = await apiClient.getWishlistItemsFromUser(
             user.user.id
           );
-          //   console.log("WishlistItems array:", wishlistItemsArray.wishlistItems);
           setWishlistItems(wishlistItemsArray.wishlistItems);
           setError({});
         }

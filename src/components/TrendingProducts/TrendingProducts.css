@@ -1,7 +1,6 @@
 .trending-products {
   width: calc(100% - 380px);
   background-color: #212121;
-  /* height: 100%; */
   margin-top: 25px;
   border-radius: 10px;
 }

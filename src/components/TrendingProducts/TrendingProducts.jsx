@@ -7,24 +7,6 @@ import ProductCard from "../ProductCard/ProductCard";
 let PageSize = 12;
 
 export default function TrendingProducts({ filteredProducts }) {
-  // This component renders a list of products and includes pagination.
-  //
-  // :param trendingProducts: {
-  //    id: text,
-  //    name: text,
-  //    brand: text,
-  //    colorway: text,
-  //    silhouette: text,
-  //    release_year: text,
-  //    release_date: date,
-  //    retail_price: number,
-  //    market_price: number,
-  //    description: text,
-  //    image_url: text,
-  //    current_bid: number,
-  //    lowest_ask: number,
-  //    total_sales: integer
-  // }
 
   // This function creates a product card for the current set of products
   const renderProducts = () => {

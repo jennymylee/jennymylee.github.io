@@ -45,7 +45,6 @@ export default function ProductDetails(props) {
       const { data, error } = await apiClient.getProductById(productId);
       setShoe(data.product);
     } catch (error) {
-      //console.log(error)
     }
   }
 

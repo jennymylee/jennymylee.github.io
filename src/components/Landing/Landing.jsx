@@ -44,9 +44,6 @@ export default function Landing() {
                 Create an Account
               </button>
             ) : null}
-            {/* <button className="signup-btn" onClick={signup}>
-              Create an Account
-            </button> */}
           </div>
         </div>
         <div className="Hero-pic">

@@ -14,8 +14,6 @@ export default function RegisterForm() {
   //with email, first and last name, etc.
   const { user, setUser, isProcessing, setIsProcessing } = useAuthContext();
 
-  //might change this to use authContext variables
-  // const [isProcessing, setIsProcessing] = useState(false);
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -88,6 +86,10 @@ export default function RegisterForm() {
     setIsProcessing(false);
   };
 
+  const toLogin = async () => {
+    navigate("/login")
+  }
+
   return (
     <div className="register-form-container">
       <div className="inputss">
@@ -121,7 +123,8 @@ export default function RegisterForm() {
           <button className="sign-up-btn" disabled={isProcessing} onClick={handleOnSubmit}>{isProcessing ? "Loading..." : "Sign Up"}</button>
           <p>
             Already a Member?
-            <Link className="links" to="/login">Sign In</Link>
+            {/* <Link className="links" to="/login">Sign In</Link> */}
+            <span onClick={toLogin} className="links"> Sign In</span>
           </p>
         </div>
       </div>

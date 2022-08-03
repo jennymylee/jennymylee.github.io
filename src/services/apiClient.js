@@ -14,7 +14,6 @@ class ApiClient {
 
   async request({ endpoint, method = `GET`, data = {} }) {
     const url = `${this.remoteHostUrl}/${endpoint}`;
-    //console.log("url for request", url);
     
     if (endpoint == "product/search") {
       const headers = {
@@ -59,13 +58,10 @@ class ApiClient {
       } catch (error) {
         console.error({ errorResponse: error.response });
         const message = error.response.data.error.message;
-        // const message = "error found";
         return { data: null, error: message || String(error) };
       }
     }
   }
-
-  // Still needs testing
 
   async getShoeHistory(productId){
     return await this.request({endpoint: `product/history`, method: `POST`, data: productId})

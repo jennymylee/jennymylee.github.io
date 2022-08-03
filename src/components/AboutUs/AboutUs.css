@@ -12,8 +12,6 @@
 }
 .about-title{
     display: flex;
-    /* flex-direction: column; */
-    /* color: red; */
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
