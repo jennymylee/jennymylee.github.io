@@ -11,7 +11,7 @@ export default function AboutUs() {
             <i className="fa-regular fa-lightbulb fa-xl fafafa"></i>
           </div>
           <p className="text">
-            “Webpage_Name” is a online platform for the greatest sneakers
+          ELEVATE is a online platform for the greatest sneakers
             products from the past, present, and future. An all in one platform,
             our real-time marketplace works just like the stock market, allowing
             users to view the most coveted items at their true market place.
