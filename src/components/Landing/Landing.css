@@ -16,8 +16,8 @@
   flex-direction: column;
   width: 50%;
 }
-.Header .titles{
-  font-family: 'Poppins';
+.Header .landing-titles {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 100px;
@@ -25,14 +25,14 @@
   margin: 0px;
 }
 .Header {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
 }
 
-.info{
+.info {
   line-height: 1.8;
   font-size: 20px;
 }
@@ -41,19 +41,23 @@
   padding: 20px;
   width: 40%;
   color: white;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(250, 40, 81, 0.47) 0%,
+    #000000 100%
+  );
 }
-.landing-button{
+.landing-button {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
 }
-.browse-btn{
-  background: linear-gradient(90deg, #AB5CD6 0%, #FA2851 100%);
+.browse-btn {
+  background: linear-gradient(90deg, #ab5cd6 0%, #fa2851 100%);
   border-radius: 10px;
   height: 38px;
   width: 155px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 15px;
@@ -62,20 +66,21 @@
   margin-right: 30px;
   cursor: pointer;
 }
-.signup-btn{
+.signup-btn {
   background: transparent;
   border-radius: 10px;
   height: 38px;
   width: 187px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 15px;
   line-height: 22px;
   color: white;
   cursor: pointer;
+  border: 1px solid #686262;
 }
-.shoeLogo{
+.shoeLogo {
   height: 680px;
   object-fit: cover;
   margin-top: -120px;

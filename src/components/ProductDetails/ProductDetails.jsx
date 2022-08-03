@@ -9,19 +9,19 @@ import { useAuthContext } from "../../contexts/auth";
 import { useWishlistContext } from "../../contexts/wishlist";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Graph from "../Graph/Graph"
+import Graph from "../Graph/Graph";
 
 import Modal from "@mui/material/Modal";
 
 export default function ProductDetails(props) {
-    let { productId } = useParams();
+  let { productId } = useParams();
 
   //used to navigate users to different pages
   const navigate = useNavigate();
   const { user, setUser } = useAuthContext();
 
   //initializes shoe
-  const [history, setHistory] = useState([])
+  const [history, setHistory] = useState([]);
   const [shoe, setShoe] = useState({
     id: 0,
     name: "",
@@ -47,34 +47,33 @@ export default function ProductDetails(props) {
     } catch (error) {
       //console.log(error)
     }
-    
   }
 
   async function shoeExist() {
     try {
-      const { data, error } = await apiClient.shoeInWishlist({shoe_id: shoe.id ,user_id: user.id});
+      const { data, error } = await apiClient.shoeInWishlist({
+        shoe_id: shoe.id,
+        user_id: user.id,
+      });
 
-      if(data.wishlist.length > 0) {
-        setAddedToWishlist("Remove from Wishlist")
-        setHeartImg(heartFill)
-        
+      if (data.wishlist.length > 0) {
+        setAddedToWishlist("Remove from Wishlist");
+        setHeartImg(heartFill);
       } else {
-        setAddedToWishlist("Add to Wishlist")
-        setHeartImg(heartOutline)
+        setAddedToWishlist("Add to Wishlist");
+        setHeartImg(heartOutline);
       }
-    }
-    catch(error) {
-
-    }
+    } catch (error) {}
   }
 
   //calls getShoeHIsotry route wuth parameter of product ID to fetch the specific shoe history
-  async function getHistory(){
-    try{
-      const {data, error} = await apiClient.getShoeHistory({shoe: productId})
-      setHistory(Object.values(data.history))
-    }catch(error){
-    }
+  async function getHistory() {
+    try {
+      const { data, error } = await apiClient.getShoeHistory({
+        shoe: productId,
+      });
+      setHistory(Object.values(data.history));
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -89,57 +88,57 @@ export default function ProductDetails(props) {
   //creates date varaible
   const d = new Date(shoe.release_date);
 
+  //used for wishlist button
+  const [addedToWishlist, setAddedToWishlist] = useState("Add to Wishlist");
+  const [heartImg, setHeartImg] = useState(heartOutline);
 
-    //used for wishlist button
-    const[addedToWishlist, setAddedToWishlist]  = useState("Add to Wishlist");
-    const[heartImg, setHeartImg]  = useState(heartOutline);
-
-    
-    //Called when a user wants to add/remove this item to their wishlist.
-    //If the item is not yet added to the wishlist, add to wishlist,
-    //change text.
-    //Else, if item is already in wishlist, remove from wishlist,
-    //change text
-    const toggleWishlist = async () => {
-
-      
-        // calls to add shoe to wishlist
-        if(addedToWishlist == "Add to Wishlist") {
-            setAddedToWishlist("Remove from Wishlist")
-            setHeartImg(heartFill)
-            addToWishlist()
-            window.location.reload();
-            
-        }
-        // calls to remove shoe from wishlist
-        else{
-            setAddedToWishlist("Add to Wishlist")
-            setHeartImg(heartOutline)
-            removeFromWishlist()
-            window.location.reload();
-        }
-        
+  //Called when a user wants to add/remove this item to their wishlist.
+  //If the item is not yet added to the wishlist, add to wishlist,
+  //change text.
+  //Else, if item is already in wishlist, remove from wishlist,
+  //change text
+  const toggleWishlist = async () => {
+    // open modal if user does not exist
+    if (Object.keys(user).length === 0) {
+      setOpen(true);
+    } else {
+      if (addedToWishlist == "Add to Wishlist") {
+        setAddedToWishlist("Remove from Wishlist");
+        setHeartImg(heartFill);
+        addToWishlist();
+        window.location.reload();
+      }
+      // calls to remove shoe from wishlist
+      else {
+        setAddedToWishlist("Add to Wishlist");
+        setHeartImg(heartOutline);
+        removeFromWishlist();
+        window.location.reload();
+      }
     }
+  };
 
-    //add shoe to wishlist
-    async function addToWishlist() {
-        try{
-            const {data, error} = await apiClient.createWishListItem({shoe_id: shoe.id ,user_id: user.id})
-        }catch(error) {
-            console.error(error)
-        }
-        
+  //add shoe to wishlist
+  async function addToWishlist() {
+    try {
+      const { data, error } = await apiClient.createWishListItem({
+        shoe_id: shoe.id,
+        user_id: user.id,
+      });
+    } catch (error) {
+      console.error(error);
     }
+  }
 
-    //remove shoe from wishlist
-    async function removeFromWishlist() {
-        try{
-            await apiClient.deleteWishlistItem({shoe_id: shoe.id ,user_id: user.id})
-        }catch(error) {
-
-        }
-        
-    }
+  //remove shoe from wishlist
+  async function removeFromWishlist() {
+    try {
+      await apiClient.deleteWishlistItem({
+        shoe_id: shoe.id,
+        user_id: user.id,
+      });
+    } catch (error) {}
+  }
 
   const receiveUpdates = async () => {
     if (Object.keys(user).length === 0) {
@@ -216,13 +215,6 @@ export default function ProductDetails(props) {
           <div className="current-price">
             <h1 className="price-header">Current Price</h1>
             <h1 className="price-value">${shoe.market_price}</h1>
-          </div>
-
-          <div className="shoe-size">
-            <button className="size-btn" onClick={selectShoeSize}>
-              <h1>Select Size</h1>
-            </button>
-            {/* Render shoe size component */}
           </div>
 
           <div className="auction-info">

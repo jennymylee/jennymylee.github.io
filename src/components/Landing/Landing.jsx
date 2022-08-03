@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AboutUs from "../AboutUs/AboutUs";
 import Footer from "../Footer/Footer";
 import { useAuthContext } from "../../contexts/auth";
-import ProductRow from "../ProductRow/ProductRow"
+import ProductRow from "../ProductRow/ProductRow";
 
 /*
 The landing component will be render/referenced in the App.jsx file
@@ -29,27 +29,32 @@ export default function Landing() {
     <div className="landing-page">
       <div className="Hero">
         <div className="Header">
-          <p className="titles">LOREMIPS</p>
+          <p className="landing-titles">LOREMIPS</p>
           <p className="info">
-            Enter the world of sneakers! Whether you are an experienced Sneakerhead or are taking your first steps, 
-            “Webpage_Name” has everything for your daily footwear needs. 
+            Enter the world of sneakers! Whether you are an experienced
+            sneakerhead or are taking your first steps, “Webpage_Name” has
+            everything for your daily footwear needs.
           </p>
           <div className="landing-button">
             <button className="browse-btn" onClick={browse}>
               Start Browsing
             </button>
-            {Object.keys(user).length === 0 ?
+            {Object.keys(user).length === 0 ? (
               <button className="signup-btn" onClick={signup}>
-              Create an Account
-              </button>:
-               null}
+                Create an Account
+              </button>
+            ) : null}
             {/* <button className="signup-btn" onClick={signup}>
               Create an Account
             </button> */}
           </div>
         </div>
         <div className="Hero-pic">
-          <img className="shoeLogo" src={require('./shoeLogo.png')} alt="Hero Pic" />
+          <img
+            className="shoeLogo"
+            src={require("./shoeLogo.png")}
+            alt="Hero Pic"
+          />
         </div>
       </div>
       <ProductRow name={"1"} number={"4"}></ProductRow>
