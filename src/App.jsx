@@ -75,7 +75,7 @@ function App() {
                 path="/articles"
                 element={
                   <>
-                    <Navbar />
+                    <Navbar color={"black"}/>
                     <ArticlesPage />
                   </>
                 }
@@ -113,6 +113,33 @@ function App() {
                   <>
                     <Navbar color={"black"} />
                     <SearchPage></SearchPage>
+                  </>
+                }
+              />
+              <Route
+                path="/article1"
+                element={
+                  <>
+                    <Navbar color={"black"} />
+                    <ArticleOne/>
+                  </>
+                }
+              />
+              <Route
+                path="/article2"
+                element={
+                  <>
+                    <Navbar color={"black"} />
+                    <ArticleTwo/>
+                  </>
+                }
+              />
+              <Route
+                path="/article3"
+                element={
+                  <>
+                    <Navbar color={"black"} />
+                    <ArticleThree/>
                   </>
                 }
               />
