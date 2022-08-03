@@ -37,7 +37,7 @@ export default function SearchProduct({searchItem}) {
         setFilterProduct([...searchItem].sort((a, b) => new Date(a.release_date) > new Date(b.release_date) ? 1: -1))
       }else if(filter === "Price - Low to High"){
         setFilterProduct([...searchItem].sort((a, b) => parseFloat(a.market_price) > parseFloat(b.market_price) ? 1: -1))
-      }else if(filter === "Price - HIght to Low"){
+      }else if(filter === "Price - High to Low"){
         setFilterProduct([...searchItem].sort((a, b) => parseFloat(a.market_price) < parseFloat(b.market_price) ? 1: -1))
       }else if(filter === "A - Z"){
         setFilterProduct([...searchItem].sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1: 1))
