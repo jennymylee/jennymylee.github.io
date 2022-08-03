@@ -1,7 +1,6 @@
 .similar-products {
     width: 100%;
     background-color: #212121;
-    /* height: 100%; */
     margin-top: 25px;
     border-radius: 10px;
   }
@@ -13,10 +12,7 @@
   }
   
   .sp-items {
-    /* height: 500px; */
     margin: 40px;
-    /* display: flex;
-    flex-wrap: wrap; */
     gap: 20px;
     display: grid;
     grid-auto-flow: row;

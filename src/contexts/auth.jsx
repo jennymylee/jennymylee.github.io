@@ -1,28 +1,8 @@
 import { createContext, useState, useContext } from "react";
 import React, { useReducer } from "react";
-import { initialState, AuthReducer } from "./reducer";
 import apiClient from "../services/apiClient"
 
 const AuthContext = createContext();
-// const AuthDispatchContext = React.createContext();
-
-// export function useAuthState() {
-//   const context = React.useContext(AuthStateContext);
-//   if (context === undefined) {
-//     throw new Error("useAuthState must be used within a AuthProvider");
-//   }
-
-//   return context;
-// }
-
-// export function useAuthDispatch() {
-//   const context = React.useContext(AuthDispatchContext);
-//   if (context === undefined) {
-//     throw new Error("useAuthDispatch must be used within a AuthProvider");
-//   }
-
-//   return context;
-// }
 
 /*
 AuthContextProvider component will give the authValue to each child
@@ -30,7 +10,6 @@ component to have access and use that data for features like the login
 and logout feature. Will be rendered in App.jsx
  */
 export const AuthContextProvider = ({ children }) => {
-  //   const [user, dispatch] = useReducer(AuthReducer, initialState);
 
   const [user, setUser] = React.useState({});
   const [refresh, setRefresh] = React.useState(false);
@@ -48,7 +27,6 @@ export const AuthContextProvider = ({ children }) => {
     const fetchUser = async () => {
       const {data, error} = await apiClient.fecthUserFromToken()
       if(data){
-        console.log("data in auth", data)
         setUser(data.user)
       }
       if(error){
