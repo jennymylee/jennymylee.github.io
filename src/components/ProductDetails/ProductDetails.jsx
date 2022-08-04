@@ -217,6 +217,8 @@ export default function ProductDetails(props) {
         {/* This displays the information on the right side of the page. It includes market information */}
         <div className="price-card">
           {/* displays current price of sneaker */}
+          <div className="pc-header">
+            
           <div className="current-price">
             <h1 className="price-header">Current Price</h1>
             <h1 className="price-value">${shoe.market_price}</h1>
@@ -239,12 +241,13 @@ export default function ProductDetails(props) {
               <p className="sales-value">{shoe.total_sales}</p>
             </div>
           </div>
+          </div>
 
           <div className="toggle-wishlist">
             {/* Button to add to wishlist */}
             <button className="toggle-btn" onClick={toggleWishlist}>
               <div className="heart-img">
-                <img src={heartImg} alt="heart" width="100px" />
+                <img src={heartImg} alt="heart" width="50px" />
               </div>
               <div className="wishlist-text">{addedToWishlist}</div>
             </button>
