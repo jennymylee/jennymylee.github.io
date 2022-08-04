@@ -1,10 +1,10 @@
-import * as React from "react"
-import "./Login.css"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import apiClient from "../../services/apiClient"
-import { useAuthContext } from "../../contexts/auth"
-import ProductRow from "../ProductRow/ProductRow"
+import * as React from "react";
+import "./Login.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import apiClient from "../../services/apiClient";
+import { useAuthContext } from "../../contexts/auth";
+import ProductRow from "../ProductRow/ProductRow";
 
 export default function Login() {
   //global variable import from authContext
@@ -62,7 +62,7 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="card">
-        <div className="titles">
+        <div className="l-titles">
           <p>Login</p>
           {errors.form && (
             <div className="errors">
