@@ -77,7 +77,7 @@ export default function SearchProduct({searchItem}) {
                   <MenuItem value={"Newest to Oldest"}>Newest to Oldest</MenuItem>
                   <MenuItem value={"Oldest to Newest"}>Oldest to Newest</MenuItem>
                   <MenuItem value={"Price - Low to High"}>Price - Low to High</MenuItem>
-                  <MenuItem value={"Price - HIght to Low"}>Price - HIght to Low</MenuItem>
+                  <MenuItem value={"Price - High to Low"}>Price - High to Low</MenuItem>
                   <MenuItem value={"A - Z"}>A - Z</MenuItem>
                 </Select>
               </div>

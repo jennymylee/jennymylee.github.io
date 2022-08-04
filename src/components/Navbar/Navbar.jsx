@@ -58,7 +58,7 @@ export default function Navbar(props) {
               <input
                 type="text"
                 className="search-text"
-                placeholder="Shoe"
+                placeholder="Looking for ..."
                 onKeyPress={handleOnSubmit}
                 onChange={handleOnChange}
               />
@@ -83,7 +83,7 @@ export default function Navbar(props) {
               <input
                 type="text"
                 className="search-text"
-                placeholder="Shoe"
+                placeholder="Looking for ..."
                 onKeyPress={handleOnSubmit}
                 onChange={handleOnChange}
               />
