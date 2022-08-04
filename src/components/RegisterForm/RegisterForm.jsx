@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import apiClient from "../../services/apiClient";
 import { useAuthContext } from "../../contexts/auth";
-import ProductRow from "../ProductRow/ProductRow"
+import ProductRow from "../ProductRow/ProductRow";
 
 //Will render inside the App components where the user will
 //have access to create an account
@@ -29,15 +29,24 @@ export default function RegisterForm() {
   //emails and not matching passwords
   const handleOnInputChange = (event) => {
     if (event.target.name === "password") {
-      if (form.confirm_password && form.confirm_password !== event.target.value){
-        setErrors((e) => ({ ...e, confirm_password: "Password's do not match"}));
+      if (
+        form.confirm_password &&
+        form.confirm_password !== event.target.value
+      ) {
+        setErrors((e) => ({
+          ...e,
+          confirm_password: "Password's do not match",
+        }));
       } else {
         setErrors((e) => ({ ...e, confirm_password: null }));
       }
     }
     if (event.target.name === "confirm_password") {
       if (form.password && form.password !== event.target.value) {
-        setErrors((e) => ({...e,confirm_password: "Password's do not match"}));
+        setErrors((e) => ({
+          ...e,
+          confirm_password: "Password's do not match",
+        }));
       } else {
         setErrors((e) => ({ ...e, confirm_password: null }));
       }
@@ -87,44 +96,105 @@ export default function RegisterForm() {
   };
 
   const toLogin = async () => {
-    navigate("/login")
-  }
+    navigate("/login");
+  };
 
   return (
     <div className="register-form-container">
       <div className="inputss">
-        <div className="titles">
+        <div className="rf-titles">
           <p>Sign Up</p>
-          {errors.form && <div className="errors"><span>{errors.form}</span></div>}
+          {errors.form && (
+            <div className="errors">
+              <span>{errors.form}</span>
+            </div>
+          )}
         </div>
         <div className="split-form-inputs">
           <div className="form-inputs">
-            <input type="text" name="first_name" placeholder="First Name" value={form.first_name} onChange={handleOnInputChange}/>
-            {errors.first_name && <div className="error">{errors.first_name}</div>}
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              value={form.first_name}
+              onChange={handleOnInputChange}
+            />
+            {errors.first_name && (
+              <div className="error">{errors.first_name}</div>
+            )}
           </div>
           <div className="form-inputs">
-            <input type="text" name="last_name" placeholder="Last Name" value={form.last_name} onChange={handleOnInputChange}/>
-            {errors.last_name && <div className="error"><span>{errors.last_name}</span></div>}
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              value={form.last_name}
+              onChange={handleOnInputChange}
+            />
+            {errors.last_name && (
+              <div className="error">
+                <span>{errors.last_name}</span>
+              </div>
+            )}
           </div>
         </div>
         <div className="form-inputs">
-          <input type="text" name="email" placeholder="Email Address" value={form.email} onChange={handleOnInputChange}/>
-          {errors.email && <div className="error"><span>{errors.email}</span></div>}
+          <input
+            type="text"
+            name="email"
+            placeholder="Email Address"
+            value={form.email}
+            onChange={handleOnInputChange}
+          />
+          {errors.email && (
+            <div className="error">
+              <span>{errors.email}</span>
+            </div>
+          )}
         </div>
         <div className="form-inputs">
-          <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleOnInputChange}/>
-          {errors.password && <div className="error"><span>{errors.password}</span></div>}
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleOnInputChange}
+          />
+          {errors.password && (
+            <div className="error">
+              <span>{errors.password}</span>
+            </div>
+          )}
         </div>
         <div className="form-inputs">
-          <input type="password" name="confirm_password" placeholder="Confirm Password" value={form.confirm_password} onChange={handleOnInputChange}/>
-          {errors.confirm_password && <div className="error"><span>{errors.confirm_password}</span></div>}
+          <input
+            type="password"
+            name="confirm_password"
+            placeholder="Confirm Password"
+            value={form.confirm_password}
+            onChange={handleOnInputChange}
+          />
+          {errors.confirm_password && (
+            <div className="error">
+              <span>{errors.confirm_password}</span>
+            </div>
+          )}
         </div>
         <div className="footers">
-          <button className="sign-up-btn" disabled={isProcessing} onClick={handleOnSubmit}>{isProcessing ? "Loading..." : "Sign Up"}</button>
+          <button
+            className="sign-up-btn"
+            disabled={isProcessing}
+            onClick={handleOnSubmit}
+          >
+            {isProcessing ? "Loading..." : "Sign Up"}
+          </button>
           <p>
             Already a Member?
             {/* <Link className="links" to="/login">Sign In</Link> */}
-            <span onClick={toLogin} className="links"> Sign In</span>
+            <span onClick={toLogin} className="links">
+              {" "}
+              Sign In
+            </span>
           </p>
         </div>
       </div>

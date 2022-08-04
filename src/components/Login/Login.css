@@ -23,11 +23,15 @@
   color: white;
   margin-top: 140px;
 }
-.login-page .featured{
+.login-page .featured {
   width: 50%;
   margin-left: 5%;
   margin-top: 90px;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 40, 81, 0.47) 0%, #000000 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(250, 40, 81, 0.47) 0%,
+    #000000 100%
+  );
 }
 .login-page .input-field {
   margin-bottom: 15px;
@@ -132,12 +136,22 @@ hr {
   color: #ab5cd6;
   font-size: 20px;
   font-weight: 700;
+  font-family: "Poppins";
 }
-.login-page .featured .product-card{
+.login-page .featured .product-card {
   margin-bottom: 20px;
 }
-.login-page .featured .product-row-container .titles{
-  font-family: 'Poppins';
+.l-titles {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 90px;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.login-page .featured .product-row-container .titles {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 50px;
@@ -146,7 +160,7 @@ hr {
   align-items: center;
   text-align: center;
 }
-.login-page .replace{
+.login-page .replace {
   border: 2px solid #686262;
   margin-top: 70px;
   margin-bottom: 30px;
