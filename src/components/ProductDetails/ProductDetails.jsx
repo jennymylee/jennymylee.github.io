@@ -62,6 +62,7 @@ export default function ProductDetails(props) {
       if (data.wishlist.length > 0) {
         setAddedToWishlist("Remove from Wishlist");
         setHeartImg(heartFill);
+        setWishlistMsg("See your wishlist in your profile page by clicking your name at the top right!")
       } else {
         setAddedToWishlist("Add to Wishlist");
         setHeartImg(heartOutline);
@@ -94,6 +95,7 @@ export default function ProductDetails(props) {
   //used for wishlist button
   const [addedToWishlist, setAddedToWishlist] = useState("Add to Wishlist");
   const [heartImg, setHeartImg] = useState(heartOutline);
+  const [wishlistMsg, setWishlistMsg] = useState("");
 
   //Called when a user wants to add/remove this item to their wishlist.
   //If the item is not yet added to the wishlist, add to wishlist,
@@ -242,7 +244,9 @@ export default function ProductDetails(props) {
             </div>
           </div>
           </div>
-
+          <div className="wishlist-msg">
+            <p className="msg">{wishlistMsg}</p>
+          </div>
           <div className="toggle-wishlist">
             {/* Button to add to wishlist */}
             <button className="toggle-btn" onClick={toggleWishlist}>
