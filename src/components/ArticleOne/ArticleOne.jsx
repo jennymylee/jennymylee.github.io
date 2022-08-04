@@ -1,120 +1,119 @@
-import * as React from "react"
-import "./ArticleOne.css"
-import Footer from "../Footer/Footer"
+import * as React from "react";
+import "./ArticleOne.css";
+import Footer from "../Footer/Footer";
 
 /*
-This component is the first of three which are stretch features.
-To make our website unique, we will provided articles for the user 
-to read in order to learn how to buy shoes properly.
+This component is the second of three articles that will make
+our webpage unique. This will inform user how to detect fake sneakers
+when deciding to buy a sneaker.
 */
 export default function ArticleOne() {
   return (
-      <div className="articleOnepage">
+    <div className="articleOnepage">
       <div className="articleOne-container">
-          <div className="banner">
-              <img className="img-banner" src={require('./banner.png')} alt="Article One Hero Banner Image"/>
+        <div className="banner">
+          <img
+            className="img-banner"
+            src={require("./banner.png")}
+            alt="Article One Hero Banner Image"
+          />
+        </div>
+        <div className="info">
+          <div className="date">
+            <div className="number">01</div>
+            <div className="month">August 2022</div>
           </div>
-          <div className="info">
-              <div className="date">
-                  <div className="number">
-                      01
-                  </div>
-                  <div className="month">
-                        August 2022
-                  </div>
-              </div>
-              <div className="content">
-                  <div className="header">
-                      <p>
-                        How to Purchase Sneakers from Resellers Without Getting Scammed
-                      </p>
-                  </div>
-                  <hr className="line"/>
-                  <div className="text">
-                      <p>
-                        After hours of surfing the Internet, you’ve finally landed on the perfect pair of sneakers.
-                        High-res photos, a price well-within your budget, and a quick transaction guarantee. At a glance,
-                        this might seem like a great deal. However, under the surface, you might be the latest victim of a
-                        textbook reseller scam. Here are some tips and tricks to steer clear of these online schemes during your next shoe hunt.
-                      </p>
-                  </div>
-                  <div className="title">
-                      1. Request Tagged Photos
-                  </div>
-                  <div className="text">
-                      <p>
-                  One of the best ways to make sure a reseller actually has a pair of sneakers in their inventory is to request a tagged photo of the product in question. Have the reseller take pictures of the pair of sneakers alongside a unique identifier. This can be a piece of paper containing the reseller’s username, their location, the current date, or the name of the marketplace in which the transaction is taking place.
-                  </p>
-                  <p>
-                  Be sure to take note of the background of the photos as well. Are they taken in the same location? Are the floors of the photos different? Use your judgement and intuition to identify possible scams.
-                  </p>
-                  </div>
-                  <div className="title">
-                      2. Ask Questions
-                  </div>
-                  <div className="text">
-                      <p>
-                      Before throwing your money toward a reseller’s direction, it is essential
-                      that you ask as many questions as you need. Be thorough in your chat with
-                      the reseller leading up to your purchase. Ask to see the box label, the label
-                      inside of the show, and all angles of the shoes. If the pictures are too blurry
-                      or are taken from a weird angle, they’re most likely trying to hide something.
-                      A reseller that is willing to answer any questions regarding their product is
-                      a great indicator that they are transparent and stand by their products.
-                      </p>
-                  </div>
-                  <div className="title">
-                      3. Never Mark PayPal Payments as "Gift"
-                  </div>
-                  <div className="text">
-                      <p>
-                      In the case where a buyer would like to settle a dispute with PayPal, Paypal
-                      will side with the reseller, since the transaction was sent as a gift. To avoid
-                      making purchases without the fallback of a refund, it’s best to use PayPal Invoice
-                      or Paypal Goods and Services, especially if you do not know the reseller personally.
-                      </p>
-                  </div>
-                  <div className="title">
-                      4. Check for a Reseller's Reference Post
-                  </div>
-                  <div className="text">
-                      <p>
-                      Most if not all reputable resellers will have a reference post. There, you can view a
-                      list of all customers they have sold to and reviews of their products. If you notice that
-                      a reseller does not have one, take it as a red flag and a potential scam. Do not ask a reseller
-                      if they can send a reference, because they can send a fake review created by their friend.
-                      </p>
-                  </div>
-                  <div className="title">
-                      5. If the Price is Too Good to be True, it usually is
-                  </div>
-                  <div className="text">
-                      <p>
-                         Resellers are in the business of making a profit, so a heavily discounted ask price should raise
-                         some questions. Even the most generous resellers would not actively try to lose money through a 
-                         transaction. Do not be blindsided by a deal that sounds too good to be true. Check sneaker sites to
-                         make sure that the asking prices relatively match.
-                     </p>
-                  </div>
-                  <hr className="line"/>
-                  <div className="source-title">
-                      Sources
-                  </div>
-                  <div className="source-links">
-                      <p>
-                      https://www.complex.com/sneakers/2014/07/how-to-buy-sneakers-from-resellers-without-getting-scammed/request-tagged-photos
-                      </p>
-                      <p>
-                      https://www.youtube.com/watch?v=4pjJ8Iths1M
-                      </p>
-                      <p>
-                      https://www.youtube.com/watch?v=XC_PH6HK1UA
-                      </p>
-                  </div>
-              </div>
+          <div className="content">
+            <div className="header">
+              <p>Easy ways to recognize fake sneakers</p>
+            </div>
+            <hr className="line" />
+            <div className="text">
+              <p>
+                Shoe quality inspection is an essential skill for new resellers
+                and customers to learn. In a world where authentic pieces and
+                counterfeit kicks coexist, it can be difficult to differentiate
+                between the two. We’ve curated a list of quick and easy tips to
+                ensure that your product is authentic and in the best condition
+                possible.
+              </p>
+            </div>
+            <div className="title">1. Packaging</div>
+            <div className="text">
+              <p>
+                An easy way to check if a pair of sneakers is authentic is to
+                look at the packaging. Be sure to compare your box, item
+                stickers, CPU code, fonts, retail tag, and all other elements of
+                the packaging. Big companies uphold high standards for
+                packaging. Therefore, an authentic name-brand product does not
+                have any flaws in the packaging. The slightest mistake, no
+                matter how minor, constitutes a replica. Although research on
+                your end might take some time and energy to do, it’s better to
+                go the extra mile if you are in the business of owning authentic
+                kicks.
+              </p>
+            </div>
+            <div className="title">2. Inside Tags</div>
+            <div className="text">
+              <p>
+                Something else that you should be looking out for is a correct
+                UPC code. This code will be identical for every shoe of the same
+                size. To authenticate this number, you can look up the model via
+                the GOAT app or compare tags with a friend.
+              </p>
+              <p>
+                A tag inside of a sneaker also contains some production
+                information. Shoes that are assembled within the same plant are
+                made within specific dates contain uniform production numbers.
+                These numbers should be relatively close for all productions
+                within the same plant. A shoe’s specific plant can be found on
+                the top right of the inside tag, and its production numbers can
+                be found on the bottom left.
+              </p>
+            </div>
+            <div className="title">3. Odor</div>
+            <div className="text">
+              <p>
+                It might seem silly to smell a pair of sneakers, but it is a
+                necessary precaution to take before making a purchase. Fake
+                shoes will have a pungent odor, as they are made with cheaper
+                materials compared to their authentic counterparts. New shoes
+                from a reputable brand have a distinct, subtle smell across all
+                of their products.
+              </p>
+            </div>
+            <div className="title">4. Comparing with an Authentic Sneaker</div>
+            <div className="text">
+              <p>
+                If you can get your hands on an authentic sneaker of the same
+                model, even better. Compare the stitching and feel of the foam.
+                Utilize the model shoe as a blueprint for finding flaws.
+              </p>
+            </div>
+            <div className="title">5. Check for Symmetry</div>
+            <div className="text">
+              <p>
+                Wonky, mismatched shoes are a clear sign of a fake. Check the
+                alignment of the shoe’s parts by holding them side-by-side or
+                back-to-back, matching up the bottoms and tops of each shoe.
+                Observe that the heights and widths are the same, and check to
+                see if both shoes have the same amount of curvature or
+                straightness. Last but not least, observe the finish and colors
+                of each part of the sneakers.
+              </p>
+            </div>
+            <hr className="line" />
+            <div className="source-title">Sources</div>
+            <div className="source-links">
+              <p>https://www.hypestew.com/blogs/news/legit-check</p>
+              <p>
+                https://www.sneakerfactory.net/2018/05/shoe-quality-inspections/
+              </p>
+            </div>
           </div>
+        </div>
       </div>
-      <Footer/>
-      </div>
-  )
+      <Footer />
+    </div>
+  );
 }
