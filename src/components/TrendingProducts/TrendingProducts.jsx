@@ -7,7 +7,6 @@ import ProductCard from "../ProductCard/ProductCard";
 let PageSize = 12;
 
 export default function TrendingProducts({ filteredProducts }) {
-
   // This function creates a product card for the current set of products
   const renderProducts = () => {
     if (currentProductData) {
@@ -38,7 +37,13 @@ export default function TrendingProducts({ filteredProducts }) {
   if (filteredProducts) {
     return (
       <div className="trending-products">
-        <div className="tp-content">
+        <div
+          className={
+            filteredProducts.length < 12
+              ? "tp-content tp-padding"
+              : "tp-content"
+          }
+        >
           {/* Pagination component can be found on both top 
           and bottom of products */}
           <Pagination

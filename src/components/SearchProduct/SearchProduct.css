@@ -1,41 +1,45 @@
-.search-page .trending-products{
-    width: 80%;
-    margin-left: 10%;
-    color: white;
-    margin-bottom: 60px;
+.search-page .trending-products {
+  width: 80%;
+  margin-left: 10%;
+  color: white;
+  margin-bottom: 60px;
 }
-.search-page .headers{
-    width: 92%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+
+.sp-padding {
+  padding-bottom: 40px;
 }
-.search-page .term{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 45px;
-    align-items: flex-start;
+.search-page .headers {
+  width: 92%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.search-page .drop-down-btn{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 22px;
-    color: #FFFFFF;
-    background: linear-gradient(90deg, #AB5CD6 0%, #FA2851 100%);
-    border-radius: 10px;
-    border-style: none;
+.search-page .term {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  align-items: flex-start;
 }
-.css-6hp17o-MuiList-root-MuiMenu-list{
-    color: white;
-    background: #292929;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 22px;
+.search-page .drop-down-btn {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ab5cd6 0%, #fa2851 100%);
+  border-radius: 10px;
+  border-style: none;
+}
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  color: white;
+  background: #292929;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
 }
