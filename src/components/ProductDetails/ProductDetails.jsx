@@ -10,8 +10,8 @@ import { useWishlistContext } from "../../contexts/wishlist";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Graph from "../Graph/Graph";
-
 import Modal from "@mui/material/Modal";
+import { API_BASE_URL } from "../../constants";
 
 export default function ProductDetails(props) {
   let { productId } = useParams();
@@ -179,7 +179,7 @@ export default function ProductDetails(props) {
     try {
       const response = await axios
         .create({
-          baseURL: "http://localhost:3001",
+          baseURL: API_BASE_URL,
           withCredentials: true,
         })
         .post("/nodemailer/send", {
