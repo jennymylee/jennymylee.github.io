@@ -22,11 +22,12 @@ export default function Graph(props){
                             {
                                 label: props.name,
                                 data: props.history,
-                                backgroundColor: "rgba(250, 40, 81, 0.6)",
+                                backgroundColor: "#ab5cd63d",
                                 fill: true,
-                                pointBorderColor: "black",
+                                pointBorderColor: "white",
                                 pointBorderWidth: 1.5,
-                                borderColor: "rgb(167 22 51 / 60%)"
+                                borderColor: "#AB5CD6"
+                                // borderColor: "purple"
                             }
                         ]
                     }
@@ -48,6 +49,9 @@ export default function Graph(props){
                     },
                     scales:{
                         y: {
+                            grid: {
+                                color: "white"
+                            },
                             beginAtZero: true,
                             ticks: {
                                 callback: function(value, index, values){
@@ -62,6 +66,9 @@ export default function Graph(props){
                             }
                         },
                         x:{
+                            grid: {
+                                color: "white"
+                            },
                             ticks:{
                                 color: "white",
                                 font: {

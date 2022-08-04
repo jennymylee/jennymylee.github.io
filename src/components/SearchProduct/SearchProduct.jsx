@@ -89,33 +89,23 @@ export default function SearchProduct({ searchItem }) {
         <div className="tp-content">
           {/* Pagination component can be found on both top 
               and bottom of products */}
-          <div className="headers">
-            <p className="term">
-              Showing search results for "{searchProducts}"
-            </p>
-            <Select
-              className="drop-down-btn"
-              value={filter}
-              onChange={handleOnChange}
-            >
-              <MenuItem value={"Newest to Oldest"}>Newest to Oldest</MenuItem>
-              <MenuItem value={"Oldest to Newest"}>Oldest to Newest</MenuItem>
-              <MenuItem value={"Price - Low to High"}>
-                Price - Low to High
-              </MenuItem>
-              <MenuItem value={"Price - HIght to Low"}>
-                Price - HIght to Low
-              </MenuItem>
-              <MenuItem value={"A - Z"}>A - Z</MenuItem>
-            </Select>
-          </div>
-          <Pagination
-            className="pagination-bar"
-            currentPage={currentPage}
-            totalCount={filterProduct.length}
-            pageSize={PageSize}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
+              <div className="headers">
+                <p className="term">Showing search results for "{searchProducts}"</p>
+                <Select className="drop-down-btn" value={filter} onChange={handleOnChange}>
+                  <MenuItem value={"Newest to Oldest"}>Newest to Oldest</MenuItem>
+                  <MenuItem value={"Oldest to Newest"}>Oldest to Newest</MenuItem>
+                  <MenuItem value={"Price - Low to High"}>Price - Low to High</MenuItem>
+                  <MenuItem value={"Price - High to Low"}>Price - High to Low</MenuItem>
+                  <MenuItem value={"A - Z"}>A - Z</MenuItem>
+                </Select>
+              </div>
+              <Pagination
+                className="pagination-bar"
+                currentPage={currentPage}
+                totalCount={filterProduct.length}
+                pageSize={PageSize}
+                onPageChange={(page) => setCurrentPage(page)}
+              />
           {/* Render products */}
           <div
             className={
