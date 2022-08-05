@@ -18,7 +18,7 @@ export default function ProductDetails(props) {
 
   //used to navigate users to different pages
   const navigate = useNavigate();
-  const { user, setUser } = useAuthContext();
+  const { user, setUser, wishlistList } = useAuthContext();
 
   //initializes shoe
   const [history, setHistory] = useState([]);
@@ -70,6 +70,8 @@ export default function ProductDetails(props) {
     } catch (error) {}
   }
 
+  useEffect()
+
   //calls getShoeHistory route with parameter of product ID to fetch the specific shoe history
   async function getHistory() {
     try {
@@ -87,7 +89,7 @@ export default function ProductDetails(props) {
 
   useEffect(() => {
     shoeExist();
-  }, [shoe]);
+  }, [shoe, wishlistList]);
 
   //creates date variable
   const d = new Date(shoe.release_date);
