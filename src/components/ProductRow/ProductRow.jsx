@@ -51,7 +51,7 @@ export default function ProductRow(props) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: Number(props.number),
+    slidesToShow: 1,
     slidesToScroll: 3,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
